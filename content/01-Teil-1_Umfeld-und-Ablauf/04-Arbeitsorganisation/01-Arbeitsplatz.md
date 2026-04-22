@@ -6,18 +6,15 @@ weight: 1
 
 {{< row left="50" right="50" >}}
 {{< left >}}
-Der Arbeitsplatz für diese IPA wurde 4 Tage vor Beginn der Arbeit eingerichtet. Dieser verfügt über alles, was für ein effizientes Arbeiten benötigt wird.
+Der Arbeitsplatz für diese IPA wurde vor Start vorbereitet und auf die benötigten Arbeitsmittel reduziert.
 
 Folgende Geräte sind hier zu sehen:
 
-- Laptop (MacBook Pro M4)
-- Kopfhörer (Apple AirPods Max)
-- Maus (Logitech MX Master 3)
-- Tastatur (Wooting 60HE+)
-- 2 Monitore (HP Z24NF)
+- Laptop (Lenovo)
+- Monitor (27 Zoll)
+- Maus (Logitech)
 
-Diese sind alles private Geräte des Prüfungskandidaten, die er selbst ins Office mitnehmen durfte.
-Zirka einen Tag vor der Abgabe, wurde der Laptop des Prüfungskandidat durch einen Wasserschaden zerstört. Dadurch musste er auf einer anderer Maschine den Rest dieser IPA bearbeiten. 
+Damit ist die technische Grundlage für die Dokumentation und die Umsetzung der IPA gegeben.
 {{< /left >}}
 
 {{< right >}}
@@ -27,3 +24,5 @@ Zirka einen Tag vor der Abgabe, wurde der Laptop des Prüfungskandidat durch ein
 {{< pagebreak >}}
 
 <!-- pagebreak because of the large image -->
+
+{{< ki >}}

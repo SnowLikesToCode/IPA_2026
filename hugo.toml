@@ -81,7 +81,7 @@ disableKinds = ['RSS', 'sitemap', 'taxonomy', 'term']
 [params]
   # IPA Metadata
   thema = 'Erstellung einer visuellen Benutzeroberfläche für Cortex Cloud'
-  description = 'Ziel der IPA ist die Erstellung eines verständlichen Berichts mit Elastic Search EQL, der Betriebs- und Sicherheitskennzahlen aus Cortex Cloud und internen Systemen für Swisscom-Kunden zusammenfasst'
+  description = 'IPA von Nicola Mäder'
   berufsschule = 'TBZ'
 
   # Ausbildung

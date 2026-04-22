@@ -4,14 +4,18 @@ description: ""
 weight: 4
 ---
 
-Während der Durchführung der IPA wird täglich ein Arbeitsjournal geführt, um die Übersicht über das Projekt und den Fortschritt zu dokumentieren.
+Während der Durchführung der IPA wird täglich ein Arbeitsjournal geführt. Damit bleiben Fortschritt, Aufwand und Entscheidungen nachvollziehbar dokumentiert.
 
 Im Arbeitsjournal werden in kurzen Sätzen folgende Themen erfasst:
 
 - Ausgeführte Tätigkeiten
-- Im Zeitplan definierter geplanter Aufwand (Soll) und effektiv benötigte Zeit (Ist)
+- Geplanter Aufwand (Soll) und effektiv benötigte Zeit (Ist)
 - Wichtige Arbeitsschritte und erreichte Zwischenstände
 - Herausforderungen, Probleme und getroffene Lösungen
-- Unterstützungen, Hilfestellungen sowie KI-Nutzung
+- Unterstützungen und Hilfestellungen
 - Erkenntnisse aus dem Arbeitstag
-- mögliche Risiken für die Folgetage
+- Risiken oder Abhängigkeiten für die Folgetage
+
+So ist der Projektverlauf pro Arbeitstag transparent und für die Bewertung nachvollziehbar.
+
+{{< ki >}}

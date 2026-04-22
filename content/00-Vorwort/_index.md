@@ -18,5 +18,3 @@ Diese Dokumentation richtet sich an folgende Personengruppen:
 ## Was enthält diese Dokumentation?
 
 Ziel der Arbeit war es, Sicherheitsdaten aus der Cortex Cloud in eine bestehende Reporting-Webseite einzubinden. Dazu wurden EQL-Abfragen erstellt, eine TypeScript-Logik entwickelt und die Resultate mit den Rohdaten abgeglichen. Die Dokumentation zeigt den Weg von der Analyse bis zur umgesetzten Lösung.
-
-{{< pagebreak >}}

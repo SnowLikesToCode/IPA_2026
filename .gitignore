@@ -1,6 +1,7 @@
 .hugo_build.lock
 public
 ~$IPA_Zeitplan.xlsx
+~$*.xlsx
 .DS_Store
 /content/97-Verzeichnisse/Quellcode/shiftplanner/node_modules
 /content/97-Verzeichnisse/Quellcode/shiftplanner/test/bats

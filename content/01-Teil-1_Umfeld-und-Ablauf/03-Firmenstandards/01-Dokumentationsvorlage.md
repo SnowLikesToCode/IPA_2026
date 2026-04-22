@@ -4,17 +4,20 @@ description: ""
 weight: 1
 ---
 
-Für den vorliegenden IPA-Bericht wird eine eigens gepflegte technische Dokumentationsvorlage auf Basis von Markdown und Hugo eingesetzt. Die Vorlage basiert auf dem Repository {{< ref "ipa_vorlage_github" "Individuelle-Praktische-Arbeit-Vorlage"  >}}, das innerhalb weniger Tage für diesen Anwendungsfall aufgebaut wurde. Dieser Ansatz ermöglicht eine nachvollziehbare, versionierte und reproduzierbare Erstellung der Dokumentation.
+Für diesen IPA-Bericht verwende ich eine technische Dokumentationsvorlage auf Basis von Markdown und Hugo. Als Grundlage dient die Vorlage von Isaac Lins aus dem Repository {{< ref "ipa_vorlage_github" "Individuelle-Praktische-Arbeit-Vorlage"  >}}, die ich für meine Arbeit angepasst habe.
 
-Die Vorlage verwendet bewusst Shortcodes, um wiederkehrende Inhalte konsistent und wartbar abzubilden. Beispiele aus dieser Dokumentation sind:
+Ich habe mich bewusst für diese Lösung entschieden, weil sie versionierbar, nachvollziehbar und im Arbeitsalltag deutlich angenehmer ist als ein klassisches Word-Dokument.
 
-- `param`: Einbindung zentraler Stammdaten (z.B. Name, Firma, Zeitraum) aus Konfigurationsdaten.
-- `diagram`: Definition von Organigrammen bzw. Ablaufgrafiken direkt im Quelltext.
-- `figure`: Einbindung von Abbildungen mit einheitlicher Beschriftung und Formatierung.
-- `glossary`: Konsistente Verlinkung von Fachbegriffen zur Begriffserklärung.
-- `ref`: Einheitliche Querverweise auf Kapitel, Abbildungen und externe Quellen.
-- `ki`: KI-Markierung für den Inhalt, der mit KI erstellt wurde.
-- `pagebreak`: Manueller Seitenumbruch für den PDF-Export via Browser-Print.
+Die Vorlage nutzt Shortcodes, damit wiederkehrende Inhalte einheitlich und sauber gepflegt werden können. Beispiele in dieser Dokumentation:
 
-Der Inhalt wird in Markdown-Dateien geschrieben. Mit {{< glossary "Hugo" >}} entsteht daraus automatisch das PDF.
-Die Entscheidung für diesen Aufbau wurde bewusst getroffen: Der Prüfungskandidat bevorzugt eine textbasierte, entwicklungsnahe Arbeitsweise gegenüber klassischen Office-Dokumenten. Statt in Word zu arbeiten, wurde ein technischer Workflow gewählt, der alternativ auch in Richtung {{< glossary "LaTeX" >}} denkbar wäre, hier jedoch durch ein eigenes, auf die IPA zugeschnittenes Framework umgesetzt wurde.
+- `param`: Zentrale Stammdaten (z.B. Name, Firma, Zeitraum) aus der Konfiguration einbinden
+- `diagram`: Organigramme und Ablaufgrafiken direkt im Quelltext definieren
+- `figure`: Abbildungen einheitlich beschriften und formatieren
+- `glossary`: Fachbegriffe konsistent mit dem Glossar verlinken
+- `ref`: Einheitliche Querverweise auf Kapitel, Abbildungen und Quellen
+- `ki`: Inhalte kennzeichnen, die mit KI erstellt wurden
+- `pagebreak`: Gezielte Seitenumbrüche für den PDF-Export setzen
+
+Der Inhalt wird in Markdown-Dateien geschrieben. Mit {{< glossary "Hugo" >}} wird daraus automatisch das PDF erzeugt.
+
+Dieser Workflow passt besser zu einer entwicklungsnahen Arbeitsweise und erlaubt eine strukturierte Pflege der Dokumentation. Deshalb wurde die Hugo-basierte Vorlage gegenüber Word bevorzugt.

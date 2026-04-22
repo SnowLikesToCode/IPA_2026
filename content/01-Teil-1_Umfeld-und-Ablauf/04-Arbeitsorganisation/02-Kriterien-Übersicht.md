@@ -4,9 +4,9 @@ description: ""
 weight: 2
 ---
 
-Es ist wichtig, dass während des Projekts ein Überblick über die Kriterien, inklusive der individuellen Kriterien, besteht. Um dies zu gewährleisten, werden hinter dem Arbeitsplatz alle Kriterien ausgedruckt.
+Während der IPA wird der Kriterienkatalog laufend mitgeführt, damit jederzeit ersichtlich ist, welche Punkte bereits abgedeckt sind und wo noch Nachweise fehlen.
 
-So werden, wie in der nächsten Abbildung, Textpassagen, die besonders wichtig zu beachten sind, orange angestrichen.
+Wichtige Passagen werden markiert, damit bei der Bearbeitung der Kapitel die relevanten Leitfragen direkt sichtbar bleiben.
 Siehe Abbildung "Orange angestrichenes Kriterium".
 
 
@@ -14,9 +14,11 @@ Siehe Abbildung "Orange angestrichenes Kriterium".
 
 <!-- pagebreak because of the large image -->
 
-Kriterien, die erledigt wurden und somit abgeschlossen sind, werden mit grüner Farbe angestrichen.
+Erledigte Kriterien werden separat markiert, damit der Erfüllungsstand klar bleibt.
 Siehe Abbildung "Grün angestrichenes Kriterium".
 
-Zusätzlich werden auf dem ausgedruckten Kriterienkatalog fortlaufend Notizen festgehalten. Dadurch bleibt die vollständige Übersicht über alle Kriterien während des gesamten Arbeitsprozesses stets gewährleistet.
+Zusätzlich werden laufend Notizen zu Nachweisen, offenen Punkten und nächsten Schritten festgehalten.
 {{< pagebreak >}}
 <!-- pagebreak because  of datensicherung which would be cut in half  -->
+
+{{< ki >}}
