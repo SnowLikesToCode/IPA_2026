@@ -489,6 +489,7 @@ Leitfrage und Gütestufen entsprechen C5.
   Texte sollen direkt und menschlich klingen, nicht wie ein Firmenbericht.
 
 2.2 Letzte abgeschlossene Agent-Arbeiten
+- Commit `b7af309`: docs: aktualisiere IPA-Dokumentation und Journalstruktur.
 - Repo initial gesichert/committet.
 - Commit `8f28441`: docs: update project role and contact information.
 - `99_Anhang/A03_Git-Log.txt` ergänzt (neuester Eintrag oben).
