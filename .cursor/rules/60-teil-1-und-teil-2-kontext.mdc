@@ -1,0 +1,34 @@
+---
+description: Regel für die fachliche Einordnung von Teil 1 und Teil 2 der IPA-Dokumentation
+globs:
+  - "content/01_teil_1:Umfeld_und_Ablauf/**/*.md"
+  - "content/02_Teil_2:Umsetzung/**/*.md"
+alwaysApply: false
+---
+
+## Grundsatz
+
+Achte bei neuen oder überarbeiteten Inhalten darauf, in welchem Teil der IPA du dich befindest, und schreibe entsprechend passend.
+
+## Für Teil 1
+
+Inhalte in Teil 1 sollen typischerweise:
+
+- den Kontext erklären
+- Vorgehen, Rahmen und Ausgangslage dokumentieren
+- Arbeitsweise und Projektorganisation nachvollziehbar machen
+- methodisch und dokumentarisch sauber formuliert sein
+
+## Für Teil 2
+
+Inhalte in Teil 2 sollen typischerweise:
+
+- fachlich und technisch konkret sein
+- Analyse, Planung, Umsetzung und Tests des eigentlichen Produkts beschreiben
+- projektbezogene Entscheidungen begründen
+- den tatsächlichen Umsetzungsstand korrekt abbilden
+
+## Schreibregel
+
+Passe Ton, Detaillierungsgrad und Struktur an den jeweiligen Teil an.
+Vermeide es, Teil-1-Inhalte wie Umsetzungsdokumentation zu schreiben oder Teil-2-Inhalte zu abstrakt und organisatorisch zu formulieren.

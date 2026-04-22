@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites time="2.815">
+<testsuite name="FA01.bats" tests="1" failures="0" errors="0" skipped="0" time="0.078" timestamp="2026-03-17T18:22:21" hostname="Isaacs-MacBook-Pro.local">
+    <testcase classname="FA01.bats" name="FA01A: Lokal ausführbar" time="0.078" />
+</testsuite>
+<testsuite name="FA02.bats" tests="10" failures="0" errors="0" skipped="0" time="0.941" timestamp="2026-03-17T18:22:23" hostname="Isaacs-MacBook-Pro.local">
+    <testcase classname="FA02.bats" name="FA02A: CLI-Hilfe ist aufrufbar" time="0.086" />
+    <testcase classname="FA02.bats" name="FA02B: schema-Befehl ohne Argumente zeigt Hilfe" time="0.082" />
+    <testcase classname="FA02.bats" name="FA02C: schema-Befehl schlägt bei unvollständigen Pflichtparametern fehl" time="0.081" />
+    <testcase classname="FA02.bats" name="FA02D: schema-Befehl akzeptiert Pflichtparameter" time="0.133" />
+    <testcase classname="FA02.bats" name="FA02E: generate-Befehl ohne Argumente zeigt Hilfe" time="0.079" />
+    <testcase classname="FA02.bats" name="FA02F: generate-Befehl schlägt bei unvollständigen Pflichtparametern fehl" time="0.078" />
+    <testcase classname="FA02.bats" name="FA02G: generate-Befehl akzeptiert Pflicht- und optionale Parameter" time="0.088" />
+    <testcase classname="FA02.bats" name="FA02H: schema-Befehl schlägt bei nicht vorhandenem Input-File fehl" time="0.078" />
+    <testcase classname="FA02.bats" name="FA02I: generate-Befehl schlägt bei nicht vorhandener Schema-Datei fehl" time="0.082" />
+    <testcase classname="FA02.bats" name="FA02J: generate-Befehl validiert Datumsbereich (Format und Reihenfolge)" time="0.154" />
+</testsuite>
+<testsuite name="FA03.bats" tests="3" failures="0" errors="0" skipped="0" time="0.419" timestamp="2026-03-17T18:22:23" hostname="Isaacs-MacBook-Pro.local">
+    <testcase classname="FA03.bats" name="FA03A: Teams-Export kann in internes Schema umgewandelt werden" time="0.158" />
+    <testcase classname="FA03.bats" name="FA03B: Ressourcenlogik enthält erwartete Gruppen, User, Schichten und Abwesenheiten" time="0.182" />
+    <testcase classname="FA03.bats" name="FA03C: Teams-Import schlägt bei ungültigem Input-Pfad mit klarer Fehlermeldung fehl" time="0.079" />
+</testsuite>
+<testsuite name="FA04.bats" tests="2" failures="0" errors="0" skipped="0" time="0.367" timestamp="2026-03-17T18:22:24" hostname="Isaacs-MacBook-Pro.local">
+    <testcase classname="FA04.bats" name="FA04A: Abwesenheiten als harte Bedingung werden eingehalten" time="0.194" />
+    <testcase classname="FA04.bats" name="FA04B: Wenn harte Bedingungen niemanden zulassen, wird Open Shift ausgewiesen" time="0.173" />
+</testsuite>
+<testsuite name="FA05.bats" tests="2" failures="0" errors="0" skipped="0" time="0.268" timestamp="2026-03-17T18:22:24" hostname="Isaacs-MacBook-Pro.local">
+    <testcase classname="FA05.bats" name="FA05A: Faire Verteilung wird bestmöglich eingehalten" time="0.172" />
+    <testcase classname="FA05.bats" name="FA05B: Zielkonflikte werden im Trace-Logging sichtbar" time="0.096" />
+</testsuite>
+<testsuite name="FA06.bats" tests="2" failures="0" errors="0" skipped="0" time="0.238" timestamp="2026-03-17T18:22:24" hostname="Isaacs-MacBook-Pro.local">
+    <testcase classname="FA06.bats" name="FA06A: Lauf erzeugt konsistenten Excel-Export mit allen erwarteten Sheets" time="0.157" />
+    <testcase classname="FA06.bats" name="FA06B: Lauf liefert eindeutige Fehlermeldung bei ungültigem Schema" time="0.081" />
+</testsuite>
+<testsuite name="FA07.bats" tests="2" failures="0" errors="0" skipped="0" time="0.246" timestamp="2026-03-17T18:22:24" hostname="Isaacs-MacBook-Pro.local">
+    <testcase classname="FA07.bats" name="FA07A: Laufresultat zeigt erfolgreiche Planung mit Kennzahlen" time="0.089" />
+    <testcase classname="FA07.bats" name="FA07B: Verletzte Vorgaben sind über Open Shifts nachvollziehbar" time="0.157" />
+</testsuite>
+<testsuite name="FA08.bats" tests="3" failures="0" errors="0" skipped="0" time="0.258" timestamp="2026-03-17T18:22:25" hostname="Isaacs-MacBook-Pro.local">
+    <testcase classname="FA08.bats" name="FA08A: Standard-Logging zeigt nur Ergebnis ohne Verbose/Trace-Details" time="0.085" />
+    <testcase classname="FA08.bats" name="FA08B: Verbose-Logging zeigt Laufdauer in ms" time="0.087" />
+    <testcase classname="FA08.bats" name="FA08C: Trace-Logging erweitert Verbose um Constraint-Analyse" time="0.086" />
+</testsuite>
+</testsuites>

@@ -1,0 +1,74 @@
+{{- /*
+  Section Layout - Chapter and Section List Pages
+  
+  Handles both chapter title pages (_index.md) and section listings.
+  Supports automatic chapter numbering via section index.
+  Param 'chapter: true' shows "Kapitel X"; 'chapter: false' shows title only.
+  Chapter number counts only sections with chapter: true.
+*/ -}}
+
+{{ define "main" }}
+{{- $sectionIndex := 0 -}}
+{{- $chapterIndex := 0 -}}
+{{- range .Site.Sections.ByWeight -}}
+  {{- $layout := .Params.pdfLayout -}}
+  {{- $isCh := or (eq $layout "chapter") (eq $layout "chapter-unnumbered") (and (not $layout) (ne false .Params.chapter)) -}}
+  {{- if $isCh -}}
+    {{- $chapterIndex = add $chapterIndex 1 -}}
+  {{- end -}}
+  {{- if eq .File.Dir $.File.Dir -}}
+    {{- $sectionIndex = $chapterIndex -}}
+  {{- end -}}
+{{- end -}}
+
+<article class="section-page">
+  {{- $layout := .Params.pdfLayout -}}
+  {{- $isChapter := or (eq $layout "chapter") (eq $layout "chapter-unnumbered") (and (not $layout) .Params.chapter) -}}
+  {{- if $isChapter -}}
+  {{/* Chapter Title Page */}}
+  <div class="chapter-title-page">
+    <div class="chapter-number">
+      <span class="chapter-label">Kapitel</span>
+      <span class="chapter-num">{{ $sectionIndex }}</span>
+    </div>
+    <h1 class="chapter-title">{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="chapter-description">{{ . }}</p>
+    {{ end }}
+  </div>
+  {{- else -}}
+  {{/* Regular Section Page */}}
+  <header class="section-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="section-description">{{ . }}</p>
+    {{ end }}
+  </header>
+  {{- end -}}
+  
+  {{ with .Content }}
+  <div class="section-content">
+    {{ . }}
+  </div>
+  {{ end }}
+  
+  {{/* List child pages */}}
+  {{ if .Pages }}
+  <nav class="section-toc">
+    <h2>In diesem Kapitel</h2>
+    <ol class="chapter-list">
+      {{- range .Pages.ByWeight -}}
+      <li>
+        <a href="{{ .Permalink }}">
+          <span class="page-title">{{ .Title }}</span>
+          {{ with .Description }}
+          <span class="page-description">{{ . }}</span>
+          {{ end }}
+        </a>
+      </li>
+      {{- end -}}
+    </ol>
+  </nav>
+  {{ end }}
+</article>
+{{ end }}

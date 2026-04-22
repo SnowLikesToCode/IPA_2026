@@ -1,0 +1,66 @@
+{{- /*
+  Scripts Partial - JavaScript Includes
+  
+  Contains site-wide JavaScript functionality.
+  Loaded at the end of body for performance.
+*/ -}}
+
+{{/* Main site JavaScript */}}
+<script src="{{ "js/main.js" | relURL }}" defer></script>
+{{ if .Params.checklistPage }}
+<script src="{{ "js/ipa-checklist.js" | relURL }}" defer></script>
+{{ end }}
+
+{{/* Mobile Navigation Toggle */}}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav-menu');
+  
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', !isExpanded);
+      navMenu.classList.toggle('is-open');
+    });
+  }
+});
+</script>
+
+{{/* Glossary Tooltip Enhancement */}}
+{{ if .Site.Params.enableGlossary }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Initialize glossary tooltips
+  const glossaryLinks = document.querySelectorAll('.glossary-term');
+  glossaryLinks.forEach(function(link) {
+    link.addEventListener('mouseenter', function(e) {
+      const tooltip = link.querySelector('.glossary-tooltip');
+      if (tooltip) {
+        tooltip.classList.add('visible');
+      }
+    });
+    link.addEventListener('mouseleave', function(e) {
+      const tooltip = link.querySelector('.glossary-tooltip');
+      if (tooltip) {
+        tooltip.classList.remove('visible');
+      }
+    });
+  });
+});
+</script>
+{{ end }}
+
+{{/* KaTeX Auto-render */}}
+{{ if .Site.Params.enableKaTeX }}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ]
+  });
+});
+</script>
+{{ end }}

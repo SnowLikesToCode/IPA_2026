@@ -1,0 +1,42 @@
+{{- /* Quellenverzeichnis Shortcode - Bibliography/Sources List Usage: {{<
+quellenverzeichnis >}} Renders the bibliography from data/quellen.yaml. If
+inline ref shortcodes were used, sources are shown in first-use order with
+letter labels (a, b, c, ...). Otherwise, all sources are listed. */ -}} {{- if
+.Site.Data.quellen -}} {{- $refsStoreKey := printf "usedSourceRefs:%s"
+.Page.RelPermalink -}} {{- $usedRefs := .Site.Store.Get $refsStoreKey | default
+(slice) -}} {{- $uniqueUsedRefs := slice -}} {{- range $id := $usedRefs -}} {{-
+if not (in $uniqueUsedRefs $id) -}} {{- $uniqueUsedRefs = $uniqueUsedRefs |
+append $id -}} {{- end -}} {{- end -}}
+<div class="quellenverzeichnis-content">
+  <ol
+    class="quellen-list{{ if gt (len $uniqueUsedRefs) 0 }} quellen-list-used{{ end }}"
+  >
+    {{- if gt (len $uniqueUsedRefs) 0 -}} {{- range $i, $id := $uniqueUsedRefs
+    -}} {{- range $.Site.Data.quellen -}} {{- if eq .id $id -}}
+    <li class="quellen-entry" id="quelle-{{ .id | urlize }}">
+      <span class="quellen-text">
+        {{- with .Autor }}{{ . }}{{ end -}} {{- with .jahr }} ({{ . }}){{ end
+        -}} {{- with .titel }}. <em>{{ . }}</em>{{ end -}} {{- with .verlag }}.
+        {{ . }}{{ end -}} {{- $url := .url -}} {{- if $url }}.
+        <a href="{{ $url }}" title="{{ $url }}">{{ $url }}</a>{{ end -}} {{- with
+        .zugriff }} [Zugriff: {{ . }}]{{ end -}}
+      </span>
+    </li>
+    {{- end -}} {{- end -}} {{- end -}} {{- else -}} {{- range $i, $entry :=
+    sort .Site.Data.quellen "titel" -}}
+    <li class="quellen-entry" id="quelle-{{ $entry.id | urlize }}">
+      <span class="quellen-text">
+        {{- with $entry.titel }} <em>{{ . }}</em> - {{ end -}} {{- with
+        $entry.Autor }}{{ . }}{{ end -}} {{- with $entry.jahr }} ({{ . }}){{ end
+        -}} {{- with $entry.verlag }}. {{ . }}{{ end -}} {{- $url := $entry.url
+        -}} {{- if $url }}.
+        <a href="{{ $url }}" title="{{ $url }}">{{ $url }}</a>{{ end -}}
+        {{- with $entry.zugriff }} [Zugriff: {{ . }}]{{ end -}}
+      </span>
+    </li>
+    {{- end -}} {{- end -}}
+  </ol>
+</div>
+{{- else -}}
+<p class="verzeichnis-empty">Keine Quellen vorhanden.</p>
+{{- end -}}

@@ -1,0 +1,45 @@
+---
+description: Präzise Nutzung des KI-Shortcodes mit optionalen Segmentpaaren
+globs:
+  - "content/**/*.md"
+  - "content/**/*.mdx"
+alwaysApply: false
+---
+
+## Grundsatz
+
+Wenn ein KI-Hinweis mit dem vorhandenen `ki`-Shortcode gesetzt wird, nutze die bestehende Projektlogik konsequent.
+
+## Standardverwendung
+
+Für normale Fälle:
+
+`{{< ki >}}`
+
+## Präzise manuelle Segmente
+
+Wenn präzise Bereiche im KI-Verzeichnis abgeleitet werden sollen, verwende Positionsparameter als Paare:
+
+`{{< ki "von1" "bis1" "von2" "bis2" >}}`
+
+Diese Parameter werden paarweise interpretiert.
+
+Beispiel:
+
+`{{< ki "Perfekt" "angepasst" "test1" "funktionieren." >}}`
+
+## Regeln für Segmentpaare
+
+- Verwende die Strings in logischen Paaren: 1 und 2, 3 und 4, 5 und 6.
+- Wähle die Segmente so, dass die betroffene Stelle eindeutig identifizierbar ist.
+- Nutze diese präzise Form nur dann, wenn sie den Nachweis wirklich verbessert.
+- Wenn keine sauberen Segmente möglich sind, verwende den Standard-Shortcode ohne Parameter.
+- Erfinde keine zusätzliche Syntax.
+
+## Ausgabeform beim Schreiben
+
+Wenn du Inhalte für die IPA schreibst:
+
+- liefere finalen Hugo-kompatiblen Markdown-Text
+- setze KI-Nachweise direkt korrekt im Text
+- liefere keine Erklärungen zur Markerlogik mit, ausser ich verlange sie ausdrücklich

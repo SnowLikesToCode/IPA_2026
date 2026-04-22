@@ -1,0 +1,439 @@
+.ipa-checklist {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+.ipa-tabs {
+  display: flex;
+  gap: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--spacing-xs);
+}
+
+.ipa-tabs__tab {
+  border: 1px solid var(--color-border);
+  background: #f3f3f3;
+  color: var(--color-text);
+  font: inherit;
+  padding: var(--spacing-xs) var(--spacing-md);
+  cursor: pointer;
+}
+
+.ipa-tabs__tab.is-active {
+  background: #0d1a2b;
+  color: #fff;
+}
+
+.ipa-tab-panel {
+  display: none;
+}
+
+.ipa-tab-panel.is-active {
+  display: block;
+}
+
+.ipa-checklist__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-md);
+  background: var(--color-background-alt);
+}
+
+.ipa-checklist__header h2 {
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.ipa-checklist__subtitle {
+  margin: 0;
+  color: var(--color-text-light);
+}
+
+.ipa-checklist__actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.ipa-checklist__actions button {
+  border: 1px solid var(--color-border);
+  background: var(--color-background);
+  color: var(--color-text);
+  font: inherit;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  cursor: pointer;
+}
+
+.ipa-checklist__actions button:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.ipa-checklist__actions .is-danger:hover {
+  background: var(--color-error);
+}
+
+.ipa-checklist__stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.ipa-gradebar {
+  position: sticky;
+  top: var(--checklist-sticky-top, 3.4rem);
+  z-index: 20;
+  border: 1px solid var(--color-border);
+  background: #0d1a2b;
+  color: #fff;
+  padding: var(--spacing-sm);
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-sm);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+  margin-bottom: var(--spacing-sm);
+}
+
+.ipa-gradebar__label {
+  margin: 0;
+  opacity: 0.85;
+}
+
+.ipa-gradebar__value {
+  margin: 0;
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  color: #7cc4ff;
+}
+
+.ipa-gradebar__formula {
+  margin: 0;
+  opacity: 0.8;
+}
+
+.ipa-stat {
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-sm);
+}
+
+.ipa-stat__label {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.ipa-stat__value {
+  margin: var(--spacing-xs) 0 0 0;
+  font-weight: 700;
+}
+
+.ipa-stat__value.is-error {
+  color: var(--color-error);
+}
+
+.ipa-checklist__list {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.ipa-criterion {
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-md);
+  background: var(--color-surface);
+}
+
+.ipa-criterion.is-complete {
+  border-color: #188c4f;
+  background: #edf9f2;
+}
+
+.ipa-criterion__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+}
+
+.ipa-criterion__summary {
+  display: grid;
+  gap: 0.1rem;
+  justify-items: end;
+}
+
+.ipa-criterion__copy-btn {
+  margin-top: var(--spacing-xs);
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text);
+  font: inherit;
+  font-size: var(--font-size-sm);
+  padding: 0.1rem 0.45rem;
+  cursor: pointer;
+}
+
+.ipa-criterion__copy-btn:hover {
+  background: #f2f2f2;
+}
+
+.ipa-criterion__id {
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.ipa-criterion__title {
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: var(--font-size-xl);
+}
+
+.ipa-criterion__question {
+  margin: 0;
+  color: var(--color-text-light);
+}
+
+.ipa-criterion__progress {
+  margin: 0;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ipa-criterion__points {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+  white-space: nowrap;
+}
+
+.ipa-criterion__requirements {
+  margin-top: var(--spacing-md);
+  display: grid;
+  gap: var(--spacing-xs);
+}
+
+.ipa-criterion__requirement {
+  display: grid;
+  gap: var(--spacing-sm);
+  border: 1px solid #ddd;
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.ipa-criterion__requirement-main {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--spacing-xs);
+  align-items: flex-start;
+}
+
+.ipa-criterion__requirement.is-checked {
+  background: #0f5f35;
+  color: #fff;
+  border-color: #188c4f;
+}
+
+.ipa-criterion__requirement.is-checked .ipa-criterion__requirement-main span {
+  color: #fff;
+}
+
+.ipa-criterion__requirement.is-checked .ipa-criterion__requirement-note span {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ipa-criterion__requirement-main input {
+  margin-top: 0.25rem;
+}
+
+.ipa-criterion__requirement-note {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.ipa-criterion__requirement-note span {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.ipa-criterion__requirement-note textarea {
+  border: 1px solid var(--color-border);
+  background: #fff;
+  color: var(--color-text);
+  padding: 0.35rem 0.5rem;
+  font: inherit;
+  resize: vertical;
+}
+
+.ipa-criterion__grading {
+  margin-top: var(--spacing-md);
+}
+
+.ipa-criterion__grading summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.ipa-criterion__grading ul {
+  margin-top: var(--spacing-sm);
+  padding-left: var(--spacing-lg);
+}
+
+.ipa-checklist__message {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+}
+
+.ipa-checklist__message--error {
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+.ipa-days {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.ipa-days__content {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.ipa-days__selector {
+  display: flex;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.ipa-days__day-btn {
+  border: 1px solid var(--color-border);
+  background: #f5f5f5;
+  color: var(--color-text);
+  font: inherit;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  cursor: pointer;
+}
+
+.ipa-days__day-btn.is-active {
+  background: #0d1a2b;
+  color: #fff;
+}
+
+.ipa-days__fields {
+  display: grid;
+  gap: var(--spacing-sm);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.ipa-days__field {
+  display: grid;
+  gap: var(--spacing-xs);
+}
+
+.ipa-days__field label {
+  font-weight: 600;
+}
+
+.ipa-days__field textarea {
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-sm);
+  font: inherit;
+  resize: vertical;
+}
+
+.ipa-kanban {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.ipa-kanban__column {
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-sm);
+  background: #fbfbfb;
+  display: grid;
+  gap: var(--spacing-sm);
+  min-width: 0;
+}
+
+.ipa-kanban__column-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.ipa-kanban__column-header h4 {
+  margin: 0;
+  font-size: var(--font-size-lg);
+}
+
+.ipa-kanban__count {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-light);
+}
+
+.ipa-kanban__cards {
+  display: grid;
+  gap: var(--spacing-xs);
+}
+
+.ipa-kanban__card {
+  border: 1px solid #d0d0d0;
+  background: #fff;
+  padding: var(--spacing-xs);
+}
+
+.ipa-kanban__card p {
+  margin: 0 0 var(--spacing-xs) 0;
+}
+
+.ipa-kanban__card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+.ipa-kanban__card-actions button {
+  border: 1px solid var(--color-border);
+  background: #fff;
+  font: inherit;
+  padding: 0.1rem 0.35rem;
+  cursor: pointer;
+}
+
+.ipa-kanban__card-actions button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ipa-kanban__empty {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.ipa-kanban__add {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xs);
+}
+
+.ipa-kanban__add input {
+  border: 1px solid var(--color-border);
+  padding: var(--spacing-xs);
+  font: inherit;
+  width: 100%;
+}
+
+.ipa-kanban__add button {
+  border: 1px solid var(--color-border);
+  background: #fff;
+  font: inherit;
+  cursor: pointer;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  width: 100%;
+}
+
+@media (max-width: 980px) {
+  .ipa-kanban {
+    grid-template-columns: 1fr;
+  }
+}

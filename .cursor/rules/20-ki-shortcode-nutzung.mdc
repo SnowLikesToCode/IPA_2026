@@ -1,0 +1,42 @@
+---
+description: KI-Markierung in Fachtexten mit dem vorhandenen Hugo-Shortcode
+globs:
+  - "content/**/*.md"
+  - "content/**/*.mdx"
+alwaysApply: false
+---
+
+## Ziel
+
+KI-Nachweise in Fachtexten werden ausschliesslich mit dem vorhandenen Hugo-Shortcode gesetzt.
+
+## Standard
+
+Verwende für KI-Markierungen immer den Shortcode:
+
+`{{< ki >}}`
+
+Oder, wenn präzise Bereiche angegeben werden sollen:
+
+`{{< ki "von1" "bis1" "von2" "bis2" >}}`
+
+## Verbindliche Regeln
+
+- Verwende nie direkte Marker wie `^[KI]`, `^[KI]1`, `^[KI]2` oder ähnliche Rohtext-Notation.
+- Verwende immer den Shortcode `{{< ki >}}`.
+- Wenn präzise manuelle Segmente sinnvoll sind, nutze Positionsparameter paarweise.
+- Wenn keine präzisen Segmente nötig oder sinnvoll sind, nutze `{{< ki >}}` als Standard.
+- Setze die KI-Markierung direkt am Ende der betroffenen Passage, des Satzes oder des Absatzes.
+- Markiere alle Teile, die von dir erstellt oder deutlich umformuliert wurden.
+- Halte die Lesbarkeit des Fachtexts hoch.
+- Setze die Markierung nicht inflationär, sondern pro zusammenhängendem betroffenen Textblock.
+
+## Verhalten im Repo
+
+Der Shortcode übernimmt die weitere Aufbereitung im Projekt.
+Deshalb:
+
+- keine manuelle Nummerierung
+- keine zusätzliche Beschreibung im Fliesstext
+- keine eigene Markerlogik erfinden
+- keine alternative KI-Notation verwenden

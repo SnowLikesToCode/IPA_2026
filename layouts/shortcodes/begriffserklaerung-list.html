@@ -1,0 +1,60 @@
+{{- /*
+  Term List Shortcode - Generate Complete Glossary Index
+  
+  Usage:
+    {{< begriffserklaerung-list >}}
+  
+  Features:
+  - Reads all terms from data/glossary.yaml
+  - Sorts alphabetically by term
+  - Creates anchor links for each term
+  - Groups by first letter (optional)
+  
+  Used on the glossary index page to display all terms.
+*/ -}}
+
+{{- $glossary := $.Site.Data.glossary -}}
+
+{{- if $glossary -}}
+{{- $sortable := slice -}}
+{{- range $entry := $glossary -}}
+  {{- $normalized := lower $entry.term -}}
+  {{- $normalized = replace $normalized "ä" "ae" -}}
+  {{- $normalized = replace $normalized "ö" "oe" -}}
+  {{- $normalized = replace $normalized "ü" "ue" -}}
+  {{- $normalized = replaceRE "[^a-z0-9 ]+" "" $normalized -}}
+  {{- $sortKey := printf "%s|%s" $normalized (lower $entry.term) -}}
+  {{- $sortable = $sortable | append (dict "sortKey" $sortKey "entry" $entry) -}}
+{{- end -}}
+<dl class="glossar-list">
+  {{- /* Sort terms alphabetically with German umlaut handling (ä->ae, ö->oe, ü->ue, ß->ss). */ -}}
+  {{- range sort $sortable "sortKey" -}}
+  {{- $entry := .entry -}}
+  <div class="glossar-entry" id="glossar-{{ $entry.id | urlize }}">
+    <dt class="glossar-term">
+      <strong>{{ $entry.term }}</strong>
+      {{ with $entry.abbrev }}
+      <span class="term-abbrev">({{ . }})</span>
+      {{ end }}
+    </dt>
+    <dd class="glossar-definition">
+      {{ $entry.definition | markdownify }}
+      {{- with $entry.sources -}}
+      <span class="glossar-sources">
+        {{- range . -}}
+        <a href="#quelle-{{ . | urlize }}" class="glossar-source-ref" title="Quelle {{ . }}"><sup>{{ . }}</sup></a>
+        {{- end -}}
+      </span>
+      {{- end -}}
+      {{ with $entry.link }}
+      <br>
+      Mehr erfahren unter:
+      <a href="{{ . }}" class="term-link" target="_blank" rel="noopener">{{ . }}</a>
+      {{ end }}
+    </dd>
+  </div>
+  {{- end -}}
+</dl>
+{{- else -}}
+<p class="glossar-empty">Keine Glossareinträge gefunden. Bitte fügen Sie Einträge in <code>data/glossary.yaml</code> hinzu.</p>
+{{- end -}}

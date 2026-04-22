@@ -1,0 +1,13 @@
+{{- /*
+  Left Column Shortcode
+
+  Usage:
+    {{< left >}}...{{< /left >}}
+
+  Purpose:
+  - Defines left content area inside row shortcode
+*/ -}}
+{{- $content := .Inner | .Page.RenderString (dict "display" "block") -}}
+<div class="lr-left">
+  {{- $content | safeHTML -}}
+</div>

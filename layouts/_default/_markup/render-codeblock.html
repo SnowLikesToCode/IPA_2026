@@ -1,0 +1,16 @@
+{{- /*
+  Code Block Render Hook - Display filename/language above code block
+  
+  When a code block has an info string (e.g. ```file.txt or ```python), it is
+  shown as a label above the code. Supports both:
+  - Attributes: ```sh { title = "script.sh" }
+  - Type as filename: ```file.txt (uses "file.txt" as label)
+*/ -}}
+{{- $result := transform.HighlightCodeBlock . }}
+{{- $filename := or .Attributes.title .Type }}
+<div class="highlight-wrapper">
+  {{- if $filename }}
+  <div class="highlight-filename">{{ $filename }}</div>
+  {{- end }}
+  {{ $result.Wrapped }}
+</div>

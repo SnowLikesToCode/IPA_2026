@@ -1,0 +1,13 @@
+{{- /*
+  Small Text Shortcode
+
+  Usage:
+    {{< small >}}...{{< /small >}}
+
+  Purpose:
+  - Displays a text block in a smaller font size
+*/ -}}
+{{- $content := .Inner | .Page.RenderString (dict "display" "block") -}}
+<div class="small-text">
+  {{- $content | markdownify -}}
+</div>

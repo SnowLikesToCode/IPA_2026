@@ -1,0 +1,10 @@
+{{- /* Row Shortcode Usage: {{< row >}} {{< left >}}...{{< /left >}} {{< right
+>}}...{{< /right >}} {{< /row >}} {{< row left="60" right="40" >}} {{< left
+>}}...{{< /left >}} {{< right >}}...{{< /right >}} {{< /row >}} Purpose: -
+Creates a reusable 2-column layout wrapper - Left/right columns are provided by
+dedicated shortcodes - Use angle-bracket shortcode syntax to avoid markdown
+re-parsing artifacts */ -}} {{- $left := .Get "left" | default "60" -}} {{-
+$right := .Get "right" | default "40" -}}
+<div class="lr-row" style="--lr-left: {{ $left }}%; --lr-right: {{ $right }}%;">
+  {{- .Inner | safeHTML -}}
+</div>

@@ -1,0 +1,42 @@
+---
+description: Doku-Regel für Hugo, Markdown, Frontmatter und bestehenden Repo-Stil
+globs:
+  - "content/**/*.md"
+  - "content/**/*.mdx"
+alwaysApply: false
+---
+
+## Grundsatz
+
+Bevor du neuen Doku-Text schreibst oder bestehenden Doku-Text überarbeitest:
+
+- analysiere zuerst den Stil im bestehenden Repo
+- beachte insbesondere benachbarte Dateien im gleichen Ordner und in der gleichen Sektion
+- übernimm Ton, Struktur, Überschriftenlogik, Frontmatter-Konventionen, Formatierung und Terminologie des Repos
+
+## Stilregeln
+
+- Schreibe in Schweizer Hochdeutsch.
+- Verwende ä, ö und ü normal.
+- Verwende nie ß, sondern ss.
+- Schreibe knapp, präzise und fachlich sauber.
+- Vermeide generische KI-Sprache.
+- Vermeide unnötige Wiederholungen.
+- Vermeide werbliche oder übertriebene Formulierungen.
+
+## Hugo- und Markdown-Regeln
+
+- Erhalte bestehendes Frontmatter, sofern es nicht bewusst geändert werden soll.
+- Übernimm die bestehende Reihenfolge und Benennung der Frontmatter-Felder aus vergleichbaren Dateien.
+- Nutze dieselbe Überschriftenhierarchie wie in der Zielsektion.
+- Nutze bestehende Shortcodes, Referenzen und interne Konventionen konsistent.
+- Erfinde keine neuen Formate, wenn im Repo bereits ein klares Muster existiert.
+- Wenn eine neue Datei erstellt wird, orientiere dich zuerst an 2 bis 3 ähnlichen bestehenden Dateien.
+
+## Ergebnisform
+
+Wenn Doku-Text verlangt wird:
+
+- liefere direkt den finalen Text
+- ohne lange Vorrede
+- so, dass er direkt eingefügt werden kann

@@ -1,0 +1,43 @@
+{{- /*
+  Recursive TOC children renderer.
+  Renders child pages/sections as TOC entries with proper numbering.
+  Supports up to 6 levels of nesting.
+
+  Params (passed via dict):
+    .pages    - collection of child pages to render
+    .prefix   - numbering prefix string (e.g., "1", "1.1")
+    .numbered - whether to show numbers
+    .depth    - current nesting depth (starts at 2 for first children)
+    .web      - if true, link to page URLs instead of anchor IDs
+*/ -}}
+{{- range $idx, $page := .pages -}}
+{{- $num := add $idx 1 -}}
+{{- $currentPrefix := "" -}}
+{{- if $.numbered -}}
+{{- $currentPrefix = printf "%s.%d" $.prefix $num -}}
+{{- end -}}
+{{- $href := "" -}}
+{{- if $.web -}}
+  {{- $href = $page.Permalink -}}
+{{- else -}}
+  {{- $id := partial "page-id" $page -}}
+  {{- $href = printf "#%s" $id -}}
+{{- end -}}
+<li>
+  <a href="{{ $href }}">
+    {{- if $.numbered -}}
+    <span class="toc-num">{{ $currentPrefix }}</span>
+    {{- end -}}
+    <span class="toc-title">{{ $page.Title }}</span>
+  </a>
+  {{- if and $page.IsSection $page.Pages -}}
+  {{- $childPages := $page.Pages.ByWeight -}}
+  {{- if eq $page.Params.pdfLayout "journal" -}}
+    {{- $childPages = sort $page.Pages "Date" "asc" -}}
+  {{- end -}}
+  <ul class="toc-subchapters">
+    {{- partial "toc-children" (dict "pages" $childPages "prefix" $currentPrefix "numbered" $.numbered "depth" (add $.depth 1) "web" $.web) -}}
+  </ul>
+  {{- end -}}
+</li>
+{{- end -}}

@@ -1,0 +1,19 @@
+{{- /*
+  Param Shortcode - Access Site Parameters (supports nested keys)
+  
+  Usage:
+    {{< param "thema" >}}
+    {{< param "autor.name" >}}
+    {{< param "berufsbildner.email" >}}
+  
+  Allows easy access to site.params values within content.
+  Dot notation traverses nested objects.
+*/ -}}
+
+{{- $paramName := .Get 0 -}}
+{{- $parts := split $paramName "." -}}
+{{- $result := .Site.Params -}}
+{{- range $parts -}}
+  {{- $result = index $result . -}}
+{{- end -}}
+{{- $result -}}

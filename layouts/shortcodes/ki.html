@@ -1,0 +1,39 @@
+{{- /*
+  KI Marker Shortcode
+
+  Usage:
+    {{< ki "Perfekt " "angepasst" "test1" "test2." >}}
+    {{< ki "Mit KI korrigiert" >}}
+    {{< ki from="Perfekt so" to="angepasst" >}}
+    {{< ki >}}
+
+  Behaviour:
+  - Auto-numbered per page (like figure/glossary style helpers)
+  - PDF layout renumbers globally across the full document
+  - Renders clickable inline marker in exact format: [KI]n
+  - Positional params (unlimited) are used as manual KI segments in directory
+*/ -}}
+{{- if not (.Page.Scratch.Get "kiCounter") -}}
+  {{- .Page.Scratch.Set "kiCounter" 0 -}}
+{{- end -}}
+{{- $markerNum := add (.Page.Scratch.Get "kiCounter") 1 -}}
+{{- .Page.Scratch.Set "kiCounter" $markerNum -}}
+{{- $id := .Get "id" | default (printf "%d" $markerNum) -}}
+{{- $from := .Get "from" | default "" -}}
+{{- $to := .Get "to" | default "" -}}
+{{- $segments := slice -}}
+{{- if not .IsNamedParams -}}
+  {{- range .Params -}}
+    {{- $segments = $segments | append (printf "%v" .) -}}
+  {{- end -}}
+{{- else -}}
+  {{- if $from -}}
+    {{- $segments = $segments | append $from -}}
+  {{- end -}}
+  {{- if $to -}}
+    {{- $segments = $segments | append $to -}}
+  {{- end -}}
+{{- end -}}
+{{- $partsDelimiter := "||KI_PART||" -}}
+{{- $segmentsPacked := delimit $segments $partsDelimiter -}}
+<a href="#ki-eintrag-{{ $id }}" class="ki-ref-marker" data-ki-id="{{ $id }}" data-ki-from="{{ $from }}" data-ki-to="{{ $to }}" data-ki-parts="{{ $segmentsPacked }}" title="KI-Verzeichnis Eintrag {{ $id }}"><sup>[KI]{{ $id }}</sup></a>

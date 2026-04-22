@@ -1,0 +1,185 @@
+# ============================================================================
+# IPA Glossary Data File
+# ============================================================================
+# This file contains all glossary terms used in the documentation.
+# Terms are automatically linked and displayed via the glossary shortcode.
+#
+# Entry Format:
+#   - id: unique-identifier (used for anchors, lowercase, no spaces)
+#     term: Display Term
+#     abbrev: Optional abbreviation (shown in parentheses)
+#     definition: Full definition text (supports markdown)
+#     link: Optional external link for more information
+#
+# Usage in content:
+#   {{< glossary "API" >}}
+#   {{< glossary "REST" >}}
+# ============================================================================
+
+- id: heredocs
+  term: Heredocs
+  definition: |
+    Heredocs sind eine Möglichkeit, mehrzeilige Strings in Bash zu definieren.
+  link: https://en.wikipedia.org/wiki/Here_document
+
+- id: hugo
+  term: Hugo
+  definition: |
+    Hugo ist ein statischer Site Generator, der es ermöglicht, Websites schnell und einfach zu erstellen.
+
+- id: B2B
+  term: B2B
+  definition: |
+    Business to Business Abteilung, die für Firmenkunden verschiedener Grössen zuständig ist.
+
+- id: iperka
+  term: IPERKA
+  definition: |
+    IPERKA ist eine lineare Projektmanagementmethode mit den sechs Phasen Informieren, Planen, Entscheiden, Realisieren, Kontrollieren und Auswerten. Die Methode eignet sich besonders für klar abgegrenzte Vorhaben mit nachvollziehbarem Ablauf.
+  link: https://www.ict-berufsbildung-bern.ch/resources/Iperka_OdA_200617.pdf
+
+- id: scrum
+  term: Scrum
+  definition: |
+    Scrum ist ein agiles Framework für die Produktentwicklung in Teams. Die Arbeit wird in kurzen Iterationen organisiert und in regelmässigen Abständen überprüft und angepasst.
+  link: https://scrumguides.org/scrum-guide.html
+
+- id: sprints
+  term: Sprints
+  definition: |
+    Sprints sind zeitlich begrenzte Entwicklungszyklen in Scrum, in denen ein klar definiertes Ergebnis erarbeitet wird. In vielen Teams dauert ein Sprint ein bis vier Wochen.
+  link: https://scrumguides.org/scrum-guide.html#sprint
+
+- id: CSIRT
+  term: CSIRT
+  definition: |
+    Computer Security Incident Response Team ist das Team, welches innerhalb des Security Operations Center für die Reaktion auf einen Cyber Security Vorfall verantwortlich ist und den Firmenkunden hilft diesen zu beheben. Innerhalb des NIST Frameworks ist es für die Phasen Respond und Recover zuständig.
+
+- id: NIST Framework
+  term: NIST Framework
+  definition: |
+    Ein Framework, welches zurzeit als Standard gilt, wenn es um den Cyer Security Schutz von Unternehmen und Institutionen geht. The NIST Cybersecurity Framework (CSF) 2.0. Das Framework unterteilt den Schutz in folgende Phasen: Identify, Protect, Detect, Respond und Recover. Alle Phasen werden durch die Governance gesteuert.
+
+- id: Security Analyst
+  term: Security Analyst
+  definition: |
+    Dies ist die Rolle innerhalb eines Security Operations Center, welche für das Aufspüren von möglichen Cyber Security Vorfällen zuständig ist. Dabei werden verschiedene Tools benutzt, um den Zustand des überwachten Systems zu monitoren und zu evaluieren. Innerhalb des NIST Frameworks ist dies die Phase Detect.
+
+- id: SOC
+  term: SOC
+  definition: |
+    Das SOC ist die Abkürzung des Security Operations Center. Dieses übernimmt in der Regel die Aufgaben "Detection, Response, Recover" aus dem NIST Framework in einer Cyber Security Umgebung. Nebst weiteren Rollen arbeiten Security Analysten und CSIRT im SOC. Um die Abdeckung zu garantieren ist die Arbeit im SOC üblicherweise im Schichtbetrieb organisiert.
+
+- id: TDR
+  term: TDR
+  definition: |
+    TDR ist die Abkürzung für Threat Detection and Response. Es ist eine Abteilung innerhalb des Security Operations Center, welche für die Reaktion auf einen Cyber Security Vorfall zuständig ist.
+
+- id: bats
+  term: BATS
+  definition: |
+    BATS (Bash Automated Testing System) ist ein Test-Framework für Shell- und CLI-Tests. Es wird verwendet, um das Verhalten von Skripten und Kommandozeilenprogrammen automatisiert und reproduzierbar zu prüfen.
+  link: https://bats-core.readthedocs.io/en/stable/
+
+- id: tdd
+  term: TDD
+  definition: |
+    Test Driven Development (TDD) ist ein Entwicklungsansatz, bei dem zuerst ein fehlschlagender Test geschrieben wird, danach die minimale Implementierung erfolgt und anschliessend refaktorisiert wird (Red-Green-Refactor).
+  link: https://martinfowler.com/bliki/TestDrivenDevelopment.html
+
+- id: cli
+  term: CLI
+  definition: |
+    CLI ist die Abkürzung für Command-line interface. Eine CLI ermöglicht die Interaktion mit einem Programm über textbasierte Befehle in der Kommandozeile und eignet sich gut für Automatisierung per Skript.
+  link: https://en.wikipedia.org/wiki/Command-line_interface
+
+- id: mysql
+  term: MySQL
+  definition: |
+    MySQL ist ein relationales Open-Source-Datenbankmanagementsystem. Im Projekt wird MySQL für die strukturierte Speicherung und Verarbeitung der Planungsdaten eingesetzt.
+  link: https://dev.mysql.com/doc/
+
+- id: mysql-workbench
+  term: MySQL Workbench
+  definition: |
+    MySQL Workbench ist ein grafisches Werkzeug für Datenmodellierung, SQL-Entwicklung und Administration von MySQL-Datenbanken.
+  link: https://dev.mysql.com/doc/workbench/en/
+
+- id: gitlab
+  term: GitLab
+  definition: |
+    GitLab ist eine webbasierte Plattform für Versionsverwaltung und DevOps-Prozesse. Sie wird unter anderem für Repository-Verwaltung, Zusammenarbeit und CI/CD eingesetzt.
+  link: https://docs.gitlab.com/
+
+- id: git
+  term: Git
+  definition: |
+    Git ist ein verteiltes Versionskontrollsystem zur Nachverfolgung von Änderungen am Quellcode und zur Zusammenarbeit in Entwicklungsprojekten.
+  link: https://git-scm.com/doc
+
+- id: typescript
+  term: TypeScript
+  definition: |
+    TypeScript ist eine von Microsoft entwickelte, typisierte Erweiterung von JavaScript. Der TypeScript-Code wird zu JavaScript transpiliert und in der Laufzeitumgebung ausgeführt.
+  link: https://www.typescriptlang.org/docs/
+
+- id: nodejs
+  term: Node.js
+  definition: |
+    Node.js ist eine plattformübergreifende JavaScript-Laufzeitumgebung auf Basis der V8-Engine. Sie ermöglicht die Ausführung von JavaScript ausserhalb des Browsers, z. B. für CLI-Tools.
+  link: https://nodejs.org/en/docs
+
+- id: macos-tahoe-26
+  term: macOS Tahoe 26
+  definition: |
+    macOS Tahoe 26 bezeichnet die im Projekt eingesetzte Version des Apple-Betriebssystems macOS und stellt die lokale Entwicklungs- und Ausführungsumgebung dar.
+  link: https://support.apple.com/macos
+
+- id: visual-studio-code
+  term: Visual Studio Code
+  definition: |
+    Visual Studio Code ist ein plattformübergreifender, erweiterbarer Quellcode-Editor von Microsoft mit Unterstützung für Debugging, Git-Integration und Extensions.
+  link: https://code.visualstudio.com/docs
+
+- id: excalidraw
+  term: Excalidraw
+  definition: |
+    Excalidraw ist ein Open-Source-Whiteboard-Tool im handgezeichneten Stil zur Erstellung von Skizzen, Diagrammen und Visualisierungen.
+  link: https://docs.excalidraw.com/
+
+- id: ci-cd-pipeline
+  term: CI-CD-Pipeline
+  definition: |
+    Eine CI-CD-Pipeline (Continuous Integration und Continuous Delivery/Deployment) automatisiert Schritte wie Build, Tests und Qualitätsprüfungen bei Code-Änderungen. Dadurch werden Fehler früh sichtbar und Änderungen konsistent ausgeliefert.
+  link: https://docs.gitlab.com/ci/
+
+- id: latex
+  term: LaTeX
+  definition: |
+    LaTeX ist ein Satzsystem für wissenschaftliche Texte, das besonders für wissenschaftliche Arbeiten und wissenschaftliche Publikationen verwendet wird.
+  link: https://www.latex-project.org/
+
+- id: moscow
+  term: MoSCoW
+  definition: |
+    MoSCoW ist eine Priorisierungsmethode für Anforderungen. Die Buchstaben stehen für **Must** (unverzichtbar für den vereinbarten Lieferumfang), **Should** (wichtig und vorgesehen, soweit der Rahmen es erlaubt), **Could** (wünschenswert, nachrangig) und **Won't** (bewusst nicht umgesetzt oder verschoben). Die Einordnung macht die Lieferpriorität gegenüber Stakeholdern transparent.
+  link: https://www.agilebusiness.org/dsdm-project-framework/moscow-prioritisation.html
+
+- id: e2e-tests
+  term: End-to-End Tests
+  abbrev: E2E
+  definition: |
+    End-to-End-Tests (E2E-Tests) sind eine Software-Testmethode, mit der der gesamte Workflow einer Anwendung von Anfang bis Ende validiert wird. Sie prüfen, ob die Anwendung aus Nutzersicht korrekt zusammenspielt.
+  link: https://www.ibm.com/de-de/think/topics/end-to-end-testing
+
+- id: unit-tests
+  term: Unit Tests
+  definition: |
+    Unit Tests prüfen kleine, isolierte Einheiten des Quellcodes, zum Beispiel einzelne Funktionen oder Klassenmethoden. Abhängigkeiten werden dabei häufig durch Mocks oder Stubs ersetzt, damit Fehlerquellen präzise eingegrenzt werden können.
+  link: https://de.wikipedia.org/wiki/Modultest
+
+- id: excalidraw
+  term: Excalidraw
+  definition: |
+    Excalidraw ist ein Open-Source-Whiteboard-Tool im handgezeichneten Stil zur Erstellung von Skizzen, Diagrammen und Visualisierungen.
+  link: https://docs.excalidraw.com/

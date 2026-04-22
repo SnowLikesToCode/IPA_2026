@@ -1,0 +1,22 @@
+{{- /*
+  Taxonomy Layout - Tags and Categories
+  
+  Displays a list of all terms in a taxonomy.
+*/ -}}
+
+{{ define "main" }}
+<article class="taxonomy-page">
+  <header class="section-header">
+    <h1>{{ .Title }}</h1>
+  </header>
+  
+  <div class="taxonomy-list">
+    {{ range .Pages }}
+    <div class="taxonomy-item">
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      <span class="count">{{ len .Pages }} Einträge</span>
+    </div>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

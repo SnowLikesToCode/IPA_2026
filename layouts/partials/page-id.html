@@ -1,0 +1,19 @@
+{{- /*
+  Generates a unique HTML ID for any page (section or regular page).
+  Uses urlize to ensure clean, space-free IDs.
+  - Sections: uses the directory base name
+  - Regular pages: uses the file content base name
+*/ -}}
+{{- $id := "" -}}
+{{- with .Params.pdfSectionId -}}
+{{- /* Allow explicit, stable anchors for preflight checks and references. */ -}}
+{{- $id = (. | urlize) -}}
+{{- end -}}
+{{- if not $id -}}
+  {{- if .IsSection -}}
+  {{- $id = .File.Path | path.Dir | path.Base | urlize -}}
+  {{- else -}}
+  {{- $id = .File.ContentBaseName | urlize -}}
+  {{- end -}}
+{{- end -}}
+{{- $id -}}

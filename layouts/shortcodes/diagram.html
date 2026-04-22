@@ -1,0 +1,90 @@
+{{- /*
+  Diagram Shortcode - Mermaid Diagram Support
+  
+  Usage:
+    {{< diagram >}}
+    graph TD
+        A[Start] --> B[End]
+    {{< /diagram >}}
+  
+    {{< diagram caption="Authentication Flow" >}}
+    sequenceDiagram
+        User->>Server: Login
+        Server-->>User: Token
+    {{< /diagram >}}
+  
+  Features:
+  - Supports Mermaid diagram syntax
+  - Auto figure numbering for diagrams
+  - Support for captions
+  - Renders in browser (no pre-rendering needed)
+  
+  Parameters:
+  - caption: Diagram caption (optional)
+  - id: Custom anchor ID (optional)
+  - class: Additional CSS classes (optional)
+*/ -}}
+
+{{- /* Initialize global diagram counter if not exists */ -}}
+{{- if not (.Page.Scratch.Get "diagramCounter") -}}
+  {{- .Page.Scratch.Set "diagramCounter" 0 -}}
+{{- end -}}
+
+{{- /* Increment diagram counter */ -}}
+{{- $diagNum := add (.Page.Scratch.Get "diagramCounter") 1 -}}
+{{- .Page.Scratch.Set "diagramCounter" $diagNum -}}
+
+{{- /* Get parameters */ -}}
+{{- $caption := .Get "caption" | default "" -}}
+{{- $id := .Get "id" | default (printf "diagram-%d" $diagNum) -}}
+{{- $class := .Get "class" | default "" -}}
+
+{{- /* Get diagram content - trim whitespace */ -}}
+{{- $content := .Inner | safeHTML -}}
+
+{{- /* Inject Mermaid loader once per page (lazy, non-blocking) */ -}}
+{{- if not (.Page.Scratch.Get "mermaidLoaded") -}}
+  {{- .Page.Scratch.Set "mermaidLoaded" true -}}
+<script>
+(function() {
+  if (window.__mermaidPromise) return;
+  window.__mermaidPromise = new Promise(function(resolve, reject) {
+    function load() {
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/mermaid@10.9.3/dist/mermaid.min.js';
+      s.onload = function() {
+        mermaid.initialize({
+          startOnLoad: false,
+          theme: 'default',
+          securityLevel: 'loose',
+          flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' },
+          sequence: { useMaxWidth: true, diagramMarginX: 50, diagramMarginY: 10, actorMargin: 50, width: 150, height: 65, boxMargin: 10, boxTextMargin: 5, noteMargin: 10, messageMargin: 35 },
+          gantt: { titleTopMargin: 25, barHeight: 20, barGap: 4, topPadding: 50, leftPadding: 75, gridLineStartPadding: 35, fontSize: 11, numberSectionStyles: 4 },
+          er: { diagramPadding: 20, layoutDirection: 'TB', minEntityWidth: 100, minEntityHeight: 75, entityPadding: 15, stroke: 'gray', fill: 'honeydew' }
+        });
+        mermaid.run().then(resolve).catch(reject);
+      };
+      s.onerror = reject;
+      document.head.appendChild(s);
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', load);
+    } else {
+      load();
+    }
+  });
+})();
+</script>
+{{- end -}}
+
+<figure id="{{ $id }}" class="diagram {{ $class }}">
+  <pre class="mermaid">
+{{- $content -}}
+  </pre>
+  {{ with $caption }}
+  <figcaption>
+    <span class="diagram-label">Diagramm {{ $diagNum }}:</span>
+    <span class="diagram-caption">{{ . }}</span>
+  </figcaption>
+  {{ end }}
+</figure>

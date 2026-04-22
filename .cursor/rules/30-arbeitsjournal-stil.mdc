@@ -1,0 +1,43 @@
+---
+description: Regel für Arbeitsjournal-Einträge im Stil des bestehenden IPA-Repos
+globs:
+  - "content/01_teil_1:Umfeld_und_Ablauf/98_arbeitsjournal/**/*.md"
+alwaysApply: false
+---
+
+## Grundsatz
+
+Wenn ein Arbeitsjournal-Eintrag erstellt oder überarbeitet wird:
+
+- analysiere zuerst mehrere bestehende Einträge im gleichen Ordner
+- übernimm deren Stil, Struktur, Ton und Granularität
+
+## Schreibstil
+
+- sachlich
+- knapp
+- prüfungstauglich
+- natürlich
+- nachvollziehbar
+
+## Inhalt
+
+Formuliere Einträge so, dass klar wird:
+
+- woran gearbeitet wurde
+- welche relevanten Entscheide getroffen wurden
+- welche Probleme oder Abweichungen aufgetreten sind
+- was das Ergebnis oder der nächste Schritt ist
+
+## Sprache
+
+- Schweizer Hochdeutsch
+- ä, ö und ü normal verwenden
+- nie ß, immer ss
+
+## Qualität
+
+- keine künstliche KI-Sprache
+- keine unnötige Ausschmückung
+- keine erfundenen Details
+- keine übertriebenen Formulierungen

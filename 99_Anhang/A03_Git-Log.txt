@@ -1,0 +1,270 @@
+b53fc73 | Monday, 23.03.2026 14:37 | docs: Added anhang for backup reasons
+fa0d43f | Monday, 23.03.2026 14:37 | meilenstein: Auswerten fertig
+1ace043 | Monday, 23.03.2026 14:37 | docs: update Quellcode section for consistency and clarity
+ef84060 | Monday, 23.03.2026 14:35 | docs: update evaluation and improvement documentation for clarity and completeness
+bef1c19 | Monday, 23.03.2026 14:35 | docs: add final entry for Arbeitsjournal on March 23, 2026
+d3b7383 | Monday, 23.03.2026 14:09 | chore: update .gitignore to include additional node_modules and test directories
+33d62ae | Monday, 23.03.2026 14:04 | docs: update rapportierung documentation for clarity and conciseness
+71f5be5 | Monday, 23.03.2026 14:04 | fix: moving the CI to root and changing the paths for easier zipping
+a4d4b89 | Monday, 23.03.2026 13:49 | feat: add CI success image to project
+1c07ac4 | Monday, 23.03.2026 13:49 | docs: refine test documentation for clarity and completeness
+6881f53 | Monday, 23.03.2026 12:42 | docs: enhance evaluation documentation for clarity and completeness
+bf880df | Monday, 23.03.2026 12:37 | docs: add page break and clarify in-scope details for planning tool implementation
+39a9e58 | Monday, 23.03.2026 12:36 | docs: refine implementation details in the summary section
+6965342 | Monday, 23.03.2026 12:36 | fix: corrected ToC numbering
+83a7c8f | Monday, 23.03.2026 12:35 | feat: added quellcode to the docs
+9eee8b1 | Monday, 23.03.2026 12:34 | docs: refine test documentation for clarity and completeness
+8822f09 | Monday, 23.03.2026 12:32 | docs: refine test documentation for clarity and completeness
+6d78b5d | Monday, 23.03.2026 12:31 | docs: clarify quality assurance limitations in project evaluation
+82e8412 | Monday, 23.03.2026 12:27 | docs: refine implementation documentation for clarity and consistency
+85b4046 | Monday, 23.03.2026 12:07 | docs: added heredocs glossary
+018d29d | Monday, 23.03.2026 12:06 | deleted checklist as it is not needed in the PDF
+68bac6a | Monday, 23.03.2026 12:06 | docs: update decision criteria and matrix documentation for clarity
+b607941 | Monday, 23.03.2026 11:45 | docs: enhance planning documentation with page breaks for improved navigation
+a28cbd6 | Monday, 23.03.2026 11:44 | docs: enhance documentation clarity and structure in activity journals
+8938a00 | Monday, 23.03.2026 11:11 | docs: add page breaks to activity journal entries for improved readability
+c0d1451 | Monday, 23.03.2026 10:38 | docs: update activity journal with detailed reflections and task adjustments
+98fd0dd | Monday, 23.03.2026 10:20 | docs: update activity journal for improved clarity and detail
+6aa17c7 | Monday, 23.03.2026 10:12 | docs: remove unnecessary placeholders and enhance clarity in decision-making documentation
+a2a2d23 | Monday, 23.03.2026 10:09 | docs: enhance activity diagram and testing strategy documentation
+9a9f71d | Monday, 23.03.2026 10:08 | docs: update contact information and improve documentation clarity
+5457013 | Monday, 23.03.2026 09:53 | docs: enhance documentation clarity and structure
+9ee5a17 | Monday, 23.03.2026 09:18 | docs: refine personal conclusion section for clarity and consistency
+51c950b | Monday, 23.03.2026 09:10 | docs: update version number in hugo.toml to '0.11.0' and add module configuration
+eea1f0c | Friday, 20.03.2026 17:47 | docs: update IPA documentation and add global corrector rules
+761d1cc | Friday, 20.03.2026 09:12 | docs: increment version number in hugo.toml from '8' to '9'
+dd857fc | Thursday, 19.03.2026 17:44 | docs: update project timeline with revised effort estimates
+c071ea9 | Thursday, 19.03.2026 15:52 | docs: add evaluation and improvement sections for project insights
+8258f0c | Thursday, 19.03.2026 15:52 | docs: add evaluation section for functional test results
+aeef514 | Thursday, 19.03.2026 15:51 | docs: add Testergebnisse documentation for test coverage overview
+2d0a633 | Thursday, 19.03.2026 14:49 | docs: update project organization and requirements documentation
+6b867c2 | Thursday, 19.03.2026 14:49 | docs: update project organization and requirements documentation
+2075b2a | Thursday, 19.03.2026 10:26 | feat: add CI workflow for automated BATS testing of CLI tool
+b7999b3 | Wednesday, 18.03.2026 11:51 | chore: update .gitignore, increment version in hugo.toml, and add new content files
+b2fade2 | Wednesday, 18.03.2026 11:49 | docs: rename Realisieren index directory path
+6e8528b | Wednesday, 18.03.2026 11:49 | docs: rename 07-excel-export to 07-Excel-Export
+9c04d9a | Wednesday, 18.03.2026 11:49 | docs: rename and correct Eingabevalidierung filename
+13281bf | Wednesday, 18.03.2026 11:49 | docs: rename 04-schichtenzuweisungslogik to 04-Schichtenzuweisungslogik
+52a4608 | Wednesday, 18.03.2026 11:49 | docs: rename 03-schema-json-erstellen to 03-Schema-JSON-Erstellen
+d2f67b1 | Wednesday, 18.03.2026 11:49 | docs: rename 02-excel-import to 02-Excel-Import
+e89a9a4 | Wednesday, 18.03.2026 11:49 | docs: rename 01-projektaufsetzung to 01-Projektaufsetzung
+95e9a27 | Wednesday, 18.03.2026 11:49 | docs: rename Begriffserklaerung directory to Begriffserklärung
+397075e | Wednesday, 18.03.2026 11:49 | docs: rename aktivitaetsdiagramm file to canonical title
+b08f434 | Wednesday, 18.03.2026 11:49 | docs: rename pain-points to Schwachstellenanalyse
+ebc31a8 | Wednesday, 18.03.2026 11:49 | docs: rename kriterien-übersicht to Kriterien-Übersicht
+623f8c4 | Wednesday, 18.03.2026 11:49 | docs: rename 03-Persoenliches_Fazit to 03-Persönliches-Fazit
+e03f30c | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+5640534 | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+1a83546 | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+9a00737 | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+5ed8b67 | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+1e076cd | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+1a7dedd | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+29453df | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+dff4694 | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+5c36a2c | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+8f7ecd2 | Wednesday, 18.03.2026 11:49 | docs: rename 02-entscheidungsmatrix.md to 02-Entscheidungsmatrix.md
+5f0634b | Wednesday, 18.03.2026 11:49 | docs: rename 01-entscheidungskriterien.md to 01-Entscheidungskriterien.md
+8f4dd2a | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+8c9149f | Wednesday, 18.03.2026 11:49 | docs: rename 03-Datenverarbeitung.md to 03-Datenverarbeitung.md
+b3d27b1 | Wednesday, 18.03.2026 11:49 | docs: rename 02-teststrategie.md to 02-Teststrategie.md
+0e02861 | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+7fbc079 | Wednesday, 18.03.2026 11:49 | docs: rename 04-anforderungskatalog.md to 04-Anforderungskatalog.md
+6d73c67 | Wednesday, 18.03.2026 11:49 | docs: rename 03-soll-analyse.md to 03-Soll-Analyse.md
+1077cf4 | Wednesday, 18.03.2026 11:49 | docs: rename 01-Ist-analyse.md to 01-Ist-Analyse.md
+3ab007d | Wednesday, 18.03.2026 11:49 | docs: rename 03-Abgrenzung.md to 03-Abgrenzung.md
+980b928 | Wednesday, 18.03.2026 11:49 | docs: rename 02-Projektmanagementmethode.md to 02-Projektmanagementmethode.md
+784df91 | Wednesday, 18.03.2026 11:49 | docs: rename 01-Kurzfassung.md to 01-Kurzfassung.md
+3fe2117 | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+d89afe8 | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+6da2b1f | Wednesday, 18.03.2026 11:49 | docs: rename template.md to Template.md
+f1aacef | Wednesday, 18.03.2026 11:49 | docs: rename 17.03.2026.md to 17.03.2026.md
+1a2c6f0 | Wednesday, 18.03.2026 11:49 | docs: rename 13.03.2026.md to 13.03.2026.md
+78507b2 | Wednesday, 18.03.2026 11:49 | docs: rename 12.03.2026.md to 12.03.2026.md
+4b48c68 | Wednesday, 18.03.2026 11:49 | docs: rename 11.03.2026.md to 11.03.2026.md
+99e8cf1 | Wednesday, 18.03.2026 11:49 | docs: rename 10.03.2026.md to 10.03.2026.md
+352c5c6 | Wednesday, 18.03.2026 11:49 | docs: rename 09.03.2026.md to 09.03.2026.md
+80370e0 | Wednesday, 18.03.2026 11:49 | docs: rename 04-Zeitplan.md to 04-Zeitplan.md
+56a5dc8 | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+1421f78 | Wednesday, 18.03.2026 11:49 | docs: rename 04-rapportierung.md to 04-Rapportierung.md
+e3f49e7 | Wednesday, 18.03.2026 11:49 | docs: rename 03-Datensicherung.md to 03-Datensicherung.md
+9e077a8 | Wednesday, 18.03.2026 11:49 | docs: rename 01_arbeitsplatz.md to 01-Arbeitsplatz.md
+b4a9c7d | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+9b54e7b | Wednesday, 18.03.2026 11:49 | docs: rename 03_Testing.md to 03-Testing.md
+0d15f12 | Wednesday, 18.03.2026 11:49 | docs: rename 02_Coding-Standards.md to 02-Coding-Standards.md
+68c8956 | Wednesday, 18.03.2026 11:49 | docs: rename 01_Dokumentationsvorlage.md to 01-Dokumentationsvorlage.md
+46c9ce9 | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+064af00 | Wednesday, 18.03.2026 11:49 | docs: rename 02_Rollen und Beschreibung der Aufgaben.md to 02-Rollen-und-Beschreibung-der-Aufgaben.md
+f476219 | Wednesday, 18.03.2026 11:49 | docs: rename 01_organigramm.md to 01-Organigramm.md
+dee2997 | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+5a110d9 | Wednesday, 18.03.2026 11:49 | docs: rename 08_Arbeiten in den letzten 6 Monaten.md to 08-Arbeiten-in-den-Letzten-6-Monaten.md
+b49e8f3 | Wednesday, 18.03.2026 11:49 | docs: rename 07_Neue Lerninhalte.md to 07-Neue-Lerninhalte.md
+86d1c1c | Wednesday, 18.03.2026 11:49 | docs: rename 06_Deklaration der Vorarbeiten.md to 06-Deklaration-der-Vorarbeiten.md
+b8f2c39 | Wednesday, 18.03.2026 11:49 | docs: rename 05_Deklaration der Vorkenntnisse.md to 05-Deklaration-der-Vorkenntnisse.md
+5e7fdf1 | Wednesday, 18.03.2026 11:49 | docs: rename 04_Mittel und Methoden.md to 04-Mittel-und-Methoden.md
+52af0ff | Wednesday, 18.03.2026 11:49 | docs: rename 03_Messbare Ziele.md to 03-Messbare-Ziele.md
+bfc2d3e | Wednesday, 18.03.2026 11:49 | docs: rename 02_Erwartete Resultate_Anforderungen.md to 02-Erwartete-Resultate-Anforderungen.md
+94e1aea | Wednesday, 18.03.2026 11:49 | docs: rename 01_Ausgangslage.md to 01-Ausgangslage.md
+2284369 | Wednesday, 18.03.2026 11:49 | docs: rename _index.md to _index.md
+0006eff | Wednesday, 18.03.2026 11:47 | feat: add text alignment shortcodes for improved formatting in CSS and PDF styles
+f35b526 | Tuesday, 17.03.2026 16:18 | feat: enhance journal entry formatting with progressive compaction levels and add TDD illustration for improved clarity
+fd09e03 | Tuesday, 17.03.2026 14:53 | docs: add pagebreak shortcodes to Arbeitsorganisation and Arbeitsjournal sections for improved document formatting and readability
+06d5d22 | Tuesday, 17.03.2026 14:36 | feat: add Arbeitsjournal entry for March 17, 2026, including time tracking and activity sections
+f9a5b22 | Tuesday, 17.03.2026 14:04 | fix: correct spelling of 'Erfolg' in Arbeitsorganisation documentation for improved clarity
+a2e35c5 | Tuesday, 17.03.2026 14:04 | feat: add checklist page styles and scripts, including new CSS and JavaScript for enhanced functionality
+7a91ed3 | Tuesday, 17.03.2026 11:06 | feat: implement reusable left/right column shortcodes and associated CSS for flexible layout
+af215e1 | Tuesday, 17.03.2026 10:46 | docs: add pagebreak shortcodes for improved document formatting and readability across multiple sections
+7f739c4 | Tuesday, 17.03.2026 10:45 | docs: remove introductory sentence from IPA documentation in the Umfeld und Ablauf section
+fdb035c | Tuesday, 17.03.2026 10:45 | update for 10:45
+a21352d | Tuesday, 17.03.2026 10:43 | feat: add pagebreak shortcode for manual page breaks in PDF/print output
+988eae1 | Monday, 16.03.2026 12:49 | feat: enhance project documentation with TDD approach, update source link handling in references, and improve PDF styling for better readability
+0eb3158 | Friday, 13.03.2026 17:57 | feat: add project setup documentation and related files for CLI tool development, including Excel import/export and validation logic
+e960bef | Friday, 13.03.2026 12:35 | docs: update programming languages section to replace TypeScript with JavaScript and remove Makefile entry from glossary
+bc8f041 | Friday, 13.03.2026 12:34 | chore: remove makefile and update test strategy documentation to reflect changes in test environment setup
+3c8ddb2 | Friday, 13.03.2026 11:52 | fix: sets weight of entscheidungsmatrix to 2
+83b9bc6 | Friday, 13.03.2026 11:51 | feat: add Entscheidungsmatrix.xlsx file
+e5fcbbd | Friday, 13.03.2026 11:47 | docs: refine activity diagrams and decision matrix documentation, add new section for project realization phase, and include external reference for decision matrix template
+266315a | Friday, 13.03.2026 11:47 | chore: updated Zeitplan
+651b7df | Friday, 13.03.2026 09:50 | chore: added tagestotal in h
+1935f93 | Friday, 13.03.2026 09:42 | feat: added meilensteine to the Zeitplan
+11949fb | Friday, 13.03.2026 09:41 | docs: enhance PDF styling with new table classes for improved layout and readability
+2ca2c4b | Friday, 13.03.2026 09:41 | docs: add diagrammverzeichnis shortcode for diagram index placeholder with usage instructions
+9703fa4 | Friday, 13.03.2026 09:41 | docs: integrate structured tables across various sections for improved clarity, including decision criteria, requirement catalog, and data processing variants
+d02c0f1 | Friday, 13.03.2026 09:41 | docs: enhance project organization documentation with structured tables for key roles and update daily journal entries with detailed activity logs
+b41d6df | Friday, 13.03.2026 09:04 | docs: add table for planned and realized effort in project timeline
+de9c3c9 | Friday, 13.03.2026 09:04 | docs: update KI shortcode to render clickable inline markers without caret and add new usage example
+9fe88c8 | Thursday, 12.03.2026 18:14 | done: done for the day
+84226aa | Thursday, 12.03.2026 18:11 | docs: Added new criteria and done for the day.
+da9e627 | Thursday, 12.03.2026 18:04 | docs: add new documentation for data processing and decision-making phases, including evaluation criteria and implementation variants
+d92ac20 | Thursday, 12.03.2026 17:25 | docs: update testing section to clarify testing methodologies, replacing unit and E2E tests with Black-Box and Performance tests, and detailing execution in local and CI-CD environments
+27cead2 | Thursday, 12.03.2026 11:44 | docs: Teststrategie hinzugefügt
+27b0811 | Thursday, 12.03.2026 11:36 | docs: remove BDD entry and add TDD and CI-CD-Pipeline definitions to glossary, enhancing clarity on development methodologies
+1012e1d | Thursday, 12.03.2026 11:36 | docs: add new activity diagram for automated shift planning process, detailing input handling and decision points
+86da3d3 | Thursday, 12.03.2026 11:35 | docs: update methodology section to reflect the adoption of TDD for systematic testing of outputs, replacing the previous mention of BDD
+73af15d | Thursday, 12.03.2026 11:35 | docs: specify file format for local resource database and update technology stack in project documentation
+81d9b09 | Thursday, 12.03.2026 10:54 | chore: updated excalidraw drawing
+0d48e85 | Thursday, 12.03.2026 10:53 | docs: revise activity diagram description for automated shift planning process, enhancing clarity on input handling and decision points
+81f9e6e | Thursday, 12.03.2026 10:53 | chore: update activity diagram image to reflect recent changes and ensure consistency with documentation
+43f0abe | Thursday, 12.03.2026 10:51 | docs: enhance requirement catalog by clarifying functional requirements and adjusting based on Product Owner feedback; update related images for consistency
+d4c462d | Thursday, 12.03.2026 10:47 | fix: refine command-line tool requirements by removing unnecessary details for clarity
+363585b | Thursday, 12.03.2026 10:47 | feat: add Arbeitsjournal entry for March 11, 2026, detailing completion of Soll-Analyse and initiation of requirement catalog and activity diagram
+ddf5056 | Thursday, 12.03.2026 10:47 | fix: update organigramm structure to improve clarity by adding labels for Firma and Abteilung subgraphs
+d2eb39c | Thursday, 12.03.2026 09:47 | docs: update documentation template to include KI marker for AI-generated content and refine pain points section for clarity and conciseness
+8703edb | Thursday, 12.03.2026 09:47 | feat: add activity diagram for shift planning process with visual representation
+32d9c7e | Thursday, 12.03.2026 09:47 | feat: add KI-Verzeichnis with automatic KI marker references and update author name in Quellen
+108149c | Thursday, 12.03.2026 09:47 | feat: implement KI-Verzeichnis and KI marker shortcodes for automatic generation of KI references in PDF layout
+dd1a408 | Thursday, 12.03.2026 09:46 | docs: add new documentation rules for IPA project, including guidelines for writing style, technical support, and content structure across various sections
+42c0c3f | Wednesday, 11.03.2026 10:49 | docs: update title and content of "Informieren" section to "Planen" with a focus on implementation strategies and planning diagrams
+31543fe | Wednesday, 11.03.2026 10:45 | docs: 10:45
+09f709c | Wednesday, 11.03.2026 10:45 | docs: add new requirement catalog for implementation, replacing previous version with updated functional and non-functional requirements
+d13c825 | Wednesday, 11.03.2026 10:44 | docs: update content in "Informieren" section to clarify project phase and enhance analysis chapters
+d3bd32b | Wednesday, 11.03.2026 10:11 | docs: correct spelling of "für" in project management method documentation
+dbcb6d2 | Wednesday, 11.03.2026 10:11 | docs: add new template for daily work journal entries
+f9d7434 | Wednesday, 11.03.2026 09:54 | docs: add Product Owner details and update related sections across project documentation
+de06463 | Tuesday, 10.03.2026 17:57 | docs: update scheduling and analysis sections in arbeitsjournal; add new requirement catalog for project implementation Done for the day
+0503fd9 | Tuesday, 10.03.2026 17:44 | docs: comment out sections in 01-Kurzfassung.md for future content addition
+81924ac | Tuesday, 10.03.2026 16:55 | chore: update IPA_Zeitplan.xlsx with latest scheduling adjustments
+c0c9404 | Tuesday, 10.03.2026 16:54 | Merge branch 'main' of https://github.com/isaaclins/individuelle-praktische-arbeit
+448bc69 | Tuesday, 10.03.2026 16:49 | chore: removed redundant %%
+f0317db | Tuesday, 10.03.2026 16:49 | chore: removed redundant %%
+181b13f | Tuesday, 10.03.2026 16:49 | milestone: Informieren DONE
+ebd9f6a | Tuesday, 10.03.2026 16:46 | docs: update version in configuration and add new chapter on project phase "Informieren"
+b61feda | Tuesday, 10.03.2026 16:46 | docs: update weights for Ist-Analyse and Pain Points sections to improve clarity and organization
+e586e80 | Tuesday, 10.03.2026 16:08 | docs: update title of Ist-analyse section for consistency and clarity
+5e833b2 | Tuesday, 10.03.2026 15:24 | docs: adjust scheduling and Ist-Analyse sections, clarify challenges faced during analysis, and document use of ChatGPT for grammar assistance
+d7ccc09 | Tuesday, 10.03.2026 15:12 | docs: enhance pain points section with context on manual scheduling due to limited tool usage
+5e0f58e | Tuesday, 10.03.2026 15:11 | docs: summarize key pain points from Product Owner feedback and their business impacts in the scheduling process
+1985cb2 | Tuesday, 10.03.2026 14:58 | docs: update Ist-analyse section with current scheduling process and pain points, and adjust titles and weights for clarity
+fccb110 | Tuesday, 10.03.2026 12:59 | docs: added excalidraw file for backup reasons
+2d29aa1 | Tuesday, 10.03.2026 12:58 | docs: add CLI definition to glossary and update in-scope section to reference glossary term
+ae7532d | Tuesday, 10.03.2026 12:54 | docs: update references to IPERKA and glossary terms in project methodology sections
+5f72ebd | Tuesday, 10.03.2026 12:52 | docs: Added entry for 12:52
+b7e4b33 | Tuesday, 10.03.2026 12:52 | docs: clarify project scope by defining in-scope and out-of-scope elements in the implementation section
+0f384a9 | Tuesday, 10.03.2026 12:50 | docs: remove 'Planen' section and add 'Informieren' section with initial content
+53df326 | Tuesday, 10.03.2026 12:50 | refactor: update figure shortcode to support inner content for captions and improve figure caption handling in documents
+56c3b1b | Tuesday, 10.03.2026 12:48 | docs: added Excalidraw entry to glossary and included new images for in-scope and out-of-scope
+ab8a3d2 | Tuesday, 10.03.2026 10:58 | fix: Zeitplan reordering for Expertenbesuch
+c940333 | Tuesday, 10.03.2026 10:58 | docs: added _index.md for projektphase planen
+4d92b1e | Tuesday, 10.03.2026 10:58 | docs: renamed and reordered analyse and abgrenzung via weight
+233d9e2 | Tuesday, 10.03.2026 10:57 | docs: added first entry for 10:57
+4cac44d | Tuesday, 10.03.2026 10:57 | fix: reordered the arbeitsjournal days
+7e14c5d | Tuesday, 10.03.2026 10:51 | docs: redacted numbers as per request
+4952bf6 | Tuesday, 10.03.2026 10:13 | docs: added template arbeitsjournal for 10.03.2026
+78c2bda | Tuesday, 10.03.2026 09:15 | docs: added ist-analyse
+2b4bb3f | Tuesday, 10.03.2026 09:15 | fix: renamed from _ to -
+f24384a | Monday, 09.03.2026 17:59 | docs last commit of the day
+c45a96a | Monday, 09.03.2026 17:51 | milestone: Teil 2
+e0512c0 | Monday, 09.03.2026 17:51 | docs: revised Kurzfassung to include detailed project objectives, methodology, and outcomes for the Analyst Shift Planning System
+cfffead | Monday, 09.03.2026 17:51 | docs: updated project timeline with specific dates and adjusted effort estimates for each phase
+282492b | Monday, 09.03.2026 17:26 | docs: removed boilerplate text
+9224105 | Monday, 09.03.2026 17:23 | docs: updated projektmanagementmethode.
+bcf74cc | Monday, 09.03.2026 17:16 | Added the Aufgabenstellung.pdf
+39cc111 | Monday, 09.03.2026 17:09 | docs: moved the arbeitsjournal to teil 1 as its a requirement.
+f46572a | Monday, 09.03.2026 17:04 | chore: added new time for code conv
+44ef9f2 | Monday, 09.03.2026 17:03 | docs: correct minor typos in activity descriptions and improve clarity in Arbeitsjournal entries
+07cebb4 | Monday, 09.03.2026 16:20 | fix: update resource links in HTML templates to use relURL for better path resolution
+e3fa0ad | Monday, 09.03.2026 16:15 | feat: add GitHub Actions workflow for building and deploying Hugo site to GitHub Pages
+b7d3524 | Monday, 09.03.2026 15:58 | docs: Added projektmanagementmethode
+8dffae2 | Monday, 09.03.2026 15:44 | docs: changed filename to 09.03.2026 and added entry for 15:44
+ca06a91 | Monday, 09.03.2026 15:39 | Meilenstein: finished Arbeitsorganisation
+e8a7c95 | Monday, 09.03.2026 15:33 | docs: update Arbeitsjournal for improved project organization and template adjustments
+524ebec | Monday, 09.03.2026 15:32 | docs: update Datensicherung documentation to include reference to GitHub version history illustration
+398e57b | Monday, 09.03.2026 15:32 | docs: add Datensicherung documentation outlining version control practices using GitHub
+736469e | Monday, 09.03.2026 15:08 | docs: add criteria overview section with visual aids for project management
+0233805 | Monday, 09.03.2026 14:23 | fix: implement global renumbering for figures and diagrams in PDF layout
+31bfcaf | Monday, 09.03.2026 14:23 | docs: refined documentation template and clarified glossary term usage
+45b5787 | Monday, 09.03.2026 14:17 | chore: moved zeitplan and removed test image.png
+8d18cf0 | Monday, 09.03.2026 14:17 | docs: Added Arbeitsplatz entry with functioning image
+3a727aa | Monday, 09.03.2026 14:10 | docs: updated Zeitplan weight and added Arbeitsorganisation section with structured work processes
+17a133e | Monday, 09.03.2026 14:10 | docs: moved project organizational chart and role descriptions for IPA team members
+c515b67 | Monday, 09.03.2026 14:06 | docs: added Testing documentation outlining the use of E2E and unit tests for component verification
+eb68b0d | Monday, 09.03.2026 14:05 | docs: added Arbeitsplatz documentation and glossary entries for End-to-End Tests and Unit Tests
+3f2235b | Monday, 09.03.2026 13:09 | docs: added team-internal coding standards documentation
+8d26e3c | Monday, 09.03.2026 13:04 | fix: made ^a, ^b, ^c work as intended.
+4b79936 | Monday, 09.03.2026 13:04 | docs: updated arbeitsjournal
+ce2cb72 | Monday, 09.03.2026 13:03 | docs: added docs explanation and new quellen as well as a new glossary entry
+6a7cc6b | Monday, 09.03.2026 12:44 | docs: added technical documentation template for IPA report using Markdown and Hugo
+7a346e1 | Monday, 09.03.2026 12:35 | docs: added declaration of company standards in Firmenstandards section
+887bb75 | Monday, 09.03.2026 12:17 | docs: added declaration of company coding policy?
+cf4256e | Monday, 09.03.2026 12:15 | docs: added missing - entries in zeitplan
+3f2bea3 | Monday, 09.03.2026 12:09 | docs: corrected detaillierte aufgabenstellung text
+b9c96fb | Monday, 09.03.2026 12:09 | docs: added real zeitplan information
+7f24277 | Monday, 09.03.2026 12:09 | docs: forgot to add text here
+e120eb5 | Monday, 09.03.2026 11:59 | fix: removed reduntant search for %
+c2a6dc3 | Monday, 09.03.2026 11:58 | milestone: Detaillierte Aufgabenstellung done
+5b1b886 | Monday, 09.03.2026 11:56 | docs: made organigramm better
+0ece033 | Monday, 09.03.2026 11:53 | docs: updated description in organigramm.md for clarity
+d82c264 | Monday, 09.03.2026 11:50 | docs: corrected phrasing for clarity in Zeitplan.md
+7608b7b | Monday, 09.03.2026 11:48 | fmt: formatted organigramm.md
+d3b27c8 | Monday, 09.03.2026 11:48 | fmt: removed whitespace
+0b68a55 | Monday, 09.03.2026 11:48 | docs: updated Tätigkeiten grammatic
+8cded4d | Monday, 09.03.2026 11:46 | docs: removed redundant text
+c8aef0e | Monday, 09.03.2026 11:46 | docs: deleted individuelle kriterien for we have a kriterienkatalog
+80107f6 | Monday, 09.03.2026 11:46 | docs: changed em-dash for better fitting dash
+a7611b2 | Monday, 09.03.2026 11:36 | docs: added Arbeiten in den letzen 6 Monate
+3c04732 | Monday, 09.03.2026 11:36 | docs: added actual neue lerninhalte
+b08034c | Monday, 09.03.2026 11:31 | fix: added correct markdown sublists
+05ff1cc | Monday, 09.03.2026 11:30 | docs: added vorarbeiten
+664b277 | Monday, 09.03.2026 11:30 | docs: added vorkenntnisse
+57cabd9 | Monday, 09.03.2026 11:30 | docs: added Mittel und Methoden with correct glossary entries
+49c5008 | Monday, 09.03.2026 11:29 | docs: added prüfbare ziele
+fc306fc | Monday, 09.03.2026 11:29 | docs: added erwartete resultate
+a6b5557 | Monday, 09.03.2026 11:29 | docs: added quellen's coding guidelines
+6eb31c9 | Monday, 09.03.2026 11:28 | fmt: formatted glossary.yaml
+fc178da | Monday, 09.03.2026 11:28 | docs: Added necessary glossaries
+949b5c0 | Monday, 09.03.2026 11:27 | docs: removed the template %% code for comments
+a5a6eb3 | Monday, 09.03.2026 11:27 | docs: added Ausgangslage
+1223d3f | Monday, 09.03.2026 11:26 | fix: wrong displaying of the ^X
+293da97 | Monday, 09.03.2026 11:10 | docs: checked Vorwort & template rewriting in the Zeitplan
+bc2357f | Monday, 09.03.2026 11:06 | fix: changed the image directory to static because hugo only serves from there.
+e69d355 | Monday, 09.03.2026 11:06 | docs: added entry for 11:06
+797fcef | Monday, 09.03.2026 10:24 | docs: added arbeitsjournal until 10:23
+a24ca77 | Monday, 09.03.2026 10:23 | docs: added text about Arbeitsjournal
+036a5be | Monday, 09.03.2026 10:22 | fmt: formatted 04_Zeitplan.md
+8d4473d | Monday, 09.03.2026 10:22 | docs: added vorwort.
+76bf6fa | Monday, 09.03.2026 09:58 | Update hugo.toml with finalized project metadata and configuration settings.
+7c2cf6a | Monday, 09.03.2026 09:25 | chore: added .DS_Store
+e0fdbd9 | Monday, 09.03.2026 09:24 | Replace IPA_Zeitplan_Template.xlsx with a new IPA_Zeitplan.xlsx file and created the Zeitplan
+f85d825 | Monday, 09.03.2026 09:23 | Update hugo.toml with real contact information.
+7dc7cbd | Monday, 09.03.2026 09:15 | chore: added temporary ~$IPA_Zeitplan.xlsx to .gitignore
+2f4b232 | Monday, 09.03.2026 09:08 | Initialized from https://github.com/isaaclins/Individuelle-Praktische-Arbeit-Vorlage

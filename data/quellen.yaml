@@ -1,0 +1,52 @@
+# ============================================================================
+# IPA Quellenverzeichnis (Bibliography / References)
+# ============================================================================
+# This file contains all sources referenced in the documentation.
+# Entries are rendered in the PDF under "Verzeichnisse > Quellenverzeichnis".
+#
+# Entry Format:
+#   - id: unique-identifier
+#     titel: "Title of the source"
+#     Autor: "Autor name(s)" (optional)
+#     jahr: Year of publication (optional)
+#     url: "https://..." (optional)
+#     url_text: "Visible link text" (optional, defaults to full URL)
+#     zugriff: "DD.MM.YYYY" - date accessed (optional, for online sources)
+#     typ: website | buch | artikel | dokumentation (optional, default: website)
+#     verlag: "Publisher" (optional, for books)
+#
+# Usage in content:
+#   Reference sources by their id. They will appear in the Quellenverzeichnis.
+# ============================================================================
+
+# Beispiel-Einträge (bitte anpassen)
+
+- id: coding_guidelines
+  titel: "Coding Guidelines"
+  Autor: "Isaac Lins"
+  jahr: 2026
+  url: "https://gist.github.com/isaaclins/b4d4cdc3b12891d09f3b3cdd846adb3f"
+  zugriff: "09.03.2026"
+  typ: dokumentation
+
+- id: ipa_vorlage_github
+  titel: "individuelle-praktische-arbeit-vorlage"
+  Autor: "Isaac Lins"
+  jahr: 2026
+  url: "https://github.com/isaaclins/individuelle-praktische-arbeit-vorlage"
+  zugriff: "09.03.2026"
+  typ: dokumentation
+
+- id: pkorg_detaillierte_aufgabenstellung_2026
+  titel: "Detaillierte Aufgabenstellung"
+  Autor: "PkOrg"
+  jahr: 2026
+  typ: dokumentation
+
+- id: eth_entscheidungsmatrix
+  titel: "Entscheidungsmatrix vorlage der ETH Zürich"
+  Autor: "ETH Zürich"
+  url: "https://ethz.ch/content/dam/ethz/main/education/bachelor/studienberatung/Studieninteressierte/files/Entscheidungsmatrix.xlsx"
+  url_text: "https://ethz.ch/.../Entscheidungsmatrix.xlsx"
+  zugriff: "13.03.2026"
+  typ: dokumentation

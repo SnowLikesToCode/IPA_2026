@@ -1,0 +1,190 @@
+baseURL = 'https://isaaclins.com/ipa'
+languageCode = 'de-ch'
+title = 'VORLAGE FÜR INDIVIDUELLE PRAKTISCHE ARBEIT'
+enableGitInfo = true 
+enableRobotsTXT = false
+# This is for the file generation of the arbeitsjournal, for it to work and publish the sites for future dates.
+buildFuture = true 
+# RSS & sitemap not needed? disable it.
+disableKinds = ['RSS', 'sitemap', 'taxonomy', 'term']
+
+# Automatically derive section order from filename prefixes
+# No manual weight maintenance required
+[frontmatter]
+  date = ['date', 'publishDate', 'lastmod']
+
+# custom Goldmark Markdown Renderer Configuration
+[markup]
+  defaultMarkdownHandler = 'goldmark'
+  
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      linkifyProtocol = 'https'
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    
+    [markup.goldmark.parser]
+      autoHeadingID = true
+      autoHeadingIDType = 'github'
+      
+      [markup.goldmark.parser.attribute]
+        block = true
+        title = true
+    
+    [markup.goldmark.renderer]
+      # Allow raw HTML in Markdown for advanced formatting
+      unsafe = true
+  
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = true
+    lineNumbersInTable = false
+    noClasses = false
+    style = 'monokai'
+    tabWidth = 4
+
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 4
+    ordered = true
+
+# Output Format Definitions
+[outputs]
+  home = ['HTML']
+  section = ['HTML']
+  page = ['HTML']
+
+# Custom output format for PDF compilation
+[outputFormats]
+  [outputFormats.PDF]
+    baseName = 'print'
+    isHTML = true
+    mediaType = 'text/html'
+    path = 'pdf'
+    permalinkable = false
+
+
+
+# ============================================================================
+# Configuration
+# ============================================================================
+# Navigation is generated dynamically from content sections (sorted by weight).
+# No manual menu entries needed — just add a new folder under content/ with an
+# _index.md that has a title and weight in its front matter.
+[params]
+  # IPA Metadata
+  thema = 'Erstellung einer visuellen Benutzeroberfläche für Cortex Cloud'
+  description = 'Ziel der IPA ist die Erstellung eines verständlichen Berichts mit Elastic Search EQL, der Betriebs- und Sicherheitskennzahlen aus Cortex Cloud und internen Systemen für Swisscom-Kunden zusammenfasst'
+  berufsschule = 'TBZ'
+
+  # Ausbildung
+  fachrichtung = 'Betriebsinformatiker'
+  projektvorgehensmodell = 'IPERKA'
+  jahrgangKanton = '2026 Zürich'
+
+  # Daten
+  ausgabedatum = '7. Mai 2026'
+  datumVon = '22. April'
+  datumBis = '7. Mai'
+
+  # Dokument-Metadaten
+  version = '1.0'
+  dokumentname = 'IPA - Nicola Maeder 2026.pdf'
+  
+  # PDF Generation Settings THIS IS VERY IMPORTANT; CORE FUNCTIONALITY
+  enablePDF = true
+  
+  # Configurable paths (used in links, glossary, footer, etc.)
+  glossarPath = "glossar/"
+  pdfPath = "pdf/"
+  # Section names to exclude from ToC and main navigation
+  tocExcludedSections = ["pdf"]
+  
+  # Feature Toggles THIS IS VERY IMPORTANT; CORE FUNCTIONALITY
+  enableGlossary = true
+  enableMermaid = true
+
+  # KaTeX not needed
+  enableKaTeX = false
+  
+  # Date Format (Swiss German)
+  dateFormat = '2. January 2006'
+
+# Privacy Settings (GDPR Compliance) diable everything
+
+[privacy]
+  [privacy.googleAnalytics]
+    disable = true
+  [privacy.x]
+    disable = true
+  [privacy.youtube]
+    disable = true
+  [privacy.vimeo]
+    disable = true
+# ============================================================================
+# Personen
+# ============================================================================
+
+[params.autor]
+  name = 'Nicola Maeder'
+  firma = 'Swisscom AG'
+  abteilung = 'SCS-INI-CIT-MCS-M1'
+  strasse = 'Förrlibuckstrasse 60/62'
+  plz = '8000'
+  ort = 'Zürich'
+  telefon = '+41 79 335 39 90'
+  email = 'nicola.maeder@swisscom.com'
+
+[params.berufsbildner]
+  name = 'Naguleswaran Nithursan'
+  firma = 'Swisscom AG'
+  strasse = 'Alte Tiefenausstrasse 6'
+  plz = '3048'
+  ort = 'Worblaufen'
+  telefonMobile = '+41 79 766 13 19'
+  telefonGeschaeft = '+41 58 221 56 31'
+  email = 'Nithursan.Naguleswaran@swisscom.com'
+
+[params.verantwortlicheFachkraft]
+  name = 'Laura Lenhardt'
+  firma = 'Swisscom AG'
+  strasse = 'Förrlibuckstrasse 181'
+  plz = '8000'
+  ort = 'Zürich'
+  telefonMobile = '+41 79 626 64 15'
+  telefonGeschaeft = '+41 58 224 17 53'
+  email = 'Laura.Lenhardt@swisscom.com'
+
+[params.hauptexperte]
+  name = 'Rudolf Kubli'
+  telefonMobile = '+41 79 655 88 88'
+  telefonGeschaeft = '+41 79 655 88 88'
+  email = 'ruedi.kubli@gmx.ch'
+
+[params.nebenexperte]
+  name = 'Mike Franceschetti'
+  telefonMobile = '079 341 06 97'
+  telefonGeschaeft = '079 341 06 97'
+  email = 'mike.franceschetti@gmail.com'
+
+[params.fachlicheUnterstuetzung]
+  name = 'Caggese Simone'
+  firma = 'Swisscom AG'
+  telefonGeschaeft = '+41 58 221 17 36'
+  email = 'Simone.Caggese@swisscom.com'
+
+
+
+
+[module]
+  [[module.mounts]]
+    source = 'content'
+    target = 'content'
+    excludeFiles = ['97-Verzeichnisse/Quellcode/shiftplanner/**']

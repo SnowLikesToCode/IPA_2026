@@ -1,0 +1,523 @@
+{
+  "criteria": [
+    {
+      "id": "A01",
+      "title": "Auftragsanalyse und Wahl einer Projektmethode",
+      "question": "Wie erfolgt die Auftragsanalyse? Welche Projektmethode kommt zum Einsatz?",
+      "requirements": [
+        "Der Projektauftrag wurde analysiert und die Erkenntnisse mittels geeigneter Darstellungsmethoden (z. B. Zielstruktur, Use-Case- oder Kontextdiagramm, Anforderungstabelle) schriftlich dokumentiert.",
+        "Dokumentation aus Punkt 1 liefert die Grundlage, um die Projektziele konsequent zu verfolgen.",
+        "Eine zur Aufgabe passende Projektmethode wurde ausgewählt.",
+        "Die Wahl der Projektmethode ist nachvollziehbar und schriftlich begründet."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "A02",
+      "title": "Informations-Recherche",
+      "question": "Wie werden Informationen recherchiert?",
+      "requirements": [
+        "Fehlende und für die IPA relevante Informationen wurden identifiziert und systematisch recherchiert.",
+        "Es wurde darauf verzichtet, allgemein bekannte Sachverhalte ausführlich wiederzugeben.",
+        "Alle verwendeten Informationen, einschliesslich solcher, die auf den Einsatz von künstlicher Intelligenz oder ähnlichen Technologien zurückzuführen sind, und die nicht auf eigener Leistung beruhen, sind entsprechend deklariert.",
+        "Die recherchierten Informationen sind verlässlich, aktuell und gültig."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "A03",
+      "title": "Informations-Aufbereitung und -Verwendung",
+      "question": "Wie werden Informationen effektiv aufbereitet und verwendet?",
+      "requirements": [
+        "Die verwendeten Informationen finden in einer klaren und übersichtlichen Dokumentation Niederschlag.",
+        "Es werden geeignete Visualisierungsmethoden wie Grafiken, Diagramme oder Tabellen eingesetzt.",
+        "Die bereitgestellten Informationen erlauben es einer Fachperson, ein umfassendes Verständnis der IPA (Dokumentation, Lösung) anzueignen.",
+        "Alle verwendeten Informationen stehen im Auftragskontext und finden im Projekt sinnvolle Anwendung."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "A04",
+      "title": "Zeitplan",
+      "question": "Was sind die Anforderungen an den Zeitplan?",
+      "requirements": [
+        "Der Zeitplan ist Bestandteil von Teil 1 des IPA-Berichts.",
+        "Der Zeitplan ist übersichtlich gestaltet.",
+        "Struktur und Elemente des Zeitplans orientieren sich nach der gewählten Projektmethode.",
+        "Es wurde eine Zeitachse definiert (Datum), die Zeitachse weist eine vernünftige Granularität auf (bspw. Stundenblöcke).",
+        "Die identifizierten Aktivitäten sind zweckmässig und folgen einer sinnvollen Logik.",
+        "Die IPA-Zeitvorgabe ist im Zeitplan korrekt berücksichtigt."
+      ],
+      "grading": {
+        "3": "6 von 6 Punkte erfüllt",
+        "2": "Vier oder fünf Punkte sind erfüllt.",
+        "1": "Zwei oder drei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "A05",
+      "title": "Überprüfung und Dokumentation der Fortschritte und Risiken",
+      "question": "Wie erfolgt die Überprüfung und Dokumentation des Projektfortschritts und der Risiken?",
+      "requirements": [
+        "Der Fortschritt wurde regelmässig überprüft, verständlich und korrekt dokumentiert.",
+        "Es gibt eine genaue Gegenüberstellung des geplanten und tatsächlichen Zeitplans (Soll-/Ist-Vergleich).",
+        "Es erfolgte eine periodische Risiko- und Problemüberprüfung. Bei einem allfälligen Eintreten eines Risikos oder Problems wurde professionell darauf reagiert. Es besteht hierzu ein schriftlicher Nachweis.",
+        "Nicht erreichte Ziele wie auch Korrekturmassnahmen und Nacharbeiten zur IPA sind beschrieben. Falls solche Aspekte nicht existieren, ist dies entsprechend begründet."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "A06",
+      "title": "Leistungsfähigkeit",
+      "question": "Wie ist die Leistung einzustufen?",
+      "requirements": [
+        "Die Projektziele wurden konsequent verfolgt, Prioritäten wurden erkannt und das Vorgehen darauf abgestimmt.",
+        "Die Aufgaben wurden effizient und ergebnisorientiert bearbeitet und entsprechen hinsichtlich Arbeitsleistung den Standards einer Informatik- Fachperson.",
+        "Ergebnisse und Arbeitsweise sind fachlich korrekt, praxisgerecht und entsprechen hinsichtlich Qualität und Professionalität den Standards einer Informatik-Fachperson."
+      ],
+      "grading": {
+        "3": "3 von 3 Punkte erfüllt",
+        "2": "Zwei Punkte sind erfüllt.",
+        "1": "Ein Punkt ist erfüllt.",
+        "0": "Kein Punkt ist erfüllt."
+      }
+    },
+    {
+      "id": "A07",
+      "title": "Selbständiges Arbeiten",
+      "question": "Wie selbständig wurde gearbeitet?",
+      "requirements": [
+        "Ziele und Aufgaben wurden eigenständig verfolgt.",
+        "Eine ausgeprägte Fähigkeit zur Problemlösung wurde demonstriert; Hindernisse wurden eigenständig überwunden und/oder fremde Hilfe wurde angemessen in Anspruch genommen.",
+        "Die Fähigkeit zur Selbstmotivation wurde gezeigt, das Engagement war hoch.",
+        "Die Fähigkeit zur Selbstreflexion wurde gezeigt."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "A08",
+      "title": "Anwendung der Fachsprache",
+      "question": "Wie ist die Anwendung der Fachsprache zu beurteilen?",
+      "requirements": [
+        "Das relevante Fachvokabular ist bekannt und wird konsistent und fachgerecht angewendet.",
+        "Fachinhalte wurden präzise formuliert und korrekt wiedergegeben.",
+        "Die Sprache ist durchgängig logisch strukturiert und ermöglicht dem Zielpublikum (externe Fachperson) ein klares Verständnis."
+      ],
+      "grading": {
+        "3": "3 von 3 Punkte erfüllt",
+        "2": "Zwei Punkte sind erfüllt.",
+        "1": "Ein Punkt ist erfüllt.",
+        "0": "Kein Punkt ist erfüllt."
+      }
+    },
+    {
+      "id": "A09",
+      "title": "Anwendung der Fachkompetenz",
+      "question": "Wie ist die Anwendung der Fachkompetenz zu beurteilen?",
+      "requirements": [
+        "Das theoretische Wissen ist vorhanden und konnte in praktischen Situationen erfolgreich angewandt werden. Bei offensichtlichem Mangel an theoretischem Wissen wird dieser Punkt nicht gesprochen.",
+        "Informationen und Sachverhalte wurden kritisch analysiert, um fundierte Schlussfolgerungen zu ziehen.",
+        "Der Anspruch der Transferleistung ist erfüllt, da Fähigkeiten und Kenntnisse auf unerwartete oder neuartige Aufgabenstellungen angewandt wurden.",
+        "Methoden und Werkzeuge wurden passend zur gewählten Projektmethode ausgewählt und wirkungsvoll eingesetzt."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "A10",
+      "title": "Interaktion im Projektteam",
+      "question": "Wie ist die Interaktion mit anderen Projektmitgliedern zu beurteilen?",
+      "requirements": [
+        "Relevante Informationen von Auftraggebern, Experten oder anderen Projektmitgliedern wurden sorgfältig aufgenommen und korrekt dokumentiert.",
+        "Rückmeldungen oder Vorgaben wurden nachvollziehbar umgesetzt und im Projektbericht nachgewiesen.",
+        "Die Kommunikation mit Projektbeteiligten erfolgte effizient und nachvollziehbar, z. B. über Projektmanagement- oder Kollaborationstools"
+      ],
+      "grading": {
+        "3": "3 von 3 Punkte erfüllt",
+        "2": "Zwei Punkte sind erfüllt.",
+        "1": "Ein Punkt ist erfüllt.",
+        "0": "Kein Punkt ist erfüllt."
+      }
+    },
+    {
+      "id": "A11",
+      "title": "Abbildung der Projektaufbauorganisation",
+      "question": "Welche Informationen zur Projektaufbauorganisation sind verlangt?",
+      "requirements": [
+        "Die zur gewählten Projektmethode relevanten Rollen wurden identifiziert.",
+        "Die Rollen wurden korrekt und verständlich beschrieben.",
+        "Die Projektaufbauorganisation ist grafisch dargestellt (z. B. als Organigramm), vollständig und die Abhängigkeiten zwischen den Rollen sind korrekt dargestellt.",
+        "Der schriftliche Nachweis dieser drei Punkte ist Bestandteil von Teil 1 des IPA-Berichts."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "A12-02",
+      "title": "Testdurchführung und Dokumentation",
+      "question": "Wie wurde die Testdurchführung organisiert und dokumentiert?",
+      "requirements": [
+        "Hinweis: Es gibt allgemeine Anforderungen sowie ergänzende für ein lineares bzw. agiles Vorgehen. Die vorgesetzte Fachkraft und die Experten bestimmen und deklarieren basierend auf der Wahl der Projektmethode, welche Vorgehensart geprüft wird. Gemeinsame Anforderungen:",
+        "Es wurde eine Beschreibung der Testinfrastruktur und des Umfelds bereitgestellt, sodass eine externe Fachperson die Tests mit gleichen Ergebnissen reproduzieren kann.",
+        "Verbesserungspotential wie auch Nacharbeiten wurden identifiziert. Falls weder Verbesserungspotential besteht noch Nacharbeit nötig ist, ist dies nachvollziehbar begründet. Ergänzende Anforderungen bei linearem Vorgehen",
+        "Relevante Testszenarien wie auch Testkomponenten (bspw. Funktionen, Daten, Dokumente, Performance, Schnittstellen etc.) sind inkl. der erwarteten Ergebnisse beschrieben.",
+        "Die Tests wurden basierend auf den Testszenarien durchgeführt. Die Ergebnisse sind korrekt und übersichtlich dokumentiert. Ergänzende Anforderungen bei agilem Vorgehen",
+        "Es existiert eine Definition of Done (DoD), die festlegt, welche Bedingungen erfüllt sein müssen, damit eine User Story oder ein Arbeitspaket als abgeschlossen gilt.",
+        "Die Tests wurden basierend auf der DoD durchgeführt. Die Ergebnisse sind korrekt und übersichtlich dokumentiert."
+      ],
+      "grading": {
+        "3": "7 von 7 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "G01",
+      "title": "Dokumentation fachlicher und technischer Anforderungen",
+      "question": "Wie wurden die fachlichen und technischen Anforderungen erfasst und dokumentiert?",
+      "requirements": [
+        "Die fachlichen und technischen Anforderungen sind vollständig, verständlich und nachvollziehbar dokumentiert.",
+        "Die Anforderungen sind lösungsneutral beschrieben und entsprechend ihrer Relevanz oder Priorität gekennzeichnet.",
+        "Die Anforderungen sind klar formuliert, eindeutig abgegrenzt und bei Bedarf mit Beispielen oder Akzeptanzkriterien ergänzt.",
+        "Die Dokumentation enthält einheitliche Begriffsdefinitionen und eine klare Struktur, sodass die Stakeholder diese problemlos verstehen."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "G12",
+      "title": "Testkonzepterstellung und Testfalldefinition",
+      "question": "Wie wurden Testkonzepte und Testfälle für die Applikationen und/oder Schnittstellen entwickelt?",
+      "requirements": [
+        "Das Testumfeld wurde vollständig beschrieben, inklusive System, Akteure, Daten, Benutzer und Berechtigungen, sodass eine aussenstehende Person dieses Umfeld reproduzieren kann.",
+        "Eine Auswahl geeigneter Testarten (Unit Tests, Integrationstests, Sicherheitstests etc.) wurde getroffen und die Begründung wurde dokumentiert.",
+        "Testfälle wurden klar in Bezug auf Anwendungsfälle und Anforderungen beschrieben, unter Berücksichtigung verschiedener Testperspektiven, und sind wiederholbar gestaltet (automatisiert oder manuell).",
+        "Erwartete Ergebnisse für jeden Testfall wurden definiert und sind nachvollziehbar dokumentiert. Unerwartete Ergebnisse bzw. Fehler wurden souverän behoben."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "G13",
+      "title": "Durchführung und Auswertung von Tests",
+      "question": "Wie wird die Durchführung von Tests organisiert und deren Ergebnisse ausgewertet?",
+      "requirements": [
+        "Eine geeignete Testumgebung wurde gemäss dem Testkonzept aufgebaut und alle automatisierbaren Testfälle wurden implementiert.",
+        "Testfälle wurden umfassend durchgeführt, wobei besonderes Augenmerk auf die Sorgfalt der Testdurchführung und die Nachvollziehbarkeit der Protokollierung gelegt wurde.",
+        "Ergebnisse der Testläufe wurden systematisch ausgewertet und dokumentiert; nicht erfolgreiche Testfälle wurden identifiziert und Korrekturmassnahmen eingeleitet.",
+        "Die Implementierung wurde gemäss dem Sicherheitskonzept überprüft, und bei Abweichungen wurden geeignete Korrekturmassnahmen getroffen."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "G15",
+      "title": "Weiterführende Test- und Qualitätssicherungsmassnahmen",
+      "question": "Wie sind weiterführende Test- und Qualitätsmassnahmen umzusetzen?",
+      "requirements": [
+        "Automatisierte Tests wurden umfassend implementiert, einschliesslich Unit-Tests, Integrationstests und gegebenenfalls End-to-End-Tests. Die Tests sind klar strukturiert und dokumentiert.",
+        "Test-Driven Development (TDD) wurde konsequent angewendet. Der Code wurde iterativ entwickelt, wobei zunächst die Tests geschrieben wurden, die die gewünschte Funktionalität überprüfen.",
+        "Es wurden geeignete Testtools und -frameworks (z.B. JUnit, TestNG, Selenium) eingesetzt, um Tests zu automatisieren, und die Ergebnisse der Tests wurden in regelmässigen Abständen überprüft. Zusätzlich wurden Metriken zur Testabdeckung erfasst und ausgewertet.",
+        "Die Projektdokumentation umfasst eine Beschreibung der Teststrategie, einschliesslich der verwendeten Automatisierungstools, der Struktur der Tests und der Vorgehensweise zur Sicherstellung der Testqualität. Es sind klare Anleitungen zur Durchführung der Tests enthalten, damit andere Entwickler die Qualitätssicherungsprozesse nachvollziehen können."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "H05",
+      "title": "Deployment-Praktiken und Artefakt-Verwaltung",
+      "question": "Wie werden Deployment-Praktiken und Artefakt-Verwaltung definiert und umgesetzt?",
+      "requirements": [
+        "Geeignete Deployment-Praktiken (z. B. Continuous Delivery, automatisierte Deployments) wurden praktisch definiert und umgesetzt.",
+        "Die Applikation wurde erfolgreich auf der vorgesehenen Umgebung bereitgestellt (z. B. Test-, Entwicklungs- oder lokale Umgebung).",
+        "Die Deployment-Schritte wurden in einer logischen Reihenfolge umgesetzt, sodass abhängige Komponenten korrekt starten. Beispielsweise wird die Datenbank zuerst bereitgestellt, danach das Backend und zum Schluss das Frontend.",
+        "Es wurde überprüft, ob die Applikation korrekt läuft, die Grundfunktionen wurden getestet, auftretende Probleme wurden behoben, sodass die Auslieferung stabil und nutzbar ist."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "H06",
+      "title": "Automatisierung des Auslieferungsprozesses",
+      "question": "Wie wird der Auslieferungsprozess effizient automatisiert?",
+      "requirements": [
+        "Die Auslieferung ist automatisiert, korrekt eingerichtet und funktioniert einwandfrei.",
+        "Die Auslieferung ist dokumentiert und für Aussenstehende nachvollziehbar.",
+        "Der Automatisierungsprozess wurde auf Effizienz und Fehlerfreiheit überprüft und bei Bedarf optimiert.",
+        "Es sind geeignete Kontrollmechanismen (z. B. Logs, Benachrichtigungen, Monitoring) implementiert, um Probleme frühzeitig zu erkennen."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "G02",
+      "title": "Validierung und Abstimmung von Anforderungen mit Stakeholdern",
+      "question": "Wie wurden die Anforderungen mit den Stakeholdern abgestimmt und validiert?",
+      "requirements": [
+        "Die Anforderungen wurden in Zusammenarbeit mit allen relevanten Stakeholdern (inklusive Endnutzern) überprüft und validiert.",
+        "Rückmeldungen und Änderungswünsche der Beteiligten wurden aufgenommen, dokumentiert und berücksichtigt.",
+        "Die endgültigen Anforderungen sind gemeinsam abgestimmt und für alle nachvollziehbar festgehalten.",
+        "Die Dokumentation der Anforderungen ist aktuell, inklusive aller Änderungen während des Entwicklungsprozesses."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "H08",
+      "title": "Überwachung der Stabilität und Performance von Applikationen",
+      "question": "Wie wird die Stabilität und Performance der Applikation überwacht?",
+      "requirements": [
+        "Kritische Performance-Indikatoren (z. B. Antwortzeiten, CPU-/Speicherauslastung) wurden definiert.",
+        "Tools oder Mechanismen zur Überwachung wurden eingerichtet und korrekt konfiguriert (z. B. Log-Level, Messpunkte).",
+        "Die Performance wurde regelmässig überprüft, Abweichungen wurden erkannt und dokumentiert.",
+        "Optimierungen oder Anpassungen wurden auf Basis der Überprüfung durchgeführt, um die Stabilität sicherzustellen."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "H04",
+      "title": "Integrationspraktiken für Auslieferungsprozesse",
+      "question": "Welche Integrationspraktiken sind für den Auslieferungsprozess geeignet?",
+      "requirements": [
+        "Abhängigkeiten zwischen den verschiedenen Komponenten im Hinblick auf den Auslieferungsprozess sind analysiert und dokumentiert.",
+        "Die Art und Weise, wie verschiedene Source-Codes geeignet zusammengefügt und freigegeben werden (bspw. Git-Flow, Trunk, Continuous Integration), ist definiert und korrekt umgesetzt.",
+        "Die ausgewählten Integrationspraktiken sind klar festgehalten und allen relevanten Teammitgliedern kommuniziert.",
+        "Planbare Migrationen (Code First, Datenbankschema) sind unter Berücksichtigung der Architektur berücksichtigt und in den Integrationsprozess integriert."
+      ],
+      "grading": {
+        "3": "4 von 4 Punkte erfüllt",
+        "2": "Drei Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "C03",
+      "title": "Datenmodell implementieren",
+      "question": "Wie wird ein Datenmodell implementiert?",
+      "requirements": [
+        "Es wurde ein geeignetes Datenbankmanagementsystem (bspw. MySQL) ausgewählt. Die Wahl wurde plausibel begründet.",
+        "Basierend auf dem Datenmodell wurden im Datenbankmanagementsystem Tabellen und Beziehungen angelegt.",
+        "Die Datenintegrität wurde durch den Einsatz von Integritätsregeln (Constraints) sowie Primär- und Fremdschlüsseln sichergestellt.",
+        "Es wurden Sicherheitsmassnahmen implementiert, um die Vertraulichkeit und Integrität der Daten zu gewährleisten.",
+        "Es wurden Massnahmen - wie bspw. Indexierung - zwecks Entsprechung der Performanceerwartung umgesetzt."
+      ],
+      "grading": {
+        "3": "5 von 5 Punkte erfüllt",
+        "2": "Drei oder vier Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "Doc1",
+      "title": "Gliederung",
+      "question": "Wie ist die Dokumentation gegliedert?",
+      "requirements": [
+        "Der IPA-Bericht gliedert sich in Teil 1 und 2 sowie allfällige Anhänge: Teil 1 umfasst die durch die Prüfungsorganisation zusätzlich geforderten Inhalte, während Teil 2 die Umsetzungsdokumentation beinhaltet. Etwaiger Quellcode oder weitere Ergänzungen wie Richtlinien sind Bestandteil des Anhangs.",
+        "Die Kapitelstruktur richtet sich nach den relevanten Schwerpunkten. Sie ist klar gegliedert, um eine einfache Navigation und Verständlichkeit für den Leser zu gewährleisten.",
+        "Die strukturellen Eigenheiten der gewählten Projektmethode sind in Teil 2 umgesetzt."
+      ],
+      "grading": {
+        "3": "3 von 3 Punkte erfüllt",
+        "2": "Zwei Punkte sind erfüllt.",
+        "1": "Ein Punkt ist erfüllt.",
+        "0": "Kein Punkt ist erfüllt."
+      }
+    },
+    {
+      "id": "Doc2",
+      "title": "Gestaltung der Dokumentation",
+      "question": "Wie ist die Dokumentation gestaltet?",
+      "requirements": [
+        "Es wird ein einheitlicher Formatsatz angewandt, der Konsistenz gewährleistet und dem Leser eine klare Orientierung bietet.",
+        "Es kommen ausgewogene Abstände zwischen Texten und Elementen zur Anwendung.",
+        "Die Gestaltung von Überschriften, Texten und Grafiken erleichtert den Lesefluss und behindert ihn nicht.",
+        "Die Überschriften enthalten relevante Informationen und erleichtern dem Leser die Orientierung.",
+        "Qualitative Seitenumbrüche stellen sicher, dass keine einzelnstehenden Zeilen am Ende oder am Anfang einer Seite auftreten."
+      ],
+      "grading": {
+        "3": "5 von 5 Punkte erfüllt",
+        "2": "Vier Punkte sind erfüllt.",
+        "1": "Zwei oder drei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "Doc3",
+      "title": "Formale Anforderungen an den IPA-Bericht",
+      "question": "Was sind die Anforderungen an die formale Vollständigkeit des IPA- Berichts?",
+      "requirements": [
+        "Der IPA-Bericht enthält…",
+        "auf allen Seiten (optional Titelblatt) eine Kopf- oder Fusszeile, eine korrekte Seitennummerierung, das aktuelle Druckdatum und den Kandidatennamen.",
+        "ein vollständiges Inhaltsverzeichnis.",
+        "ein alphabetisch sortiertes Glossar, das präzise Erläuterungen zu den verwendeten Fachbegriffen und Abkürzungen bietet. Die Bestandteile des Glossars sind auf externe Fachpersonen ausgerichtet. Es fehlen maximal drei relevante Komponenten.",
+        "ein vollständiges und gültiges Quellenverzeichnis. Weitere formale Vorgabe:",
+        "Der IPA-Bericht ist digital durchsuchbar (Screenshots und Grafiken sind von diesem Anspruch ausgenommen)."
+      ],
+      "grading": {
+        "3": "6 von 6 Punkte erfüllt",
+        "2": "Vier Punkte sind erfüllt.",
+        "1": "Zwei oder drei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "Doc4",
+      "title": "Schriftliche Brillanz",
+      "question": "Wie sind Rechtschreibung, Interpunktion und Grammatik zu beurteilen?",
+      "requirements": [
+        "Der Schreibstil ist flüssig, der Text ist durchweg klar und verständlich geschrieben.",
+        "Die Sätze sind vollständig und ausführlich formuliert.",
+        "Rechtschreibung, Interpunktion und Grammatik weisen keine oder nur vereinzelt kleine Schwächen auf."
+      ],
+      "grading": {
+        "3": "3 von 3 Punkte erfüllt",
+        "2": "Die Gütestufe 3 wurde nicht vollständig erreicht. Bspw. aus folgenden Gründen: Der Schreibstil zeigt einige Schwächen, die Klarheit des Textes könnte verbessert werden. Einige Sätze sind nicht vollständig oder ausführlich genug. Rechtschreibung, Interpunktion und Grammatik weisen kleinere Schwächen auf, die die Lesbarkeit nicht beeinträchtigen.",
+        "1": "Die Gütestufe 3 wurde wesentlich verfehlt. Bspw. aus folgenden Gründen: Der Schreibstil ist wenig flüssig, der Text weist erhebliche Verständnisschwierigkeiten auf. Viele Sätze sind unvollständig oder knapp formuliert. Rechtschreibung, Interpunktion und Grammatik zeigen deutliche Schwächen, die die Lesbarkeit erheblich beeinträchtigen.",
+        "0": "Die Gütestufe 3 wurde nicht annähernd erreicht. Bspw. aus folgenden Gründen: Der Schreibstil ist mangelhaft, der Text ist schwer verständlich. Viele Sätze sind unvollständig oder undeutlich formuliert. Rechtschreibung, Interpunktion und Grammatik weisen erhebliche Mängel auf, die die Gesamtqualität stark beeinträchtigen."
+      }
+    },
+    {
+      "id": "Doc5",
+      "title": "Visuelle Anforderungen an Abbildungen",
+      "question": "Welche visuellen Kriterien sind für Abbildungen (bspw. Grafiken, Bilder, Diagramme und Tabellen) zu erfüllen?",
+      "requirements": [
+        "Die Abbildungen sind gut lesbar, wobei ausreichender Kontrast und angemessene Grösse berücksichtigt wurden (als Referenz dient der Ausdruck auf Format A4).",
+        "Die Abbildungen sind klar und verständlich, um eine einfache Interpretation und Informationsaufnahme zu ermöglichen.",
+        "Die Abbildungen weisen aussagekräftige Beschriftungen/Legenden auf, um den Inhalt zu erklären und zu kontextualisieren."
+      ],
+      "grading": {
+        "3": "3 von 3 Punkte erfüllt",
+        "2": "Zwei Punkte sind erfüllt.",
+        "1": "Ein Punkt ist erfüllt.",
+        "0": "Kein Punkt ist erfüllt."
+      }
+    },
+    {
+      "id": "Doc6",
+      "title": "Kurzfassung des IPA-Berichts",
+      "question": "Was sind die Anforderungen an eine Kurzfassung?",
+      "requirements": [
+        "Die Kurzfassung ist Bestandteil von Teil 2 des IPA-Berichts.",
+        "Es werden die Kerninformationen wiedergegeben, weder mehr noch weniger.",
+        "Die Kurzfassung beschränkt sich auf eine A4-Seite und enthält keine Grafik.",
+        "Die Kurzfassung weist eine klare Struktur auf und beinhaltet 3 bis 4 Kapitel.",
+        "Die Ausrichtung auf die Zielgruppe ist gewährleistet.",
+        "Die Kurzfassung endet sinnvoll, bspw. mit einer Schlussfolgerung oder einer Empfehlung.",
+        "Die Kurzfassung ist objektiv und verzichtet auf die Schilderung persönlicher Erfahrungen."
+      ],
+      "grading": {
+        "3": "7 von 7 Punkte erfüllt",
+        "2": "Fünf oder sechs Punkte sind erfüllt.",
+        "1": "Drei oder vier Punkte sind erfüllt.",
+        "0": "Weniger als drei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "Doc7",
+      "title": "Führung des Arbeitsjournals",
+      "question": "Was ist beim Führen des Arbeitsjournals zu beachten?",
+      "requirements": [
+        "Das Arbeitsjournal ist Bestandteil von Teil 1 des IPA-Berichts.",
+        "Die Darstellung ist übersichtlich, klar und verständlich.",
+        "Das Arbeitsjournal besteht aus individuellen Tagesberichten.",
+        "Alle Aktivitäten gemäss Zeitplan sowie Überzeiten und ungeplante Arbeiten sind erwähnt.",
+        "Erfolge und Misserfolge sind erwähnt. Misserfolge werden kritisch hinterfragt.",
+        "Alle genutzten Unterstützungen, einschliesslich Hilfestellungen und KI- Nutzung, sind vollständig aufgelistet und begründet."
+      ],
+      "grading": {
+        "3": "6 von 6 Punkte erfüllt",
+        "2": "Vier oder fünf Punkte sind erfüllt.",
+        "1": "Zwei oder drei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    },
+    {
+      "id": "Doc8",
+      "title": "Persönliches Fazit",
+      "question": "Was ist beim Verfassen des persönlichen Fazits zu berücksichtigen?",
+      "requirements": [
+        "Das persönliche Fazit ist Bestandteil von Teil 1 des IPA-Berichts. Das persönliche Fazit gewährt einen objektiven Einblick in folgende Komponenten:",
+        "Herausforderungen",
+        "Lernerfahrung",
+        "Entwicklungsperspektiven. Es wird aufgezeigt, was bei einem künftig ähnlichen Projekt besser oder anders gemacht wird.",
+        "Beurteilung des Erfolgs."
+      ],
+      "grading": {
+        "3": "5 von 5 Punkte erfüllt",
+        "2": "Drei oder vier Punkte sind erfüllt.",
+        "1": "Zwei Punkte sind erfüllt.",
+        "0": "Weniger als zwei Punkte sind erfüllt."
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{{- /*
+  Ref Shortcode - Cross-reference to figures, diagrams, sections
+  
+  Usage:
+    {{< ref "fig-1" >}}
+    {{< ref "diagram-1" >}}
+    {{< ref "#konzept" >}}
+    {{< ref "coding_guidelines" "Coding Guidelines" >}}
+  
+  Behaviour:
+  - If target matches an entry in data/quellen.yaml, renders citation text with
+    a letter superscript (a, b, c, ...) and tracks it for quellenverzeichnis.
+  - Otherwise, creates a regular internal link to the referenced element.
+*/ -}}
+
+{{- $target := .Get 0 -}}
+{{- $text := .Get 1 | default $target -}}
+{{- $targetId := strings.TrimPrefix "#" $target -}}
+{{- $source := dict -}}
+
+{{- range $.Site.Data.quellen -}}
+  {{- if eq (lower .id) (lower $targetId) -}}
+    {{- $source = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $source.id -}}
+  {{- $refsStoreKey := printf "usedSourceRefs:%s" $.Page.RelPermalink -}}
+  {{- $usedRefs := $.Site.Store.Get $refsStoreKey | default (slice) -}}
+  {{- $usedRefs = $usedRefs | append $source.id -}}
+  {{- $.Site.Store.Set $refsStoreKey $usedRefs -}}
+  {{- $index := sub (len $usedRefs) 1 -}}
+
+  {{- $letters := slice "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v" "w" "x" "y" "z" -}}
+  {{- $label := cond (lt $index (len $letters)) (index $letters $index) (printf "%d" (add $index 1)) -}}
+  {{- $sourceAnchor := printf "#quelle-%s" ($source.id | urlize) -}}
+
+  <a href="{{ $sourceAnchor }}" class="source-ref-inline" title="Quelle {{ $source.id }}">{{ $text }}</a><a href="{{ $sourceAnchor }}" class="source-ref-marker" title="Quelle {{ $source.id }}"><sup>{{ $label }}</sup></a>
+{{- else -}}
+  <a href="#{{ $targetId }}" class="internal-ref">{{ $text }}</a>
+{{- end -}}

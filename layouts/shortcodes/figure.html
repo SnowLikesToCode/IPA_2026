@@ -1,0 +1,73 @@
+{{- /*
+  Figure Shortcode - Automatic Figure Numbering
+  
+  Usage:
+    {{< figure src="/images/example.png" caption="My caption" >}}
+    {{< figure src="/images/example.png" id="fig-example" >}}
+      My caption with {{< glossary "API" >}}
+    {{< /figure >}}
+  
+  Features:
+  - Automatic global figure numbering using Scratch
+  - Support for captions via caption param or inner content
+  - Support for custom IDs for cross-referencing
+  - Support for alt text
+  - Support for width/height
+  
+  Parameters:
+  - src: Image source path (required)
+  - caption: Figure caption as plain text (optional)
+  - Inner content: Rich caption with nested shortcodes (optional)
+  - id: Custom anchor ID (optional, auto-generated if not provided)
+  - alt: Alt text (optional, defaults to caption)
+  - width: Image width (optional)
+  - height: Image height (optional)
+  - loading: Image loading behavior (optional, lazy|eager|auto; defaults to lazy)
+  - class: Additional CSS classes (optional)
+*/ -}}
+
+{{- /* Initialize global figure counter if not exists */ -}}
+{{- if not (.Page.Scratch.Get "figureCounter") -}}
+  {{- .Page.Scratch.Set "figureCounter" 0 -}}
+{{- end -}}
+
+{{- /* Increment figure counter */ -}}
+{{- $figNum := add (.Page.Scratch.Get "figureCounter") 1 -}}
+{{- .Page.Scratch.Set "figureCounter" $figNum -}}
+
+{{- /* Get parameters */ -}}
+{{- $src := .Get "src" -}}
+{{- $caption := .Get "caption" | default "" -}}
+{{- $innerCaption := .Inner | default "" | strings.TrimSpace -}}
+{{- if ne $innerCaption "" -}}
+  {{- $caption = $innerCaption -}}
+{{- end -}}
+{{- $id := .Get "id" | default (printf "fig-%d" $figNum) -}}
+{{- $alt := .Get "alt" | default ($caption | plainify) -}}
+{{- $width := .Get "width" -}}
+{{- $height := .Get "height" -}}
+{{- $loading := .Get "loading" | default "lazy" -}}
+{{- $class := .Get "class" | default "" -}}
+
+{{- /* Build proper URL with base path */ -}}
+{{- $imgURL := $src -}}
+{{- if hasPrefix $src "/" -}}
+  {{- $basePath := urls.Parse .Site.BaseURL -}}
+  {{- $imgURL = printf "%s%s" (strings.TrimSuffix "/" $basePath.Path) $src -}}
+{{- end -}}
+
+<figure id="{{ $id }}" class="figure {{ $class }}">
+  <img 
+    src="{{ $imgURL }}" 
+    alt="{{ $alt }}"
+    {{ with $width }}width="{{ . }}"{{ end }}
+    {{ with $height }}height="{{ . }}"{{ end }}
+    loading="{{ $loading }}"
+  >
+  {{ with $caption }}
+  <figcaption>
+    <span class="figure-label">Abbildung {{ $figNum }}:</span>
+    <span class="figure-caption">{{ . | safeHTML }}</span>
+  </figcaption>
+  {{ end }}
+</figure>

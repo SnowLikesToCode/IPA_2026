@@ -1,0 +1,44 @@
+{{- /*
+  Glossary Shortcode - Term Lookup with Tooltip
+  
+  Usage:
+    {{< glossary "API" >}}
+    {{< glossary "REST" >}}
+  
+  Features:
+  - Looks up term definition from data/glossary.yaml
+  - Creates tooltip on hover showing definition
+  - Links to glossary page anchor
+  - Tracks which terms are used for glossary index
+  
+  Data file format (data/glossary.yaml):
+  - id: api
+    term: API
+    definition: Application Programming Interface...
+*/ -}}
+
+{{- $term := .Get 0 -}}
+{{- $termLower := $term | lower -}}
+{{- $found := false -}}
+{{- $definition := "" -}}
+{{- $termId := "" -}}
+
+{{- /* Search for term in glossary data */ -}}
+{{- range $.Site.Data.glossary -}}
+  {{- if or (eq (lower .term) $termLower) (eq (lower .id) $termLower) -}}
+    {{- $found = true -}}
+    {{- $definition = .definition -}}
+    {{- $termId = .id -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Track used glossary terms for index generation */ -}}
+{{- if not ($.Page.Scratch.Get "usedGlossaryTerms") -}}
+  {{- $.Page.Scratch.Set "usedGlossaryTerms" (slice) -}}
+{{- end -}}
+{{- if $found -}}
+  {{- $usedTerms := $.Page.Scratch.Get "usedGlossaryTerms" -}}
+  {{- $.Page.Scratch.Set "usedGlossaryTerms" ($usedTerms | append $termId) -}}
+{{- end -}}
+
+{{- if $found -}}<span class="glossary-term" data-term="{{ $termId }}"><a href="{{ (($.Site.Params.glossarPath | default "glossar/") | absURL) }}#glossar-{{ $termId | urlize }}" class="glossary-link">{{- $term -}}</a><span class="glossary-tooltip" role="tooltip"><strong>{{ $term }}</strong>: {{ $definition | truncate 200 }}</span></span>{{- else -}}<span class="glossary-term glossary-term-missing" title="Term not found in glossary">{{- $term -}}</span>{{- end -}}

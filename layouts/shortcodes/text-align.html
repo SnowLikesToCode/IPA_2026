@@ -1,0 +1,21 @@
+{{- /*
+  Text Align Shortcode
+
+  Usage:
+    {{< text-align "left" >}}...{{< /text-align >}}
+    {{< text-align "center" >}}...{{< /text-align >}}
+    {{< text-align "right" >}}...{{< /text-align >}}
+    {{< text-align "fill" >}}...{{< /text-align >}}
+
+  Purpose:
+  - Applies text alignment to a content block
+  - Supports: left, center, right, fill (justify)
+*/ -}}
+{{- $align := (.Get 0 | default "left" | lower) -}}
+{{- $allowed := slice "left" "center" "right" "fill" -}}
+{{- if not (in $allowed $align) -}}
+  {{- $align = "left" -}}
+{{- end -}}
+<div class="text-align text-align-{{ $align }}">
+  {{ .Inner | markdownify }}
+</div>

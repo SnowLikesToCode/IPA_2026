@@ -1,0 +1,39 @@
+{{- /*
+  Head Partial - HTML Head Section
+  
+  Contains meta tags, stylesheets, and other head elements.
+  Supports SEO, Open Graph, and various integrations.
+*/ -}}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+{{/* SEO Meta Tags */}}
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="Autor" content="{{ .Site.Params.Autor }}">
+
+{{/* Open Graph */}}
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+
+{{/* Favicon */}}
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+
+{{/* Main Stylesheet */}}
+<link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+{{ if .Params.checklistPage }}
+<link rel="stylesheet" href="{{ "css/ipa-checklist.css" | relURL }}">
+{{ end }}
+
+{{/* Mermaid is loaded lazily by the diagram shortcode — no global load needed */}}
+
+{{/* KaTeX (optional math support) */}}
+{{ if .Site.Params.enableKaTeX }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+{{ end }}

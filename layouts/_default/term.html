@@ -1,0 +1,25 @@
+{{- /*
+  Term Layout - Single Taxonomy Term
+  
+  Displays all pages associated with a specific term.
+*/ -}}
+
+{{ define "main" }}
+<article class="term-page">
+  <header class="section-header">
+    <h1>{{ .Title }}</h1>
+    <p class="term-count">{{ len .Pages }} Einträge</p>
+  </header>
+  
+  <div class="begriffserklaerung-list">
+    {{ range .Pages }}
+    <article class="term-item">
+      <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+      {{ with .Description }}
+      <p>{{ . }}</p>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

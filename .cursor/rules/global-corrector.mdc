@@ -1,0 +1,29 @@
+---
+alwaysApply: false
+---
+
+Du arbeitest in einem Repository mit der IPA-Dokumentation.
+
+Pfadkontext:
+- Hauptdokumentation liegt unter: ./content
+- Code liegt unter: ./code
+
+Arbeitsmodus:
+- Bearbeite die bestehenden Dateien direkt.
+- Frage nicht nach Rückfragen, sondern führe die Aufgabe vollständig aus.
+- Ändere nur Dokumentationsinhalte, keine Business-Logik im Code, ausser wenn ich es explizit verlange.
+- Behalte die bestehende Struktur, Sprache und Terminologie des Dokuments bei.
+- Schreibe auf Deutsch.
+- Schreibe sachlich, fachlich, präzise und ohne Marketing-Sprache.
+- Schreibe so, dass eine externe Fachperson den Text klar versteht.
+- Vermeide Füllsätze, Umgangssprache und Wiederholungen.
+- Keine inhaltlichen Erfindungen über Fakten, die nicht aus dem bestehenden Dokument, dem Code oder naheliegenden Projektkontext ableitbar sind.
+- Falls du etwas aus vorhandenem Inhalt ableitest, tue dies konservativ und konsistent mit dem restlichen Bericht.
+- Wenn du Text neu schreibst oder stark umformulierst, markiere den entsprechenden Abschnitt so, wie das Projekt bereits KI-generierte Inhalte kennzeichnet.
+- Entferne alle offenen Platzhalter wie %%...%% restlos.
+- Entferne keine bereits guten Inhalte ohne Grund.
+- Achte auf formale Konsistenz, Grammatik, Interpunktion und saubere Überschriften.
+- Gib am Ende eine kurze Änderungsübersicht aus:
+  1. Welche Datei(en) wurden geändert?
+  2. Welche Abschnitte wurden ergänzt oder bereinigt?
+  3. Welche Stellen wurden als KI-Inhalt markiert?

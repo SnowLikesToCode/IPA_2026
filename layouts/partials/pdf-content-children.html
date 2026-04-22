@@ -1,0 +1,53 @@
+{{- /*
+  Recursive content children renderer for PDF.
+  Renders subsections and pages with appropriate heading levels (h2-h6).
+  Children of sections are nested inside their parent for proper page breaks.
+
+  Page break rules:
+  - Depth ≤ 2: forced page break after (pdf-section class)
+  - Depth > 2: content flows naturally within parent
+
+  Params (passed via dict):
+    .pages    - collection of child pages to render
+    .prefix   - numbering prefix string (e.g., "1", "1.1")
+    .numbered - whether to show numbers
+    .depth    - current nesting depth (starts at 2 for first children)
+*/ -}}
+{{- range $idx, $page := .pages -}}
+{{- $num := add $idx 1 -}}
+{{- $currentPrefix := "" -}}
+{{- if $.numbered -}}
+{{- $currentPrefix = printf "%s.%d" $.prefix $num -}}
+{{- end -}}
+{{- $id := partial "page-id" $page -}}
+{{- $pageBreak := le $.depth 2 -}}
+{{- $verzeichnis := $.verzeichnis -}}
+<section id="{{ $id }}" class="subchapter depth-{{ $.depth }}{{ if $verzeichnis }} verzeichnis-subsection{{ end }}{{ if $pageBreak }} pdf-section{{ end }}">
+  <header class="subchapter-header">
+    {{- if $.numbered -}}
+    <div class="subchapter-number">{{ $currentPrefix }}</div>
+    {{- end -}}
+    {{- if eq $.depth 2 -}}
+    <h2 class="{{ if $verzeichnis }}verzeichnis-title{{ else }}subchapter-title{{ end }}">{{ $page.Title }}</h2>
+    {{- else if eq $.depth 3 -}}
+    <h3 class="subchapter-title">{{ $page.Title }}</h3>
+    {{- else if eq $.depth 4 -}}
+    <h4 class="subchapter-title">{{ $page.Title }}</h4>
+    {{- else if eq $.depth 5 -}}
+    <h5 class="subchapter-title">{{ $page.Title }}</h5>
+    {{- else -}}
+    <h6 class="subchapter-title">{{ $page.Title }}</h6>
+    {{- end -}}
+  </header>
+  {{- with $page.Content -}}
+  <div class="subchapter-content">{{ . }}</div>
+  {{- end -}}
+  {{- if and $page.IsSection $page.Pages -}}
+  {{- $childPages := $page.Pages.ByWeight -}}
+  {{- if eq $page.Params.pdfLayout "journal" -}}
+    {{- $childPages = sort $page.Pages "Date" "asc" -}}
+  {{- end -}}
+  {{- partial "pdf-content-children" (dict "pages" $childPages "prefix" $currentPrefix "numbered" $.numbered "depth" (add $.depth 1)) -}}
+  {{- end -}}
+</section>
+{{- end -}}

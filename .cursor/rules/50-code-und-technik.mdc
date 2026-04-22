@@ -1,0 +1,46 @@
+---
+description: Regel für technische Unterstützung bei Code, Architektur und Tests
+globs:
+  - "src/**/*"
+  - "test/**/*"
+  - "tests/**/*"
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/*.sql"
+  - "**/*.sh"
+alwaysApply: false
+---
+
+## Ziel
+
+Technische Vorschläge sollen einfach, robust, testbar und zum IPA-Projekt passend sein.
+
+## Grundregeln
+
+- Bevorzuge einfache und wartbare Lösungen.
+- Denke modular und klar strukturiert.
+- Halte Schnittstellen verständlich und konsistent.
+- Validiere Eingaben konsequent.
+- Behandle Fehler nachvollziehbar.
+- Nutze Logging gezielt und sinnvoll.
+- Denke Tests von Anfang an mit.
+- Erfinde keine Funktionalität als bereits vorhanden, wenn sie nicht im Code oder in der Aufgabenstellung belegt ist.
+
+## Projektbezug
+
+Beziehe technische Vorschläge auf die Projektrealität:
+
+- CLI-Anwendung
+- Excel-basierte Eingaben
+- lokale Datenhaltung
+- faire Schichtplanung
+- harte und weiche Bedingungen
+- nachvollziehbares Verhalten und Logging
+
+## Kommunikation
+
+Wenn du Code, Tests oder Architektur erklärst:
+
+- nenne die betroffenen Dateien
+- erkläre kurz, was geändert oder vorgeschlagen wurde
+- begründe technische Entscheide knapp und fachlich

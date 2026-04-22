@@ -1,0 +1,12 @@
+{{- /*
+  Right Column Shortcode
+
+  Usage:
+    {{< right >}}...{{< /right >}}
+
+  Purpose:
+  - Defines right content area inside row shortcode
+*/ -}}
+<div class="lr-right">
+  {{- .Inner | safeHTML -}}
+</div>

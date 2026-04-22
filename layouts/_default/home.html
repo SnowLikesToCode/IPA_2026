@@ -1,0 +1,77 @@
+{{- /*
+  Home Layout - Titelblatt (Title Page)
+  
+  Renders the main title page of the IPA documentation.
+  Displays all metadata from site params.
+*/ -}}
+
+{{ define "main" }}
+<div class="titelblatt">
+  <div class="titelblatt-content">
+    <div class="titelblatt-header">
+      <h1 class="document-type">Individuelle Praktische Arbeit</h1>
+    </div>
+    
+    <div class="titelblatt-title">
+      <h1 class="ipa-title">{{ .Site.Params.thema | default .Site.Title }}</h1>
+    </div>
+    
+    <div class="titelblatt-meta">
+      <table class="meta-table">
+        <tr><th>Autor:</th><td>{{ .Site.Params.autor.name }}</td></tr>
+        <tr><th>Firma:</th><td>{{ .Site.Params.autor.firma }}</td></tr>
+        <tr><th>Abteilung:</th><td>{{ .Site.Params.autor.abteilung }}</td></tr>
+        <tr><th>Berufsschule:</th><td>{{ .Site.Params.berufsschule }}</td></tr>
+        <tr><th>Berufsbildner (VEX):</th><td>{{ .Site.Params.berufsbildner.name }}</td></tr>
+        <tr><th>Hauptexperte (HEX):</th><td>{{ .Site.Params.hauptexperte.name }}</td></tr>
+        <tr><th>Nebenexperte (NEX):</th><td>{{ .Site.Params.nebenexperte.name }}</td></tr>
+        <tr><th>Verantwortliche Fachkraft (VF):</th><td>{{ .Site.Params.verantwortlicheFachkraft.name }}</td></tr>
+        <tr><th>Fachliche Unterstützung:</th><td>{{ .Site.Params.fachlicheUnterstuetzung.name }}</td></tr>
+        <tr><th>Berufsbildner:</th><td>{{ .Site.Params.berufsbildner.name }}</td></tr>
+        <tr><th>Fachrichtung:</th><td>{{ .Site.Params.fachrichtung }}</td></tr>
+        <tr><th>Projektvorgehensmodell:</th><td>{{ .Site.Params.projektvorgehensmodell }}</td></tr>
+        <tr><th>Jahrgang und Kanton:</th><td>{{ .Site.Params.jahrgangKanton }}</td></tr>
+        <tr><th>Ausgabedatum:</th><td>{{ .Site.Params.ausgabedatum }}</td></tr>
+        <tr><th>Datum:</th><td>{{ .Site.Params.datumVon }} - {{ .Site.Params.datumBis }}</td></tr>
+        <tr><th>Version:</th><td>{{ .Site.Params.version }}</td></tr>
+      </table>
+    </div>
+    
+    {{ with .Content }}
+    <div class="titelblatt-description">
+      {{ . }}
+    </div>
+    {{ end }}
+  </div>
+</div>
+
+<section class="home-navigation">
+  <h2>Inhaltsverzeichnis</h2>
+  <nav class="toc-overview">
+    {{- $tocNum := 0 -}}
+    {{- $excluded := .Site.Params.tocExcludedSections | default (slice "pdf" "glossar") -}}
+    {{- range .Site.Sections.ByWeight -}}
+      {{- if not (in $excluded .Section) -}}
+        {{- $layout := .Params.pdfLayout -}}
+        {{- $showNumber := or (eq $layout "chapter") (and (not $layout) (ne false .Params.chapter) (not .Params.hideNumbering)) -}}
+        {{- if $showNumber -}}
+          {{- $tocNum = add $tocNum 1 -}}
+        {{- end -}}
+        <div class="toc-entry">
+          <a href="{{ .Permalink }}" class="toc-entry-link">
+            {{- if $showNumber -}}
+            <span class="toc-entry-num">{{ $tocNum }}.</span>
+            {{- end -}}
+            <span class="toc-entry-title">{{ .Title }}</span>
+          </a>
+          {{- if and .Pages (ne $layout "journal") -}}
+          <ul class="toc-entry-sub">
+            {{- partial "toc-children" (dict "pages" .Pages.ByWeight "prefix" (printf "%d" $tocNum) "numbered" $showNumber "depth" 2 "web" true) -}}
+          </ul>
+          {{- end -}}
+        </div>
+      {{- end -}}
+    {{- end -}}
+  </nav>
+</section>
+{{ end }}

@@ -1,0 +1,41 @@
+---
+description: Qualitätsregel für fachliche IPA-Texte
+globs:
+  - "content/**/*.md"
+  - "content/**/*.mdx"
+alwaysApply: false
+---
+
+## Ziel
+
+Fachtexte sollen für die IPA fachlich tragfähig, nachvollziehbar und bewertbar sein.
+
+## Anforderungen an jeden Fachtext
+
+- Beschreibe Sachverhalte konkret statt allgemein.
+- Beziehe Aussagen auf das tatsächliche Projekt und nicht auf generische Standardfälle.
+- Schreibe so, dass eine externe Fachperson den Gedankengang nachvollziehen kann.
+- Trenne sauber zwischen Analyse, Entscheid, Umsetzung, Test und Reflexion, wenn diese Ebenen relevant sind.
+- Begründe technische oder methodische Entscheide nachvollziehbar.
+- Vermeide unbelegte Behauptungen und leere Phrasen.
+- Vermeide Füllsätze, die keinen fachlichen Mehrwert liefern.
+
+## Bevorzugte Struktur
+
+Wenn passend, orientiere dich an diesen Denkmustern:
+
+- Ausgangslage
+- Problem oder Bedarf
+- Analyse
+- Entscheid
+- Begründung
+- Umsetzung
+- Ergebnis
+- Grenzen oder offene Punkte
+
+## Stil
+
+- konkret statt allgemein
+- präzise statt ausschweifend
+- sachlich statt werblich
+- nachvollziehbar statt vage

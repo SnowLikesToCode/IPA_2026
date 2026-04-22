@@ -1,0 +1,38 @@
+{{- /*
+  Table shortcode with mandatory caption.
+
+  Usage:
+    {{< table "Titel der Tabelle" >}}
+    | Spalte A | Spalte B |
+    | -------- | -------- |
+    | Wert 1   | Wert 2   |
+    {{< /table >}}
+*/ -}}
+{{- $caption := "" -}}
+{{- if .IsNamedParams -}}
+  {{- $caption = trim (.Get "caption") " " -}}
+{{- else -}}
+  {{- $captionParts := slice -}}
+  {{- range .Params -}}
+    {{- $captionParts = $captionParts | append (printf "%v" .) -}}
+  {{- end -}}
+  {{- $caption = trim (delimit $captionParts " ") " " -}}
+{{- end -}}
+{{- if not $caption -}}
+  {{- errorf "Shortcode 'table' requires a caption. File: %s" .Page.File.Path -}}
+{{- end -}}
+{{- $captionNormalized := replaceRE `\{\{<\s*ki\s+([^"=>][^=>]*)\s*>\}\}` `{{< ki "$1" >}}` $caption -}}
+{{- $captionRendered := $captionNormalized | .Page.RenderString (dict "display" "inline") -}}
+{{- $captionText := trim ($captionRendered | plainify) " " -}}
+{{- $inner := trim .Inner "\n" -}}
+{{- $rendered := $inner | .Page.RenderString -}}
+{{- if not (in $rendered "<table") -}}
+  {{- errorf "Shortcode 'table' must contain a Markdown table. File: %s" .Page.File.Path -}}
+{{- end -}}
+<div
+  class="ipa-table"
+  data-table-caption="{{ $captionText | htmlEscape }}"
+>
+  <template class="table-caption-template">{{ $captionRendered | safeHTML }}</template>
+  {{- $rendered | safeHTML -}}
+</div>

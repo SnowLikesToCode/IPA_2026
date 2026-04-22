@@ -1,0 +1,1718 @@
+{{- /* PDF Layout - Full Document for Browser Print This layout combines ALL
+  content into a single printable HTML document. Use browser's File > Print
+  (Ctrl+P / Cmd+P) to save as PDF. Features: - Mermaid diagrams render before
+  print - Print button waits for all content to load - Images fully supported
+  Structure: 1. Titelblatt (Title Page) 2. Table of Contents 3. All Parts/Chapters
+  (numbered) 4. Arbeitsjournal 5. Verzeichnisse (Abbildungs-, Diagramm-,
+  Tabellenverzeichnis, Glossar, Quellenverzeichnis) */ -}}
+  
+  <!DOCTYPE html>
+  <html lang='{{ .Site.LanguageCode | default "de-ch" }}'>
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      {{/* Doc3.1: Chrome's built-in "Headers and footers" uses
+      <title>
+        for the center text. This puts the candidate name in every page's header
+        automatically. */}} <title>IPA Dokumentation – {{ .Site.Params.autor.name }}
+      </title>
+      <link rel="stylesheet" href="{{ "css/main.css" | relURL }}"> <link
+      rel="stylesheet" href="{{ "css/pdf.css" | relURL }}"> {{/* Mermaid is loaded
+      by the diagram shortcode via window.__mermaidPromise */}}
+  
+      <style>
+        /* Page footer — uses Hugo template variables */
+  
+        /* NOTE: We intentionally do NOT suppress header/footer on the first page.
+           Doc3.1 should be satisfied on every page, including the title page. */
+  
+        /* Title pages - no page numbers */
+        @page title {
+          @top-center {
+            content: none;
+          }
+        }
+  
+        @page {
+          size: A4;
+          margin: 2.5cm 2cm;
+  
+          /* Running headers/footers */
+          @top-center {
+            content: string(chapter-title);
+            font-family: monospace;
+            font-size: 10pt;
+            color: #595959;
+            white-space: pre-line; /* for line breaks USING \A */
+          }
+  
+          @bottom-left {
+            content: "{{ .Site.Params.autor.strasse }}\A  {{ .Site.Params.autor.plz }}, {{ .Site.Params.autor.ort }}";
+            font-family: monospace;
+            font-size: 9pt;
+            text-align: start; /* left align text*/
+            color: #595959;
+            white-space: pre-line; /* for line breaks USING \A */
+          }
+          @top-left {
+            content: "{{ .Site.Params.autor.firma }}\A  {{ .Site.Params.autor.name }}\A {{ .Site.Params.autor.abteilung }}";
+            font-family: monospace;
+            font-size: 9pt;
+            text-align: start; /* left align text*/
+            color: #595959;
+            white-space: pre-line; /* for line breaks USING \A */
+          }
+  
+          @top-right {
+            content: "{{ .Site.Params.thema}}";
+            font-family: monospace;
+            font-size: 9pt;
+            text-align: end; /* right align text*/
+            color: #595959;
+            white-space: pre-line; /* for line breaks USING \A */
+          }
+          @bottom-right {
+            content: "Datum: {{ now.Format "02.01.2006" }}\ATelefon: {{ .Site.Params.autor.telefon }}\A Email: {{ .Site.Params.autor.email }}";
+            font-family: monospace;
+            font-size: 9pt;
+            text-align: end; /* right align text*/
+            color: #595959;
+            white-space: pre-line; /* for line breaks USING \A */
+          }
+  
+          @bottom-center {
+            content: counter(page) " von " counter(pages);
+            font-family: monospace;
+            font-size: 10pt;
+            white-space: pre-line; /* for line breaks USING \A */
+          }
+        }
+  
+        /* Print button - hidden when printing */
+        .print-controls {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          z-index: 1000;
+          display: flex;
+          gap: 10px;
+          align-items: center;
+        }
+  
+        .print-btn {
+          background: #000000;
+          color: white;
+          border: none;
+          padding: 12px 24px;
+          font-family: monospace;
+          font-size: 16px;
+          font-weight: 600;
+          border-radius: 0;
+          cursor: pointer;
+          box-shadow: none;
+          border: 1px solid #000000;
+          transition: all 0.2s;
+        }
+  
+        .print-btn:hover {
+          background: #595959;
+          border-color: #595959;
+        }
+  
+        .print-btn:disabled {
+          background: #595959;
+          border-color: #595959;
+          cursor: wait;
+        }
+  
+        .print-status {
+          background: white;
+          padding: 8px 16px;
+          border-radius: 0;
+          font-family: monospace;
+          font-size: 14px;
+          border: 1px solid #000000;
+        }
+  
+        .pdf-warnings {
+          position: fixed;
+          left: 20px;
+          top: 20px;
+          z-index: 1001;
+          max-width: min(680px, calc(100vw - 40px));
+          background: #fff3cd;
+          border: 1px solid #000000;
+          color: #000;
+          padding: 12px 16px;
+          font-family: monospace;
+          font-size: 13px;
+          line-height: 1.35;
+        }
+  
+        .pdf-warnings h3 {
+          margin: 0 0 8px 0;
+          font-size: 13px;
+          font-weight: 700;
+        }
+  
+        .pdf-warnings ul {
+          margin: 0;
+          padding-left: 18px;
+        }
+  
+        @media print {
+          .print-controls {
+            display: none !important;
+          }
+          .pdf-warnings {
+            display: none !important;
+          }
+        }
+      </style>
+  
+    </head>
+    <body class="pdf-document">
+      {{/* Print Controls */}}
+      <div class="pdf-warnings" id="pdfWarnings" hidden>
+        <h3>Hinweise vor dem PDF-Export (warn-only)</h3>
+        <ul id="pdfWarningsList"></ul>
+      </div>
+      <div class="print-controls">
+        <span class="print-status" id="printStatus"
+          >Diagramme werden geladen...</span
+        >
+        <button class="print-btn" id="printBtn" disabled onclick="window.print()">
+          📄 Als PDF speichern
+        </button>
+      </div>
+  
+      {{/* ========== TITELBLATT ========== */}}
+      <section id="titelblatt" class="titelblatt pdf-section">
+        <div class="titelblatt-content">
+          <div class="titelblatt-title">
+            <h1 class="ipa-title">
+              {{ .Site.Params.thema | default .Site.Title }}
+            </h1>
+          </div>
+          <div class="titelblatt-subtitle">
+            <h1 class="document-type">{{ .Site.Params.description }}</h1>
+          </div>
+          <div class="titelblatt-meta">
+            <table class="meta-table">
+              <tr>
+                <th>Autor:</th>
+                <td>{{ .Site.Params.autor.name }}</td>
+              </tr>
+              <tr>
+                <th>Firma:</th>
+                <td>{{ .Site.Params.autor.firma }}</td>
+              </tr>
+              <tr>
+                <th>Abteilung:</th>
+                <td>{{ .Site.Params.autor.abteilung }}</td>
+              </tr>
+              <tr>
+                <th>Berufsschule:</th>
+                <td>{{ .Site.Params.berufsschule }}</td>
+              </tr>
+              <tr>
+                <th>Berufsbildner (VEX):</th>
+                <td>{{ .Site.Params.berufsbildner.name }}</td>
+              </tr>
+              <tr>
+                <th>Hauptexperte (HEX):</th>
+                <td>{{ .Site.Params.hauptexperte.name }}</td>
+              </tr>
+              <tr>
+                <th>Nebenexperte (NEX):</th>
+                <td>{{ .Site.Params.nebenexperte.name }}</td>
+              </tr>
+              <tr>
+                <th>Verantwortliche Fachkraft (VF):</th>
+                <td>{{ .Site.Params.verantwortlicheFachkraft.name }}</td>
+              </tr>
+              <tr>
+                <th>Fachliche Unterstützung:</th>
+                <td>{{ .Site.Params.fachlicheUnterstuetzung.name }}</td>
+              </tr>
+              <tr>
+                <th>Berufsbildner:</th>
+                <td>{{ .Site.Params.berufsbildner.name }}</td>
+              </tr>
+              <tr>
+                <th>Fachrichtung:</th>
+                <td>{{ .Site.Params.fachrichtung }}</td>
+              </tr>
+              <tr>
+                <th>Projektvorgehensmodell:</th>
+                <td>{{ .Site.Params.projektvorgehensmodell }}</td>
+              </tr>
+              <tr>
+                <th>Jahrgang und Kanton:</th>
+                <td>{{ .Site.Params.jahrgangKanton }}</td>
+              </tr>
+              <tr>
+                <th>Ausgabedatum:</th>
+                <td>{{ .Site.Params.ausgabedatum }}</td>
+              </tr>
+              <tr>
+                <th>Datum:</th>
+                <td>{{ .Site.Params.datumVon }} - {{ .Site.Params.datumBis }}</td>
+              </tr>
+              <tr>
+                <th>Version:</th>
+                <td>{{ .Site.Params.version }}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
+  
+      {{/* ========== VORWORT (pdfLayout: vorwort) ========== */}}
+      {{- range .Site.Sections.ByWeight -}}
+      {{- if eq .Params.pdfLayout "vorwort" -}}
+      <section id="{{ .Params.pdfSectionId | default .Section }}" class="pdf-section">
+        <header class="subchapter-header">
+          <h2 class="subchapter-title">{{ .Title }}</h2>
+          {{ with .Description }}
+          <p class="chapter-description">{{ . }}</p>
+          {{ end }}
+        </header>
+        {{ with .Content }}
+        <div class="subchapter-content">{{ . }}</div>
+        {{ end }}
+      </section>
+      {{- end -}}
+      {{- end -}}
+  
+      {{/* ========== TABLE OF CONTENTS ========== */}}
+      <section id="toc" class="toc pdf-section">
+        <h1>Inhaltsverzeichnis</h1>
+        <nav class="toc-content">
+          {{- $tocNum := 0 -}}
+          {{- $excluded := .Site.Params.tocExcludedSections | default (slice "pdf" "glossar") -}}
+          {{- range .Site.Sections.ByWeight -}}
+          {{- if not (in $excluded .Section) -}}
+          {{- $layout := .Params.pdfLayout -}}
+          {{- $isChapter := or (eq $layout "chapter") (eq $layout "chapter-unnumbered") (and (not $layout) (ne false .Params.chapter)) -}}
+          {{- $showNumber := or (eq $layout "chapter") (and (not $layout) (ne false .Params.chapter) (not .Params.hideNumbering)) -}}
+          {{- if $showNumber -}}
+          {{- $tocNum = add $tocNum 1 -}}
+          {{- end -}}
+          <div class="toc-chapter">
+            <a href="#{{ .Params.pdfSectionId | default .Section }}" class="toc-chapter-link">
+              {{- if $showNumber -}}
+              <span class="toc-num">{{ $tocNum }}.</span>
+              {{- end -}}
+              <span class="toc-title">{{ .Title }}</span>
+            </a>
+            {{- if .Pages -}}
+              {{- if eq $layout "journal" -}}
+              <ul class="toc-subchapters">
+                {{- /* Include each Tagesjournal entry in the ToC. */ -}}
+                {{- partial "toc-children" (dict "pages" .Pages.ByDate "prefix" (printf "%d" $tocNum) "numbered" false "depth" 2) -}}
+              </ul>
+              {{- else -}}
+              <ul class="toc-subchapters">
+                {{- partial "toc-children" (dict "pages" .Pages.ByWeight "prefix" (printf "%d" $tocNum) "numbered" $showNumber "depth" 2) -}}
+              </ul>
+              {{- end -}}
+            {{- end -}}
+          </div>
+          {{- end -}}
+          {{- end -}}
+        </nav>
+      </section>
+  
+      {{/* ========== MAIN CONTENT - pdfLayout: chapter ========== */}}
+      {{- $chapterNum := 0 -}}
+      {{- range .Site.Sections.ByWeight -}}
+      {{- $layout := .Params.pdfLayout -}}
+      {{- if or (eq $layout "chapter") (eq $layout "chapter-unnumbered") -}}
+      {{- $isChapter := true -}}
+      {{- $chapterNum = add $chapterNum 1 -}}
+      <section id="{{ .Params.pdfSectionId | default .Section }}" class="chapter pdf-section">
+        <div class="chapter-title-page">
+          <div class="chapter-number">
+            <span class="chapter-label">Kapitel</span>
+            <span class="chapter-num">{{ $chapterNum }}</span>
+          </div>
+          <h1 class="chapter-title">{{ .Title }}</h1>
+          {{ with .Description }}
+          <p class="chapter-description">{{ . }}</p>
+          {{ end }}
+        </div>
+        {{ with .Content }}
+        <div class="chapter-intro">{{ . }}</div>
+        {{ end }}
+      </section>
+      {{- if .Pages -}}
+      {{- partial "pdf-content-children" (dict "pages" .Pages.ByWeight "prefix" (printf "%d" $chapterNum) "numbered" true "depth" 2) -}}
+      {{- end -}}
+      {{- end -}}
+      {{- end -}}
+  
+      {{/* ========== ARBEITSJOURNAL (pdfLayout: journal) ========== */}}
+      {{- range .Site.Sections.ByWeight -}}
+      {{- if eq .Params.pdfLayout "journal" -}}
+      <section id="{{ .Params.pdfSectionId | default .Section }}" class="arbeitsjournal pdf-section">
+        <div class="chapter-title-page">
+          <h1 class="chapter-title">{{ .Title }}</h1>
+        </div>
+      </section>
+      <section class="arbeitsjournal-content">
+        {{ with .Content }}
+        <div class="section-intro">{{ . }}</div>
+        {{ end }}
+        {{- range .Pages.ByDate -}}
+        {{- $entryId := partial "page-id" . -}}
+        <article id="{{ $entryId }}" class="journal-entry pdf-section">
+          <header class="journal-header">
+            <h3>{{ .Title }}</h3>
+            <div class="journal-meta">
+              <time>{{ .Date.Format "02.01.2006" }}</time>
+              {{ with .Params.arbeitszeit }}
+              <span class="arbeitszeit">{{ . }}</span>
+              {{ end }}
+            </div>
+          </header>
+          <div class="journal-content">{{ .Content }}</div>
+        </article>
+        {{- end -}}
+      </section>
+      {{- end -}}
+      {{- end -}}
+  
+      {{/* ========== VERZEICHNISSE (pdfLayout: verzeichnis) ========== */}}
+      {{- range .Site.Sections.ByWeight -}}
+      {{- if eq .Params.pdfLayout "verzeichnis" -}}
+      {{- $titlePageAlone := .Params.titlePageAlone -}}
+      {{- $glossarContent := .Params.glossarContent -}}
+      {{- if $titlePageAlone -}}
+      <section id="{{ .Params.pdfSectionId | default .Section }}" class="verzeichnisse title-page-alone pdf-section">
+        <div class="chapter-title-page">
+          <h1 class="chapter-title">{{ .Title }}</h1>
+          {{ with .Description }}
+          <p class="chapter-description">{{ . }}</p>
+          {{ end }}
+        </div>
+      </section>
+      <section class="verzeichnisse-content pdf-section">
+      {{- else -}}
+      <section id="{{ .Params.pdfSectionId | default .Section }}" class="verzeichnisse pdf-section">
+        <div class="chapter-title-page">
+          <h1 class="chapter-title">{{ .Title }}</h1>
+          {{ with .Description }}
+          <p class="chapter-description">{{ . }}</p>
+          {{ end }}
+        </div>
+      {{- end -}}
+        {{- with .Content -}}
+        <div class="section-intro">{{ . }}</div>
+        {{- end -}}
+        {{- if $glossarContent -}}
+        <div class="glossar-content">{{ with .Content }}{{ . }}{{ end }}</div>
+        {{- else -}}
+        {{- if .Pages -}}
+        {{- partial "pdf-content-children" (dict "pages" .Pages.ByWeight "prefix" "" "numbered" false "depth" 2 "verzeichnis" true) -}}
+        {{- end -}}
+        {{- end -}}
+      {{- if $titlePageAlone -}}
+      </section>
+      {{- else -}}
+      </section>
+      {{- end -}}
+      {{- end -}}
+      {{- end -}}
+      {{/* ========== MERMAID INITIALIZATION & PRINT READY ==========
+      */}}
+      <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+          const printBtn = document.getElementById("printBtn");
+          const printStatus = document.getElementById("printStatus");
+          const printControls = document.querySelector(".print-controls");
+          const warningsEl = document.getElementById("pdfWarnings");
+          const warningsListEl = document.getElementById("pdfWarningsList");
+  
+          // Rewrite glossary links to internal PDF anchors
+          // The shortcode generates absolute URLs like http://.../glossar/#glossar-api
+          // but in the PDF all content is on one page, so we use #glossar-api directly
+          document.querySelectorAll("a.glossary-link").forEach(function (link) {
+            const href = link.getAttribute("href");
+            const hashIndex = href.indexOf("#glossar-");
+            if (hashIndex !== -1) {
+              link.setAttribute("href", href.substring(hashIndex));
+            }
+          });
+
+          // Auto-number glossary references in reading order and write
+          // "Referenziert in: X, Y" per glossary entry.
+          (function () {
+            const refsByEntry = new Map();
+            let refCounter = 0;
+  
+            document.querySelectorAll(".glossary-term[data-term]").forEach((termEl) => {
+              const link = termEl.querySelector("a.glossary-link");
+              if (!link) return;
+  
+              const href = link.getAttribute("href") || "";
+              const hashIndex = href.indexOf("#glossar-");
+              if (hashIndex === -1) return;
+              const entryKey = href.substring(hashIndex + "#glossar-".length);
+              if (!entryKey) return;
+  
+              refCounter += 1;
+              const refId = `glossary-ref-${refCounter}`;
+  
+              const sup = document.createElement("sup");
+              sup.className = "glossary-ref-call";
+              sup.id = refId;
+              sup.textContent = String(refCounter);
+              termEl.appendChild(sup);
+  
+              if (!refsByEntry.has(entryKey)) {
+                refsByEntry.set(entryKey, []);
+              }
+              refsByEntry.get(entryKey).push(refCounter);
+            });
+  
+            document.querySelectorAll(".glossar-entry[id^='glossar-']").forEach((entry) => {
+              const entryKey = entry.id.replace("glossar-", "");
+              const refs = refsByEntry.get(entryKey);
+              if (!refs || refs.length === 0) return;
+  
+              const def = entry.querySelector(".glossar-definition");
+              if (!def) return;
+  
+              const line = document.createElement("div");
+              line.className = "glossar-referenced-in";
+              line.id = `glossary-reference-list-${entryKey}`;
+              line.appendChild(document.createTextNode("Referenziert in: "));
+  
+              refs.forEach((n, idx) => {
+                const a = document.createElement("a");
+                a.className = "glossar-reference-pointer";
+                a.href = `#glossary-ref-${n}`;
+                a.textContent = `${n}`;
+                line.appendChild(a);
+  
+                if (idx < refs.length - 1) {
+                  line.appendChild(document.createTextNode(", "));
+                }
+              });
+  
+              def.appendChild(line);
+            });
+          })();
+  
+          // Track source reference markers and write
+          // "Referenziert in: X, Y" per source entry.
+          (function () {
+            const refsBySource = new Map();
+            let refCounter = 0;
+            const letters = "abcdefghijklmnopqrstuvwxyz";
+            const toRefLabel = (index) => {
+              return index < letters.length ? letters[index] : String(index + 1);
+            };
+  
+            document.querySelectorAll("a.source-ref-marker[href*='#quelle-']").forEach((marker) => {
+              const href = marker.getAttribute("href") || "";
+              const hashIndex = href.indexOf("#quelle-");
+              if (hashIndex === -1) return;
+  
+              const sourceKey = href.substring(hashIndex + "#quelle-".length);
+              if (!sourceKey) return;
+  
+              refCounter += 1;
+              const refId = `source-ref-${refCounter}`;
+              marker.id = refId;
+              const markerLabel = toRefLabel(refCounter - 1);
+              const markerSup = marker.querySelector("sup");
+              if (markerSup) {
+                markerSup.textContent = markerLabel;
+              } else {
+                marker.textContent = markerLabel;
+              }
+  
+              if (!refsBySource.has(sourceKey)) {
+                refsBySource.set(sourceKey, []);
+              }
+              refsBySource.get(sourceKey).push({
+                id: refCounter,
+                label: markerLabel,
+              });
+            });
+  
+            document.querySelectorAll(".quellen-entry[id^='quelle-']").forEach((entry) => {
+              const sourceKey = entry.id.replace("quelle-", "");
+              const refs = refsBySource.get(sourceKey);
+              if (!refs || refs.length === 0) return;
+  
+              const line = document.createElement("div");
+              line.className = "glossar-referenced-in source-referenced-in";
+              line.appendChild(document.createTextNode("Referenziert in: "));
+  
+              refs.forEach((ref, idx) => {
+                const a = document.createElement("a");
+                a.className = "glossar-reference-pointer source-reference-pointer";
+                a.href = `#source-ref-${ref.id}`;
+                a.textContent = `${ref.label}`;
+                line.appendChild(a);
+  
+                if (idx < refs.length - 1) {
+                  line.appendChild(document.createTextNode(", "));
+                }
+              });
+  
+              entry.appendChild(line);
+            });
+          })();
+  
+          let truePageFootnotesEnabled = false;
+          let inlineFallbackFootnotesEnabled = false;
+          let inlineFallbackCarryOverflowCount = 0;
+  
+          // True page-footnote transform for paged-media renderers:
+          // Goldmark emits endnotes (<div class="footnotes">). We convert each
+          // noteref location into a float-footnote node so the renderer can place
+          // notes at the bottom of the page where the reference occurs.
+          (function () {
+            const canFloatFootnotes =
+              typeof CSS !== "undefined" &&
+              typeof CSS.supports === "function" &&
+              CSS.supports("float", "footnote");
+            if (canFloatFootnotes) {
+              document.querySelectorAll(".footnotes").forEach((footnotesBlock) => {
+                const scope = footnotesBlock.parentElement;
+                if (!scope) return;
+  
+                const defMap = new Map();
+                footnotesBlock.querySelectorAll("li[id^='fn:']").forEach((item) => {
+                  const id = item.id.replace("fn:", "");
+                  if (!id) return;
+  
+                  const clone = item.cloneNode(true);
+                  clone.querySelectorAll("a.footnote-backref").forEach((ref) => ref.remove());
+                  const html = clone.innerHTML.trim();
+                  if (html) {
+                    defMap.set(id, html);
+                  }
+                });
+                if (defMap.size === 0) return;
+  
+                scope.querySelectorAll("a.footnote-ref").forEach((ref) => {
+                  const href = ref.getAttribute("href") || "";
+                  if (!href.startsWith("#fn:")) return;
+  
+                  const noteId = href.slice(4);
+                  const noteHtml = defMap.get(noteId);
+                  if (!noteHtml) return;
+  
+                  const markerLabel = (ref.textContent || noteId).trim();
+                  const note = document.createElement("span");
+                  note.className = "page-footnote";
+                  note.setAttribute("data-note-id", markerLabel);
+                  note.innerHTML = noteHtml;
+  
+                  const anchor = ref.closest("sup");
+                  if (anchor) {
+                    anchor.insertAdjacentElement("afterend", note);
+                  } else {
+                    ref.insertAdjacentElement("afterend", note);
+                  }
+                });
+              });
+  
+              document.querySelectorAll(".footnotes").forEach((node) => node.remove());
+              truePageFootnotesEnabled = true;
+              return;
+            }
+  
+            // Fallback for browsers without float:footnote support:
+            // place references and notes in the same flow so we can keep them on
+            // the same page with explicit page-break handling.
+            document.querySelectorAll(".footnotes").forEach((footnotesBlock) => {
+              const scope = footnotesBlock.parentElement;
+              if (!scope) return;
+  
+              const defMap = new Map();
+              footnotesBlock.querySelectorAll("li[id^='fn:']").forEach((item) => {
+                const id = item.id.replace("fn:", "");
+                if (!id) return;
+  
+                const clone = item.cloneNode(true);
+                clone.querySelectorAll("a.footnote-backref").forEach((ref) => ref.remove());
+                const html = clone.innerHTML.trim();
+                if (html) {
+                  defMap.set(id, html);
+                }
+              });
+              if (defMap.size === 0) return;
+  
+              const targets = Array.from(scope.querySelectorAll("p, li")).filter(
+                (node) => !node.closest(".footnotes")
+              );
+  
+              const seen = new Set();
+              const notesByCarrier = new Map();
+  
+              targets.forEach((node) => {
+                node.querySelectorAll("a.footnote-ref").forEach((ref) => {
+                  const href = ref.getAttribute("href") || "";
+                  if (!href.startsWith("#fn:")) return;
+                  const id = href.slice(4);
+                  if (!id || seen.has(id)) return;
+                  seen.add(id);
+  
+                  if (!notesByCarrier.has(node)) {
+                    notesByCarrier.set(node, []);
+                  }
+                  notesByCarrier.get(node).push(id);
+                });
+              });
+  
+              notesByCarrier.forEach((refs, node) => {
+                if (!refs || refs.length === 0) return;
+  
+                const block = document.createElement("div");
+                block.className = "inline-footnotes-block";
+                const list = document.createElement("ol");
+                list.className = "inline-footnotes";
+  
+                refs.forEach((id) => {
+                  const html = defMap.get(id);
+                  if (!html) return;
+                  const li = document.createElement("li");
+                  const num = Number(id);
+                  if (!Number.isNaN(num)) li.value = num;
+                  li.innerHTML = html;
+                  list.appendChild(li);
+                });
+  
+                if (list.children.length === 0) return;
+                block.appendChild(list);
+                node.classList.add("footnote-carrier");
+                node.insertAdjacentElement("afterend", block);
+              });
+  
+              footnotesBlock.remove();
+            });
+  
+            inlineFallbackFootnotesEnabled =
+              document.querySelector(".inline-footnotes-block") !== null;
+          })();
+  
+          // Keep Tagesjournal entries to one page by moving the "Stimmung" block
+          // into the entry header (removes a large heading + paragraph in-flow).
+          (function () {
+            document.querySelectorAll(".journal-entry").forEach((entry) => {
+              const content = entry.querySelector(".journal-content");
+              const header = entry.querySelector(".journal-header");
+              if (!content || !header) return;
+  
+              const headings = Array.from(
+                content.querySelectorAll("h1, h2, h3, h4, h5, h6")
+              );
+              const moodHeading = headings.find(
+                (h) => h.textContent.trim().toLowerCase() === "stimmung"
+              );
+              if (!moodHeading) return;
+  
+              const next = moodHeading.nextElementSibling;
+              let moodText = "";
+              if (next && !/^H[1-6]$/.test(next.tagName)) {
+                moodText = next.textContent.trim();
+                next.remove();
+              }
+              moodHeading.remove();
+  
+              if (!moodText) return;
+              const moodEl = document.createElement("div");
+              moodEl.className = "journal-mood";
+              moodEl.textContent = `Stimmung: ${moodText}`;
+              header.appendChild(moodEl);
+            });
+          })();
+  
+          // Re-number figures and diagrams globally in document order.
+          // Shortcodes number per page, but PDF merges many pages into one document.
+          (function () {
+            const items = document.querySelectorAll("figure.figure, figure.diagram");
+            let figureCounter = 0;
+            let diagramCounter = 0;
+
+            items.forEach((item) => {
+              if (item.classList.contains("figure")) {
+                figureCounter += 1;
+                const label = item.querySelector(".figure-label");
+                if (label) {
+                  label.textContent = `Abbildung ${figureCounter}:`;
+                }
+
+                const hasAutoId = /^fig-\d+$/.test(item.id || "");
+                if (!item.id || hasAutoId) {
+                  item.id = `fig-${figureCounter}`;
+                }
+                return;
+              }
+
+              if (item.classList.contains("diagram")) {
+                diagramCounter += 1;
+                const label = item.querySelector(".diagram-label");
+                if (label) {
+                  label.textContent = `Diagramm ${diagramCounter}:`;
+                }
+
+                const hasAutoId = /^diagram-\d+$/.test(item.id || "");
+                if (!item.id || hasAutoId) {
+                  item.id = `diagram-${diagramCounter}`;
+                }
+              }
+            });
+          })();
+
+          // Number shortcode-based tables globally and inject
+          // "Tabelle n: <caption>" below each table.
+          (function () {
+            const tableBlocks = document.querySelectorAll(".ipa-table[data-table-caption]");
+            let tableCounter = 0;
+
+            tableBlocks.forEach((block) => {
+              const table = block.querySelector("table");
+              const captionText = (block.getAttribute("data-table-caption") || "").trim();
+              const captionTemplate = block.querySelector(
+                ":scope > template.table-caption-template"
+              );
+              if (!table || !captionText) return;
+
+              tableCounter += 1;
+              const tableId = `table-${tableCounter}`;
+              const hasAutoId = /^table-\d+$/.test(block.id || "");
+              if (!block.id || hasAutoId) {
+                block.id = tableId;
+              }
+              table.setAttribute("data-table-number", String(tableCounter));
+
+              const existingCaption = block.querySelector(".table-caption");
+              if (existingCaption) {
+                existingCaption.remove();
+              }
+
+              const caption = document.createElement("div");
+              caption.className = "table-caption";
+
+              const label = document.createElement("span");
+              label.className = "table-label";
+              label.textContent = `Tabelle ${tableCounter}:`;
+              caption.appendChild(label);
+              caption.appendChild(document.createTextNode(" "));
+              if (captionTemplate && captionTemplate.content) {
+                caption.appendChild(captionTemplate.content.cloneNode(true));
+              } else {
+                caption.appendChild(document.createTextNode(captionText));
+              }
+
+              block.appendChild(caption);
+            });
+          })();
+
+          // Make internal figure/diagram references paper-friendly by appending
+          // the resolved label (e.g. "Abbildung 8") to the link text.
+          (function () {
+            const refs = document.querySelectorAll("a.internal-ref[href^='#']");
+            refs.forEach((ref) => {
+              const href = ref.getAttribute("href") || "";
+              const targetId = href.replace(/^#/, "");
+              if (!targetId) return;
+
+              const target = document.getElementById(targetId);
+              if (!target) return;
+              if (!target.matches("figure.figure, figure.diagram")) return;
+
+              const labelEl = target.querySelector(".figure-label, .diagram-label");
+              if (!labelEl) return;
+
+              const label = (labelEl.textContent || "").replace(/:\s*$/, "").trim();
+              if (!label) return;
+
+              const currentText = (ref.textContent || "").trim();
+              if (currentText.includes(`(${label})`)) return;
+
+              ref.textContent = `${currentText} (${label})`;
+            });
+          })();
+
+          // Auto-generate Abbildungsverzeichnis from figures in the document.
+          (function () {
+            function extractCaptionText(captionEl) {
+              if (!captionEl) return "";
+
+              // Remove helper UI/reference nodes so the directory only contains
+              // the human-readable caption text.
+              const clone = captionEl.cloneNode(true);
+              clone
+                .querySelectorAll(".glossary-tooltip, .glossary-ref-call")
+                .forEach((node) => node.remove());
+
+              return (clone.textContent || "").replace(/\s+/g, " ").trim();
+            }
+
+            const container = document.getElementById(
+              "abbildungsverzeichnisContent"
+            );
+            const emptyMsg = document.getElementById(
+              "abbildungsverzeichnisEmpty"
+            );
+            if (!container) return;
+  
+            const figures = document.querySelectorAll("figure.figure");
+            if (figures.length === 0) return;
+  
+            // Hide empty message and build list
+            if (emptyMsg) emptyMsg.style.display = "none";
+  
+            const list = document.createElement("ol");
+            list.className = "abbildungsverzeichnis-list";
+  
+            figures.forEach(function (fig) {
+              const figcaption = fig.querySelector("figcaption");
+              if (!figcaption) return;
+  
+              const label = fig.querySelector(".figure-label");
+              const caption = fig.querySelector(".figure-caption");
+              const captionText = extractCaptionText(caption);
+              const id = fig.id;
+  
+              const li = document.createElement("li");
+              li.className = "abbildungsverzeichnis-entry";
+  
+              const link = document.createElement("a");
+              link.href = "#" + id;
+              link.textContent =
+                (label ? label.textContent : "") + " " + captionText;
+              li.appendChild(link);
+  
+              list.appendChild(li);
+            });
+  
+            container.appendChild(list);
+          })();
+
+          // Auto-generate Diagrammverzeichnis from diagrams in the document.
+          (function () {
+            function extractCaptionText(captionEl) {
+              if (!captionEl) return "";
+
+              const clone = captionEl.cloneNode(true);
+              clone
+                .querySelectorAll(".glossary-tooltip, .glossary-ref-call")
+                .forEach((node) => node.remove());
+
+              return (clone.textContent || "").replace(/\s+/g, " ").trim();
+            }
+
+            const container = document.getElementById("diagrammverzeichnisContent");
+            const emptyMsg = document.getElementById("diagrammverzeichnisEmpty");
+            if (!container) return;
+
+            const diagrams = document.querySelectorAll("figure.diagram");
+            if (diagrams.length === 0) return;
+
+            if (emptyMsg) emptyMsg.style.display = "none";
+
+            const list = document.createElement("ol");
+            list.className = "diagrammverzeichnis-list";
+
+            diagrams.forEach(function (diagram) {
+              const figcaption = diagram.querySelector("figcaption");
+              if (!figcaption) return;
+
+              const label = diagram.querySelector(".diagram-label");
+              const caption = diagram.querySelector(".diagram-caption");
+              const captionText = extractCaptionText(caption);
+              const id = diagram.id;
+
+              const li = document.createElement("li");
+              li.className = "diagrammverzeichnis-entry";
+
+              const link = document.createElement("a");
+              link.href = "#" + id;
+              link.textContent =
+                (label ? label.textContent : "") + " " + captionText;
+              li.appendChild(link);
+
+              list.appendChild(li);
+            });
+
+            container.appendChild(list);
+          })();
+
+          // Auto-generate Tabellenverzeichnis from shortcode tables in the document.
+          (function () {
+            const container = document.getElementById("tabellenverzeichnisContent");
+            const emptyMsg = document.getElementById("tabellenverzeichnisEmpty");
+            if (!container) return;
+
+            const tableBlocks = document.querySelectorAll(
+              ".ipa-table[data-table-caption][id]"
+            );
+            if (tableBlocks.length === 0) return;
+            if (emptyMsg) emptyMsg.style.display = "none";
+
+            const list = document.createElement("ol");
+            list.className = "tabellenverzeichnis-list";
+
+            tableBlocks.forEach((block) => {
+              const table = block.querySelector("table");
+              let caption = (block.getAttribute("data-table-caption") || "").trim();
+              const number = table ? table.getAttribute("data-table-number") : "";
+              if (!caption) {
+                const captionNode = block.querySelector(".table-caption");
+                if (captionNode) {
+                  const clone = captionNode.cloneNode(true);
+                  const labelNode = clone.querySelector(".table-label");
+                  if (labelNode) {
+                    labelNode.remove();
+                  }
+                  caption = (clone.textContent || "").replace(/\s+/g, " ").trim();
+                }
+              }
+              if (!table || !caption || !number) return;
+
+              const li = document.createElement("li");
+              li.className = "tabellenverzeichnis-entry";
+
+              const link = document.createElement("a");
+              link.href = `#${block.id}`;
+              link.textContent = `Tabelle ${number}: ${caption}`;
+              li.appendChild(link);
+
+              list.appendChild(li);
+            });
+
+            container.appendChild(list);
+          })();
+
+          // Auto-generate KI-Verzeichnis from inline KI markers.
+          (function () {
+            const container = document.getElementById("kiVerzeichnisContent");
+            const emptyMsg = document.getElementById("kiVerzeichnisEmpty");
+            if (!container) return;
+
+            const markers = Array.from(document.querySelectorAll(".ki-ref-marker"));
+            if (markers.length === 0) return;
+
+            const normalizeWords = (value) =>
+              (value || "")
+                .replace(/\s+/g, " ")
+                .trim()
+                .split(" ")
+                .filter(Boolean);
+
+            const clipWords = (value, headCount, tailCount) => {
+              const words = normalizeWords(value);
+              if (words.length === 0) {
+                return { from: "", to: "" };
+              }
+              if (words.length <= headCount + tailCount) {
+                const joined = words.join(" ");
+                return { from: joined, to: joined };
+              }
+              return {
+                from: words.slice(0, headCount).join(" "),
+                to: words.slice(-tailCount).join(" "),
+              };
+            };
+
+            const deriveRangeFromContext = (marker) => {
+              const contextEl = marker.closest("p, li, td, blockquote");
+              if (!contextEl) return { from: "", to: "" };
+
+              const clone = contextEl.cloneNode(true);
+              clone.querySelectorAll(".ki-ref-marker").forEach((node) => node.remove());
+              const text = (clone.textContent || "").trim();
+              return clipWords(text, 4, 4);
+            };
+
+            const parseManualParts = (marker) => {
+              const rawParts = marker.getAttribute("data-ki-parts");
+              if (rawParts) {
+                const rawSingle = String(rawParts || "").trim();
+
+                // Preferred format: delimiter-separated plain strings.
+                if (rawSingle.includes("||KI_PART||")) {
+                  return rawSingle
+                    .split("||KI_PART||")
+                    .map((entry) => String(entry || "").trim())
+                    .filter((entry) => entry.length > 0);
+                }
+
+                // Backward compatibility: JSON-encoded string array.
+                try {
+                  const parsed = JSON.parse(rawSingle);
+                  if (Array.isArray(parsed) && parsed.length > 0) {
+                    return parsed
+                      .map((entry) => String(entry || "").trim())
+                      .filter((entry) => entry.length > 0);
+                  }
+                } catch (error) {
+                  // Ignore parse failures and continue with plain single-value mode.
+                }
+
+                // Single positional parameter (e.g. ki with one string argument).
+                if (rawSingle.length > 0) {
+                  return [rawSingle];
+                }
+              }
+
+              const manualFrom = (marker.getAttribute("data-ki-from") || "").trim();
+              const manualTo = (marker.getAttribute("data-ki-to") || "").trim();
+              return [manualFrom, manualTo].filter((entry) => entry.length > 0);
+            };
+
+            const formatRangeParts = (parts) => {
+              if (!Array.isArray(parts) || parts.length === 0) {
+                return '"[...]"';
+              }
+
+              if (parts.length === 1) {
+                const singlePart = String(parts[0] || "").trim();
+                return singlePart ? `"${singlePart}"` : '"[...]"';
+              }
+
+              const chunks = [];
+              for (let i = 0; i < parts.length; i += 2) {
+                const first = String(parts[i] || "").trim();
+                const second = String(parts[i + 1] || "").trim();
+                if (!first && !second) continue;
+
+                if (first && second) {
+                  chunks.push(`"${first} [...] ${second}"`);
+                } else {
+                  chunks.push(`"${first || second}"`);
+                }
+              }
+
+              return chunks.length > 0 ? chunks.join(" ") : '"[...]"';
+            };
+
+            // Global numbering in document order (same behavior as figure renumbering).
+            const entries = [];
+            markers.forEach((marker, idx) => {
+              const kiNum = idx + 1;
+              const kiId = String(kiNum);
+
+              marker.setAttribute("data-ki-id", kiId);
+              marker.id = `ki-ref-${kiId}`;
+              marker.href = `#ki-eintrag-${kiId}`;
+              marker.title = `KI-Verzeichnis Eintrag ${kiId}`;
+
+              const markerSup = marker.querySelector("sup");
+              if (markerSup) {
+                markerSup.textContent = `[KI]${kiId}`;
+              } else {
+                marker.textContent = `[KI]${kiId}`;
+              }
+
+              const manualParts = parseManualParts(marker);
+              const fallback = deriveRangeFromContext(marker);
+              const rangeParts =
+                manualParts.length > 0
+                  ? manualParts
+                  : [fallback.from, fallback.to].filter((entry) => entry);
+
+              entries.push({
+                id: kiId,
+                rangeParts,
+              });
+            });
+
+            if (entries.length === 0) return;
+            if (emptyMsg) emptyMsg.style.display = "none";
+
+            const list = document.createElement("ul");
+            list.className = "ki-verzeichnis-list";
+
+            entries.forEach((entry) => {
+              const listItem = document.createElement("li");
+              listItem.className = "ki-verzeichnis-entry";
+              listItem.id = `ki-eintrag-${entry.id}`;
+
+              const textLink = document.createElement("a");
+              textLink.className = "ki-verzeichnis-ref";
+              textLink.href = `#ki-ref-${entry.id}`;
+              textLink.textContent = `[KI]${entry.id}`;
+              listItem.appendChild(textLink);
+
+              const range = document.createElement("span");
+              range.className = "ki-verzeichnis-range";
+              if (entry.rangeParts && entry.rangeParts.length > 0) {
+                range.textContent = `: ${formatRangeParts(entry.rangeParts)}`;
+              } else {
+                range.textContent = ': "[...]"';
+              }
+              listItem.appendChild(range);
+
+              list.appendChild(listItem);
+            });
+
+            container.appendChild(list);
+          })();
+  
+          function addWarning(msg) {
+            if (!warningsListEl) return;
+            const li = document.createElement("li");
+            li.textContent = msg;
+            warningsListEl.appendChild(li);
+          }
+  
+          function enforceInlineFootnoteCarry(pageH) {
+            if (!inlineFallbackFootnotesEnabled) return;
+  
+            const blocks = Array.from(
+              document.querySelectorAll(".inline-footnotes-block")
+            );
+            if (blocks.length === 0) return;
+  
+            document
+              .querySelectorAll(".footnote-carry-break")
+              .forEach((node) => node.classList.remove("footnote-carry-break"));
+  
+            const rootTop = document.body.getBoundingClientRect().top;
+            const maxPasses = 8;
+  
+            for (let pass = 0; pass < maxPasses; pass++) {
+              let changed = false;
+  
+              blocks.forEach((block) => {
+                const carrier = block.previousElementSibling;
+                if (!carrier || !carrier.classList.contains("footnote-carrier")) {
+                  return;
+                }
+  
+                const carrierRect = carrier.getBoundingClientRect();
+                const blockRect = block.getBoundingClientRect();
+                const pairTop = carrierRect.top - rootTop;
+                const pairBottom = blockRect.bottom - rootTop;
+                const topPage = Math.floor(pairTop / pageH);
+                const bottomPage = Math.floor((pairBottom - 0.5) / pageH);
+  
+                if (
+                  topPage !== bottomPage &&
+                  !carrier.classList.contains("footnote-carry-break")
+                ) {
+                  carrier.classList.add("footnote-carry-break");
+                  changed = true;
+                }
+              });
+  
+              if (!changed) break;
+            }
+  
+            inlineFallbackCarryOverflowCount = 0;
+            blocks.forEach((block) => {
+              const carrier = block.previousElementSibling;
+              if (!carrier || !carrier.classList.contains("footnote-carrier")) {
+                return;
+              }
+  
+              const carrierRect = carrier.getBoundingClientRect();
+              const blockRect = block.getBoundingClientRect();
+              const pairHeight = blockRect.bottom - carrierRect.top;
+              if (pairHeight > pageH + 1) {
+                inlineFallbackCarryOverflowCount += 1;
+              }
+            });
+          }
+  
+          function runPreflightWarnings(pageH) {
+            if (!warningsEl || !warningsListEl) return false;
+            warningsListEl.innerHTML = "";
+  
+            if (inlineFallbackFootnotesEnabled) {
+              addWarning("Fussnoten-Fallback aktiv: Referenz und Note bleiben zusammen; nachfolgender Fliesstext wird auf die naechste Seite verschoben.");
+              if (inlineFallbackCarryOverflowCount > 0) {
+                addWarning(`Mindestens ${inlineFallbackCarryOverflowCount} Fussnoten-Block passt nicht komplett auf eine Seite. Betroffene Textstellen kuerzen.`);
+              }
+            } else if (!truePageFootnotesEnabled && document.querySelector(".footnotes")) {
+              addWarning("Echte Seitenfussnoten sind in diesem Browser nicht verfuegbar. Verwende einen Renderer mit 'float: footnote'-Support.");
+            }
+  
+            // Required sections (criteria completeness)
+            if (!document.getElementById("kurzfassung")) {
+              addWarning("Fehlt: Kurzfassung (Doc6) — Abschnitt mit pdfSectionId=kurzfassung erforderlich.");
+            }
+            if (!document.getElementById("fazit")) {
+              addWarning("Fehlt: Persoenliches Fazit (Doc8) — Abschnitt mit pdfSectionId=fazit erforderlich.");
+            }
+  
+            // TOC sanity
+            const toc = document.querySelector("#toc .toc-content");
+            if (!toc || toc.querySelectorAll(".toc-chapter-link").length === 0) {
+              addWarning("Inhaltsverzeichnis ist leer oder konnte nicht generiert werden (Doc3.2).");
+            }
+  
+            // Glossary and sources sanity
+            const glossaryEntries = document.querySelectorAll(".glossar-entry");
+            if (glossaryEntries.length === 0) {
+              addWarning("Glossar/Begriffserklaerung ist leer (Doc3.3) — data/glossary.yaml pruefen.");
+            }
+            const sourceEntries = document.querySelectorAll(".quellen-entry");
+            if (sourceEntries.length === 0) {
+              addWarning("Quellenverzeichnis ist leer (Doc3.4) — data/quellen.yaml pruefen.");
+            }
+  
+            // Arbeitsjournal sanity
+            const journalEntries = document.querySelectorAll(".journal-entry");
+            if (journalEntries.length === 0) {
+              addWarning("Arbeitsjournal hat keine Eintraege (Doc7) — content/98_arbeitsjournal/*.md pruefen.");
+            }
+  
+            // Tagesjournal should fit on exactly one page.
+            if (typeof pageH === "number" && pageH > 0) {
+              journalEntries.forEach((entry) => {
+                const rect = entry.getBoundingClientRect();
+                if (!rect || !rect.height) return;
+                if (rect.height > pageH + 2) {
+                  const title = entry.querySelector(".journal-header h3")?.textContent?.trim();
+                  addWarning(
+                    `Arbeitsjournal-Eintrag${title ? ` (${title})` : ""} ist laenger als 1 Seite. Kuerze Text/Listen oder Notizen, bis alles auf eine Seite passt.`
+                  );
+                }
+              });
+            }
+  
+            // Doc6: Kurzfassung must contain no graphics.
+            const kurzfassung = document.getElementById("kurzfassung");
+            if (kurzfassung) {
+              const hasGraphics = kurzfassung.querySelector("img, svg, figure, .mermaid");
+              if (hasGraphics) {
+                addWarning("Kurzfassung enthaelt Grafik/Abbildung/Mermaid (Doc6 verlangt: keine Grafik).");
+              }
+            }
+  
+            // Zeitplan should have a renderable image.
+            const zeitplan = document.getElementById("zeitplan");
+            if (zeitplan) {
+              const zeitplanImg = zeitplan.querySelector("img");
+              if (!zeitplanImg) {
+                addWarning("Zeitplan fehlt: kein Bild eingebettet (static/images/zeitplan.png).");
+              } else if (zeitplanImg.naturalWidth === 0) {
+                addWarning("Zeitplan-Bild konnte nicht geladen werden (static/images/zeitplan.png fehlt oder ist nicht gerendert).");
+              }
+            }
+  
+            const hasAny = warningsListEl.children.length > 0;
+            warningsEl.hidden = !hasAny;
+            return hasAny;
+          }
+
+          /**
+           * Recomputes ToC page slots using the same heuristic as before, but using
+           * whatever layout is active (screen vs print). Browsers do not expose the
+           * same values as CSS counter(page); this must run while print styles apply
+           * (beforeprint / print media) to align with the PDF page breaks.
+           */
+          function computeTocPageNumbers() {
+            // Compute TOC page numbers accounting for:
+            // - forced page breaks (.pdf-section has break-after: page)
+            // - vh-based min-heights (viewport-relative in browser, page-relative in print)
+            // - nested .pdf-section elements (verzeichnisse containers)
+            // - break-inside: avoid on .pdf-subsection children (journal entries)
+            const mmToPx = (mm) => {
+              const probe = document.createElement("div");
+              probe.style.position = "absolute";
+              probe.style.visibility = "hidden";
+              probe.style.height = `${mm}mm`;
+              document.body.appendChild(probe);
+              const px = probe.getBoundingClientRect().height;
+              probe.remove();
+              return px;
+            };
+
+            const pageH = mmToPx(247); // A4(297mm) - top/bottom margins(25mm each)
+
+            // Ensure each Arbeitsjournal entry fits on exactly one page by
+            // progressively applying compact typography levels before measuring TOC/pages.
+            (function autoFitJournalEntries(onePageHeight) {
+              const fitLevels = [
+                "journal-fit-level-1",
+                "journal-fit-level-2",
+                "journal-fit-level-3",
+                "journal-fit-level-4",
+                "journal-fit-level-5",
+              ];
+
+              document.querySelectorAll(".journal-entry").forEach((entry) => {
+                entry.classList.remove(...fitLevels);
+
+                // Fast path: default style already fits.
+                let fits = entry.getBoundingClientRect().height <= onePageHeight + 1;
+                if (fits) return;
+
+                // Apply stronger compaction until the entry fits one page.
+                fitLevels.forEach((levelClass) => {
+                  if (fits) return;
+                  entry.classList.add(levelClass);
+                  fits = entry.getBoundingClientRect().height <= onePageHeight + 1;
+                });
+
+                // Keep an explicit marker for preflight warnings if content is still too long.
+                if (!fits) {
+                  entry.classList.add("journal-fit-overflow");
+                } else {
+                  entry.classList.remove("journal-fit-overflow");
+                }
+              });
+            })(pageH);
+
+            // In fallback mode, force page breaks so each reference paragraph and
+            // its inline footnotes stay on the same page.
+            enforceInlineFootnoteCarry(pageH);
+
+            // Temporarily reset title-sheet min-height so measurements reflect print layout.
+            // Keep chapter title pages intact to avoid TOC off-by-one drift.
+            const tocMeasureStyle = document.createElement("style");
+            tocMeasureStyle.textContent =
+              ".toc-measure #titelblatt { min-height: 0 !important; }" +
+              ".toc-measure .manual-pagebreak.print-only { display: block !important; }";
+            document.head.appendChild(tocMeasureStyle);
+            document.body.classList.add("toc-measure");
+
+            function measureSectionContentHeight(section) {
+              const sectionRect = section.getBoundingClientRect();
+              let bottom = sectionRect.bottom;
+
+              // Include deepest descendant bottom to avoid undercount from
+              // margin-collapsing and flow content extending beyond section rect.
+              section.querySelectorAll("*").forEach((node) => {
+                const nodeBottom = node.getBoundingClientRect().bottom;
+                if (nodeBottom > bottom) bottom = nodeBottom;
+              });
+
+              return Math.max(0, bottom - sectionRect.top);
+            }
+
+            function getSectionContentBottom(section) {
+              const sectionRect = section.getBoundingClientRect();
+              let bottom = sectionRect.bottom;
+              section.querySelectorAll("*").forEach((node) => {
+                const nodeBottom = node.getBoundingClientRect().bottom;
+                if (nodeBottom > bottom) bottom = nodeBottom;
+              });
+              return bottom;
+            }
+
+            /** Manual pagebreak shortcode (.manual-pagebreak): height 0 in print; must not be display:none during measure. */
+            function getManualBreaksForSection(section) {
+              return Array.from(
+                section.querySelectorAll(".manual-pagebreak")
+              ).filter((el) => el.closest(".pdf-section") === section);
+            }
+
+            function compareDocumentOrder(a, b) {
+              const pos = a.compareDocumentPosition(b);
+              if (pos & Node.DOCUMENT_POSITION_FOLLOWING) return -1;
+              if (pos & Node.DOCUMENT_POSITION_PRECEDING) return 1;
+              return 0;
+            }
+
+            /**
+             * Splits flow at each manual page break and sums ceil(segmentHeight / pageH).
+             * Matches how break-before:page forces a new page even when total height would fit fewer pages.
+             */
+            function countPagesWithManualBreaks(section) {
+              const breaks = getManualBreaksForSection(section);
+              if (breaks.length === 0) return null;
+
+              breaks.sort(compareDocumentOrder);
+
+              const sTop = section.getBoundingClientRect().top;
+              const contentBottom = getSectionContentBottom(section);
+              let totalPages = 0;
+              let segmentTop = sTop;
+
+              for (const br of breaks) {
+                const brTop = br.getBoundingClientRect().top;
+                const segmentHeight = Math.max(0, brTop - segmentTop);
+                if (segmentHeight > 0.5) {
+                  totalPages += Math.ceil(segmentHeight / pageH);
+                }
+                segmentTop = br.getBoundingClientRect().bottom;
+              }
+
+              const lastHeight = Math.max(0, contentBottom - segmentTop);
+              if (lastHeight > 0.5) {
+                totalPages += Math.ceil(lastHeight / pageH);
+              }
+
+              return Math.max(1, totalPages);
+            }
+
+            function countLeafPages(section) {
+              const manualPages = countPagesWithManualBreaks(section);
+              if (manualPages !== null) {
+                return manualPages;
+              }
+
+              // Simulate break-inside:avoid for pdf-subsection children
+              const avoidChildren = Array.from(
+                section.querySelectorAll(":scope > .pdf-subsection")
+              );
+              if (avoidChildren.length > 0) {
+                let pages = 1;
+                let remaining = pageH;
+                const sTop = section.getBoundingClientRect().top;
+                const preamble =
+                  avoidChildren[0].getBoundingClientRect().top - sTop;
+                remaining -= preamble;
+                if (remaining <= 0) {
+                  pages++;
+                  remaining = pageH;
+                }
+                avoidChildren.forEach((child) => {
+                  const h = child.getBoundingClientRect().height;
+                  if (h > remaining) {
+                    pages++;
+                    remaining = pageH;
+                  }
+                  remaining -= h;
+                });
+                return pages;
+              }
+              return Math.max(
+                1,
+                Math.ceil(measureSectionContentHeight(section) / pageH)
+              );
+            }
+
+            function estimateKeepStartHeight(target) {
+              const header = target.querySelector(
+                ":scope > .subchapter-header, :scope > header"
+              );
+              if (!header) return 0;
+
+              const firstFlow =
+                target.querySelector(
+                  ":scope > .subchapter-content > :first-child, :scope > .journal-content > :first-child, :scope > .section-intro > :first-child"
+                ) ||
+                target.querySelector(
+                  ":scope > .subchapter-content, :scope > .journal-content, :scope > .section-intro"
+                );
+
+              const headerRect = header.getBoundingClientRect();
+              if (!firstFlow) return headerRect.height;
+
+              const firstFlowRect = firstFlow.getBoundingClientRect();
+              return Math.max(
+                headerRect.height,
+                firstFlowRect.bottom - headerRect.top
+              );
+            }
+
+            function countManualBreaksBeforeTarget(container, target) {
+              const breaks = getManualBreaksForSection(container);
+              if (!breaks || breaks.length === 0) return 0;
+
+              let count = 0;
+              breaks.forEach((br) => {
+                const pos = br.compareDocumentPosition(target);
+                if (pos & Node.DOCUMENT_POSITION_FOLLOWING) {
+                  count += 1;
+                }
+              });
+              return count;
+            }
+
+            function estimateNestedAnchorPage(container, target, startPage) {
+              const cRect = container.getBoundingClientRect();
+              const tRect = target.getBoundingClientRect();
+              const rawOffset = tRect.top - cRect.top;
+              const wholePagesBefore = Math.floor(rawOffset / pageH);
+              const offsetOnPage = rawOffset - wholePagesBefore * pageH;
+              const remainingOnPage = pageH - offsetOnPage;
+
+              // If target starts too close to page end, print layout can push the
+              // heading to the next page to keep it with the first content block.
+              const keepStartHeight = estimateKeepStartHeight(target);
+              const needsBump =
+                keepStartHeight > 0 &&
+                keepStartHeight <= pageH &&
+                keepStartHeight > remainingOnPage;
+
+              const forcedBreaksBefore = countManualBreaksBeforeTarget(
+                container,
+                target
+              );
+              return (
+                startPage +
+                wholePagesBefore +
+                forcedBreaksBefore +
+                (needsBump ? 1 : 0)
+              );
+            }
+
+            const allSections = Array.from(
+              document.querySelectorAll(".pdf-section")
+            );
+            const sectionPageStart = new Map();
+            const unnumberedPageRanges = [];
+            let currentPhysicalPage = 1;
+
+            function isUnnumberedSection(section) {
+              // Keep TOC numbering aligned with visible footer numbering.
+              // These sections use @page title and therefore do not show
+              // regular page numbers in the exported PDF.
+              return section.id === "titelblatt" || section.id === "toc";
+            }
+
+            function countUnnumberedPagesUpTo(physicalPage) {
+              let hiddenCount = 0;
+              unnumberedPageRanges.forEach(({ start, end }) => {
+                if (physicalPage < start) return;
+                hiddenCount += Math.max(
+                  0,
+                  Math.min(physicalPage, end) - start + 1
+                );
+              });
+              return hiddenCount;
+            }
+
+            function toDisplayedPage(physicalPage) {
+              if (!physicalPage) return physicalPage;
+              const hiddenBefore = countUnnumberedPagesUpTo(physicalPage);
+              return Math.max(1, physicalPage - hiddenBefore);
+            }
+
+            allSections.forEach((section) => {
+              const isContainer =
+                section.querySelector(":scope > .pdf-section") !== null;
+
+              sectionPageStart.set(section, currentPhysicalPage);
+
+              if (!isContainer) {
+                const leafPages = countLeafPages(section);
+                if (isUnnumberedSection(section) && leafPages > 0) {
+                  unnumberedPageRanges.push({
+                    start: currentPhysicalPage,
+                    end: currentPhysicalPage + leafPages - 1,
+                  });
+                }
+                currentPhysicalPage += leafPages;
+              }
+            });
+
+            // Record ToC page numbers while measurements are still normalized
+            const tocEntries = [];
+            document.querySelectorAll("#toc a[href^='#']").forEach((link) => {
+              const pageSlot = link.querySelector(".toc-page");
+              const href = link.getAttribute("href");
+              if (!pageSlot || !href || href.length < 2) return;
+
+              const rawId = href.slice(1);
+              let target = document.getElementById(rawId);
+              if (!target) {
+                const decodedId = decodeURIComponent(rawId);
+                target = document.getElementById(decodedId);
+              }
+              if (!target) return;
+
+              let physicalPage;
+              if (sectionPageStart.has(target)) {
+                physicalPage = sectionPageStart.get(target);
+              } else {
+                const container = target.closest(".pdf-section");
+                if (container && sectionPageStart.has(container)) {
+                  const startPage = sectionPageStart.get(container);
+                  physicalPage = estimateNestedAnchorPage(
+                    container,
+                    target,
+                    startPage
+                  );
+                }
+              }
+              if (physicalPage) {
+                tocEntries.push({
+                  pageSlot,
+                  page: toDisplayedPage(physicalPage),
+                });
+              }
+            });
+
+            // Restore styles and apply page numbers
+            document.body.classList.remove("toc-measure");
+            tocMeasureStyle.remove();
+            tocEntries.forEach(({ pageSlot, page }) => {
+              pageSlot.textContent = String(page);
+            });
+
+            return pageH;
+          }
+
+          function refreshTocForCurrentMedia() {
+            try {
+              const pageH = computeTocPageNumbers();
+              return runPreflightWarnings(pageH);
+            } catch (err) {
+              console.error("TOC refresh error:", err);
+              return false;
+            }
+          }
+
+          window.addEventListener("beforeprint", function () {
+            refreshTocForCurrentMedia();
+          });
+
+          window.addEventListener("afterprint", function () {
+            refreshTocForCurrentMedia();
+          });
+  
+          try {
+            // Wait for Mermaid diagrams (loaded by the diagram shortcode)
+            if (window.__mermaidPromise) {
+              const diagrams = document.querySelectorAll(".mermaid");
+              printStatus.textContent = `Rendere ${diagrams.length} Diagramm(e)...`;
+              await window.__mermaidPromise;
+            }
+  
+            // Wait for all images to load
+            const images = document.querySelectorAll("img");
+            if (images.length > 0) {
+              printStatus.textContent = `Lade ${images.length} Bild(er)...`;
+              await Promise.all(
+                Array.from(images)
+                  .filter((img) => !img.complete)
+                  .map(
+                    (img) =>
+                      new Promise((resolve) => {
+                        img.onload = resolve;
+                        img.onerror = resolve;
+                      })
+                  )
+              );
+            }
+  
+            const hasWarnings = refreshTocForCurrentMedia();
+  
+            // All ready
+            printStatus.textContent = hasWarnings
+              ? "✓ Bereit zum Drucken (mit Hinweisen)"
+              : "✓ Bereit zum Drucken";
+            printStatus.style.background = "#dae5ec";
+            printBtn.disabled = false;
+          } catch (error) {
+            console.error("Rendering error:", error);
+            // Re-append controls if detached during Paged.js attempt
+            if (printControls && !document.contains(printControls)) {
+              document.body.appendChild(printControls);
+            }
+            printStatus.textContent = "⚠ Fehler - trotzdem drucken möglich";
+            printStatus.style.background = "#dae5ec";
+            printBtn.disabled = false;
+            runPreflightWarnings();
+          }
+        });
+      </script>
+    </body>
+  </html>
+  

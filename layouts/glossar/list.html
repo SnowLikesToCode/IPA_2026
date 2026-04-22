@@ -1,0 +1,24 @@
+{{- /*
+  Glossar Section Layout
+  
+  Renders the glossary page with all terms from data/glossary.yaml.
+  Terms are displayed alphabetically sorted.
+  Each term shows definition and any related links.
+*/ -}}
+
+{{ define "main" }}
+<article class="glossar-page">
+  <header class="section-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}
+    <p class="section-description">{{ . }}</p>
+    {{ end }}
+  </header>
+  
+  {{ with .Content }}
+  <div class="section-intro">
+    {{ . }}
+  </div>
+  {{ end }}
+</article>
+{{ end }}
