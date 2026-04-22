@@ -6,5 +6,7 @@ pdfLayout: "chapter"
 pdfSectionId: "teil-1"
 ---
 
-%%Kurz erklären: Worum geht es in Teil 1 und wie liest man ihn?%%
+Dieser Teil dokumentiert die Rahmenbedingungen der IPA: Aufgabenstellung, Projektorganisation, Firmenstandards, Arbeitsorganisation und Zeitplan.
+
+Die Kapitel sind so aufgebaut, dass zuerst die Ausgangslage und Anforderungen klar werden und danach die organisatorischen und methodischen Grundlagen folgen.
 

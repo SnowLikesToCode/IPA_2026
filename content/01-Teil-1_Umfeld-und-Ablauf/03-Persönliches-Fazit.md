@@ -5,21 +5,21 @@ weight: 99
 pdfSectionId: "fazit"
 ---
 
-%%Persönliches Fazit: objektiv, Herausforderungen, Lernerfahrung, Entwicklungsperspektiven, Beurteilung%%
+Dieses Kapitel enthält die persönliche Reflexion zur IPA und wird gegen Ende der Durchführung finalisiert.
 
 ## Herausforderungen
 
-%%Herausforderungen (objektiv): Welche Situationen waren schwierig und warum?%%
+Die konkreten Herausforderungen werden hier auf Basis der tatsächlichen Projekterfahrung dokumentiert.
 
 ## Lernerfahrung
 
-%%Was hast du gelernt (fachlich, methodisch, organisatorisch)?%%
+Die wichtigsten Lernerfahrungen aus Technik, Methodik und Organisation werden hier festgehalten.
 
 ## Entwicklungsperspektiven
 
-%%Was würdest du bei einem ähnlichen Projekt künftig besser/anders machen?%%
+Verbesserungspotenziale für vergleichbare Projekte werden hier konkret beschrieben.
 
 ## Beurteilung des Erfolgs
 
-%%Beurteilung: Was war erfolgreich, was nicht, und warum (auch wenn das Endziel scheitert).%%
+Hier erfolgt die abschliessende Beurteilung von Zielerreichung, Qualität und Nutzen der Umsetzung.
 

@@ -4,7 +4,7 @@ description: ""
 weight: 1
 ---
 
-%%text about here comes an organigram%%
+Das Organigramm zeigt die Rollen im Projekt sowie die wichtigsten Kommunikations- und Abstimmungsbeziehungen zwischen Kandidat, Fachrollen und Experten.
 
 {{< diagram caption="Projektaufbauorganisation" id="projektaufbauorganisation" >}}
 flowchart TB

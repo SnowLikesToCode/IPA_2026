@@ -11,14 +11,12 @@ Der Zeitplan ist nach dem Projektvorgehensmodell **{{< param "projektvorgehensmo
 
 | Phase / Meilenstein | Datum (von-bis) | Aufwand (Std) |
 | :--- | :---: | ---: | 
-| %%Beispiel: Informieren%% | %%09.03.2026 - 10.03.2026%% | %%8.0%% |
-| %%Beispiel: Planen%% | %%10.03.2026 - 11.03.2026%% | %%8.0%% | 
-| %%Beispiel: Entscheiden%% | %%11.03.2026%% | %%4.0%% |
-| %%Beispiel: Realisieren%% | %%12.03.2026 - 20.03.2026%% | %%40.0%% | 
-| %%Beispiel: Kontrollieren%% | %%21.03.2026 - 22.03.2026%% | %%8.0%% | 
-| %%Beispiel: Auswerten%% | %%23.03.2026%% | %%4.0%% | 
-
-%%Hinweis: Ergänze hier bei Bedarf Totalaufwand, Reserven (Puffer) und die IPA-Zeitvorgabe.%%
+| Informieren | 22.04.2026 - 23.04.2026 | 8.0 |
+| Planen | 24.04.2026 - 25.04.2026 | 8.0 | 
+| Entscheiden | 28.04.2026 | 4.0 |
+| Realisieren | 29.04.2026 - 05.05.2026 | 40.0 | 
+| Kontrollieren | 06.05.2026 | 8.0 | 
+| Auswerten | 07.05.2026 | 4.0 | 
 
 ## Detailplanung
 

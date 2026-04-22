@@ -1,8 +1,12 @@
-﻿---
+---
 title: "Deklaration der Vorarbeiten"
 description: "Beschreibung der Deklaration der Vorarbeiten"
 weight: 6
 ---
 
-%%Hier kommt der Text der Deklaration der Vorarbeiten hin (kopiert aus der Aufgabenstellung von PkOrg).%%
+Vor Beginn der IPA wurden die bestehende Reporting-Infrastruktur und die aktuelle Anbindung an Cortex Cloud analysiert.
+
+Dabei wurden relevante Schnittstellen und technische Rahmenbedingungen festgehalten.
+
+Zusätzlich wurden Anforderungen und zentrale Metriken gemeinsam mit den Stakeholdern geklärt und schriftlich definiert.
 

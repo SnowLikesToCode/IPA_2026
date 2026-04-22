@@ -1,8 +1,12 @@
-﻿---
+---
 title: "Deklaration der Vorkenntnisse"
 description: "Beschreibung der Deklaration der Vorkenntnisse"
 weight: 5
 ---
 
-%%Hier kommt der Text der Deklaration der Vorkenntnisse hin (kopiert aus der Aufgabenstellung von PkOrg).%%
+- Grundlagen in der Elastic Search Suite (Verbindungen aufsetzen, einfache Regeln erstellen)
+- Erfahrung mit Web-Stack und Cloud-Security-Konzepten durch die Arbeit mit Cortex Cloud
+- Grundkenntnisse in EQL und Datenverarbeitung
+- TypeScript-Erfahrung aus privaten Projekten
+- Swisscom SDX wird im Rahmen der Arbeit vertieft angewendet
 
