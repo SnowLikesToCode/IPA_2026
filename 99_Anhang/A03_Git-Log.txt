@@ -1,4 +1,6 @@
-﻿b7af309 | Wednesday, 22.04.2026 16:47 | docs: aktualisiere IPA-Dokumentation und Journalstruktur
+﻿878b5f8 | Thursday, 23.04.2026 10:46 | docs: vereinheitliche journals und aktualisiere teil-1 dokumentation
+43aa7c7 | Wednesday, 22.04.2026 16:49 | docs: aktualisiere git-log und handoff-notizen
+b7af309 | Wednesday, 22.04.2026 16:47 | docs: aktualisiere IPA-Dokumentation und Journalstruktur
 cb5cfad | Wednesday, 22.04.2026 10:03 | Erg├ñnze Teil 1 mit Daten aus PKOrg und PDF-Bewertungskriterien
 90f67eb | Wednesday, 22.04.2026 09:37 | Vorwort geschrieben, und anpassungen erstellt
 1d2fd51 | Wednesday, 22.04.2026 09:04 | docs: update appendix git log
