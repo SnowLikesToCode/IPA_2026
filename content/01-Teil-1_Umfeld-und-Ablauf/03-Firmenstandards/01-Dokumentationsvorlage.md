@@ -4,9 +4,9 @@ description: ""
 weight: 1
 ---
 
-Für diesen IPA-Bericht verwende ich eine technische Dokumentationsvorlage auf Basis von Markdown und Hugo. Als Grundlage dient die Vorlage von Isaac Lins aus dem Repository {{< ref "ipa_vorlage_github" "Individuelle-Praktische-Arbeit-Vorlage"  >}}, die ich für meine Arbeit angepasst habe.
+Für diesen IPA-Bericht verwendet der Kandidat eine technische Dokumentationsvorlage auf Basis von Markdown und Hugo. Als Grundlage dient die Vorlage von Isaac Lins aus dem Repository {{< ref "ipa_vorlage_github" "Individuelle-Praktische-Arbeit-Vorlage"  >}}, die für diese Arbeit angepasst wurde.
 
-Ich habe mich bewusst für diese Lösung entschieden, weil sie versionierbar, nachvollziehbar und im Arbeitsalltag deutlich angenehmer ist als ein klassisches Word-Dokument.
+Der Kandidat hat sich bewusst für diese Lösung entschieden, weil sie versionierbar, nachvollziehbar und im Arbeitsalltag deutlich angenehmer ist als ein klassisches Word-Dokument.
 
 Die Vorlage nutzt Shortcodes, damit wiederkehrende Inhalte einheitlich und sauber gepflegt werden können. Beispiele in dieser Dokumentation:
 

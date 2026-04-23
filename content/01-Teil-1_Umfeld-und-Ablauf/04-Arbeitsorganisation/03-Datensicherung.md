@@ -12,7 +12,7 @@ Gesichert werden:
 - Quellcode und Konfigurationsdateien
 - Anhänge und weitere IPA-relevante Dateien im Projektordner
 
-Ich arbeite direkt auf dem Branch `master` und erstelle mehrmals täglich Commits. Dadurch sind Zwischenstände sauber dokumentiert und können bei Bedarf auf einen früheren Stand zurückgesetzt werden.
+Der Kandidat arbeitet direkt auf dem Branch `master` und erstellt mehrmals täglich Commits. Dadurch sind Zwischenstände sauber dokumentiert und können bei Bedarf auf einen früheren Stand zurückgesetzt werden.
 
 {{< figure src="/images/datensicherung-github-screenshot.png" caption="Repository-Stand auf GitHub als Nachweis der Datensicherung." />}}
 

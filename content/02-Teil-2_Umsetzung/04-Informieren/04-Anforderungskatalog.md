@@ -20,6 +20,7 @@ Die Anforderungen wurden aus der offiziellen Aufgabenstellung {{< ref "pkorg_det
 | FA-05 | Das Frontend-Gerüst wird mit den Cortex-Cloud-Daten befüllt und stellt diese über die definierten Schnittstellen dar. | Must |
 | FA-06 | Die Ergebnisse der EQL-Abfragen werden durch einen Soll-Ist-Vergleich mit den Cortex-Rohdaten validiert und mit Screenshots der Test-Queries in {{< glossary "Kibana" >}} dokumentiert. | Must |
 | FA-07 | Die dargestellten Metriken bilden den aktuellen Sicherheitszustand der Kundeninfrastruktur ab. | Should |
+| FA-08 | Der Report kann als PDF exportiert werden, sodass Kunden einen formatierten Bericht ihrer Sicherheitslage herunterladen können. | Could |
 
 {{< /table >}}
 

@@ -2,7 +2,7 @@
 title: "Schwachstellenanalyse"
 description: ""
 weight: 2
-pdfSectionId: "ist-analyse"
+pdfSectionId: "schwachstellenanalyse"
 ---
 
 Auf Basis der Ist-Analyse wurden die wesentlichen Schwachstellen des aktuellen Zustands identifiziert. Die Tabelle fasst sie zusammen und bewertet die Auswirkung auf den Betrieb und die Kundensicht.
@@ -11,7 +11,7 @@ Auf Basis der Ist-Analyse wurden die wesentlichen Schwachstellen des aktuellen Z
 
 | ID | Schwachstelle | Auswirkung | Priorität |
 | :-- | :-- | :-- | :--: |
-| SW-01 | Die Cortex-Cloud-Daten sind nicht in die bestehende Reporting-Webseite integriert. | Kunden müssen für eine vollständige Sicherheitsübersicht zwischen mehreren Tools wechseln. | Hoch |
+| SW-01 | Die Cortex-Cloud-Daten sind nicht im SDX-Frontend-Gerüst integriert. | Kunden müssen für eine vollständige Sicherheitsübersicht zwischen mehreren Tools wechseln. | Hoch |
 | SW-02 | Das native Cortex-Cloud-Dashboard ist nicht auf Swisscom-Kunden zugeschnitten. | Darstellung und Struktur passen nicht zur bestehenden Reporting-Landschaft; inkonsistentes Kundenerlebnis. | Hoch |
 | SW-03 | Es existiert kein automatisierter Datenfluss von Cortex Cloud zum bestehenden Frontend. | Manuelle Auswertungen sind fehleranfällig, zeitaufwendig und nicht skalierbar. | Hoch |
 | SW-04 | Es besteht keine Anbindung von Cortex Cloud an einen eigenen Elasticsearch-Cluster. | Ohne diese Verbindung sind keine EQL-Abfragen möglich; der gesamte Datenfluss fehlt. | Hoch |

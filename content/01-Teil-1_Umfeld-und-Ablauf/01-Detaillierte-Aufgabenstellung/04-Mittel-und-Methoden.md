@@ -13,7 +13,7 @@ weight: 4
 
 - EQL (Event Query Language) für die Abfragelogik
 - TypeScript für die Applikationslogik
-- Web-Stack für die Integration in das bestehende Reporting
+- Web-Stack für die Integration in das SDX-Frontend-Gerüst
 - Swisscom SDX als Design- und Umsetzungsgrundlage
 
 ## Projektmanagement und Tooling

@@ -4,7 +4,7 @@ description: "Beschreibung der Deklaration der Vorarbeiten"
 weight: 6
 ---
 
-Vor Beginn der IPA wurden die bestehende Reporting-Infrastruktur und die aktuelle Anbindung an Cortex Cloud analysiert.
+Vor Beginn der IPA wurden die bestehende Frontend-Infrastruktur und der Zugang zu Cortex Cloud analysiert.
 
 Dabei wurden relevante Schnittstellen und technische Rahmenbedingungen festgehalten.
 

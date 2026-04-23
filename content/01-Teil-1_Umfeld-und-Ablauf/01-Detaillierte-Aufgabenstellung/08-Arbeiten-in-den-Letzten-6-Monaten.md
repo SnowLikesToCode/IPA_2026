@@ -4,8 +4,8 @@ description: "Beschreibung der Arbeiten in den letzten 6 Monaten"
 weight: 8
 ---
 
-- Aufsetzen einer Elastic Search Connection zu Cortex Cloud
+- Aufbau einer Elasticsearch-Verbindung zu Cortex Cloud (Vorversuch; muss im Rahmen der IPA neu aufgesetzt werden)
 - Erstellung von Posture-Regeln für Cortex Cloud
 - Erstellung von AWS-Regeln in Cortex Cloud
-- Wissensaufbau in Elastic Search, Kibana und AWS
+- Wissensaufbau in Elasticsearch, Kibana und AWS
 
