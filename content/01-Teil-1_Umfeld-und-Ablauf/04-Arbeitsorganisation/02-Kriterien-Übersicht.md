@@ -4,21 +4,16 @@ description: ""
 weight: 2
 ---
 
-Während der IPA wird der Kriterienkatalog laufend mitgeführt, damit jederzeit ersichtlich ist, welche Punkte bereits abgedeckt sind und wo noch Nachweise fehlen.
+Für die IPA führe ich eine laufende Kriterien-Übersicht, damit die geforderten Bewertungs- und Qualitätskriterien während der ganzen Arbeit sichtbar bleiben.
 
-Wichtige Passagen werden markiert, damit bei der Bearbeitung der Kapitel die relevanten Leitfragen direkt sichtbar bleiben.
-Siehe Abbildung "Orange angestrichenes Kriterium".
+Ich arbeite mit einer klaren Statuslogik:
 
+- wichtige Kriterien werden markiert,
+- bereits erfüllte Kriterien werden als erledigt gekennzeichnet,
+- offene Kriterien bleiben sichtbar, bis ein nachvollziehbarer Nachweis vorliegt.
 
-{{< pagebreak >}}
+Zusätzlich halte ich laufend kurze Notizen direkt beim Kriterienkatalog fest. Dadurch ist ersichtlich, welche Punkte bereits erfüllt sind und bei welchen Punkten noch Handlungsbedarf besteht.
 
-<!-- pagebreak because of the large image -->
-
-Erledigte Kriterien werden separat markiert, damit der Erfüllungsstand klar bleibt.
-Siehe Abbildung "Grün angestrichenes Kriterium".
-
-Zusätzlich werden laufend Notizen zu Nachweisen, offenen Punkten und nächsten Schritten festgehalten.
-{{< pagebreak >}}
-<!-- pagebreak because  of datensicherung which would be cut in half  -->
+%%Bild fehlt%%
 
 {{< ki >}}

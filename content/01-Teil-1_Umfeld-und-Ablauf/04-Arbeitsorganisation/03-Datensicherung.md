@@ -4,15 +4,16 @@ description: ""
 weight: 3
 ---
 
-Die Datensicherung erfolgt während der gesamten IPA über das Git-Repository. Alle relevanten Dateien werden versioniert und bei wichtigen Änderungen als Commit gesichert.
+Die Datensicherung erfolgt während der gesamten IPA über Git (lokal) und GitHub (remote). Damit sind alle Änderungen versioniert, nachvollziehbar und bei lokalem Datenverlust wiederherstellbar.
 
-Durch das regelmässige Synchronisieren mit dem Remote-Repository bleiben Änderungen nachvollziehbar und sind bei lokalem Datenverlust wiederherstellbar.
-Siehe Abbildung "Git Versionsverlauf"
-{{< figure src="/images/github-versionsverlauf.png" >}}
-Github Versionsverlauf
-{{< /figure >}}
-{{< pagebreak >}}
+Gesichert werden:
 
-<!-- pagebreak because of raportierung clean  -->
+- Dokumentationsdateien im Repository
+- Quellcode und Konfigurationsdateien
+- Anhänge und weitere IPA-relevante Dateien im Projektordner
+
+Ich arbeite direkt auf dem Branch `master` und erstelle mehrmals täglich Commits. Dadurch sind Zwischenstände sauber dokumentiert und können bei Bedarf auf einen früheren Stand zurückgesetzt werden.
+
+{{< figure src="/images/datensicherung-github-screenshot.png" caption="Repository-Stand auf GitHub als Nachweis der Datensicherung." />}}
 
 {{< ki >}}

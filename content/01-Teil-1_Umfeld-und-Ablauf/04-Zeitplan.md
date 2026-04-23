@@ -9,16 +9,21 @@ Der Zeitplan ist nach dem Projektvorgehensmodell **{{< param "projektvorgehensmo
 
 ## Übersicht
 
-| Phase / Meilenstein | Datum (von-bis) | Aufwand (Std) |
-| :--- | :---: | ---: | 
-| Informieren | 22.04.2026 - 23.04.2026 | 8.0 |
-| Planen | 24.04.2026 - 25.04.2026 | 8.0 | 
-| Entscheiden | 28.04.2026 | 4.0 |
-| Realisieren | 29.04.2026 - 05.05.2026 | 40.0 | 
-| Kontrollieren | 06.05.2026 | 8.0 | 
-| Auswerten | 07.05.2026 | 4.0 | 
+| Phase / Bereich | Geplant (Std) | Effektiv (Std) |
+| :--- | ---: | ---: |
+| Teil 1: Umfeld und Ablauf | 4.50 | 4.50 |
+| Teil 2: Projektdokumentation | 1.00 | 1.00 |
+| Informieren | 3.00 | 2.00 |
+| Planen | 7.50 | 0.00 |
+| Entscheiden | 4.50 | 0.00 |
+| Realisieren | 23.00 | 0.00 |
+| Kontrollieren | 3.50 | 0.00 |
+| Auswerten | 11.00 | 0.00 |
+| Tägliche Aufgaben / Sonstiges | 22.00 | 2.50 |
+| **Total** | **80.00** | **11.00** |
 
 ## Detailplanung
 
-Die Detailplanung ist als PNG des Excel-Exports eingebunden.
-<!-- This is the coolest use of shortcodes I've ever done, I'm actually proud of it lol-->
+%%Bild fehlt%%
+
+{{< ki >}}
