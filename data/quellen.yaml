@@ -50,3 +50,31 @@
   url_text: "https://ethz.ch/.../Entscheidungsmatrix.xlsx"
   zugriff: "13.03.2026"
   typ: dokumentation
+
+- id: elastic_eql_docs
+  titel: "Event Query Language (EQL) - Elasticsearch Reference"
+  Autor: "Elastic N.V."
+  url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/eql.html"
+  zugriff: "22.04.2026"
+  typ: dokumentation
+
+- id: elastic_elasticsearch_docs
+  titel: "Elasticsearch Guide"
+  Autor: "Elastic N.V."
+  url: "https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html"
+  zugriff: "22.04.2026"
+  typ: dokumentation
+
+- id: cortex_cloud_docs
+  titel: "Cortex Cloud Documentation"
+  Autor: "Palo Alto Networks"
+  url: "https://docs.paloaltonetworks.com/cortex/cortex-cloud"
+  zugriff: "22.04.2026"
+  typ: dokumentation
+
+- id: elastic_kibana_docs
+  titel: "Kibana Guide"
+  Autor: "Elastic N.V."
+  url: "https://www.elastic.co/guide/en/kibana/current/index.html"
+  zugriff: "22.04.2026"
+  typ: dokumentation

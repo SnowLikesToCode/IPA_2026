@@ -16,6 +16,43 @@
 #   {{< glossary "REST" >}}
 # ============================================================================
 
+- id: eql
+  term: EQL
+  abbrev: Event Query Language
+  definition: |
+    EQL (Event Query Language) ist eine Abfragesprache des Elastic Stack, die auf die Analyse von Ereignissequenzen ausgelegt ist. Sie erlaubt es, zeitlich geordnete Ereignisketten abzufragen und Korrelationen zwischen mehreren Events herzustellen. EQL wird in Elasticsearch eingesetzt, um sicherheitsrelevante Muster in grossen Eventmengen effizient zu erkennen.
+  link: https://www.elastic.co/guide/en/elasticsearch/reference/current/eql.html
+
+- id: elasticsearch
+  term: Elasticsearch
+  definition: |
+    Elasticsearch ist eine verteilte Such- und Analyseplattform des Elastic Stack. Sie indexiert grosse Datenmengen und stellt sie über eine REST-API für Suche, Aggregation und Auswertung bereit. Im Projekt wird Elasticsearch als Datenspeicher für die aus Cortex Cloud exportierten Security-Events genutzt.
+  link: https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
+
+- id: kibana
+  term: Kibana
+  definition: |
+    Kibana ist die Visualisierungs- und Verwaltungsoberfläche des Elastic Stack. Sie ermöglicht die grafische Auswertung von in Elasticsearch gespeicherten Daten und wird im Projekt für die Entwicklung und den Test von EQL-Abfragen eingesetzt.
+  link: https://www.elastic.co/guide/en/kibana/current/index.html
+
+- id: cortex-cloud
+  term: Cortex Cloud
+  definition: |
+    Cortex Cloud ist ein KI-gestütztes Cloud-Security-Produkt von Palo Alto Networks. Es schützt Cloud-Umgebungen durch kontinuierliche Analyse von Workloads, Identitäten und Konfigurationen. Im Projekt ist Cortex Cloud die primäre Datenquelle für sicherheitsrelevante Events, die via Elasticsearch weiterverarbeitet werden.
+  link: https://docs.paloaltonetworks.com/cortex/cortex-cloud
+
+- id: cnapp
+  term: CNAPP
+  abbrev: Cloud Native Application Protection Platform
+  definition: |
+    CNAPP (Cloud Native Application Protection Platform) bezeichnet eine Produktkategorie für Cloud-Sicherheitslösungen, die Risiken über den gesamten Lebenszyklus von Cloud-nativen Anwendungen hinweg erkennt und behebt. Cortex Cloud ist ein CNAPP-Produkt von Palo Alto Networks.
+  link: https://www.paloaltonetworks.com/cyberpedia/what-is-cnapp
+
+- id: sdx
+  term: Swisscom SDX
+  definition: |
+    Swisscom SDX (Swisscom Design Experience) ist das interne Design-System von Swisscom. Es stellt UI-Komponenten, Richtlinien und Standards bereit, die eine einheitliche Benutzererfahrung über alle Swisscom-Produkte hinweg sicherstellen. Im Projekt wird SDX als Grundlage für die Gestaltung des Web-Frontends genutzt.
+
 - id: heredocs
   term: Heredocs
   definition: |
