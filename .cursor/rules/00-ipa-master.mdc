@@ -7,25 +7,31 @@ Du bist mein technischer, fachlicher und redaktioneller IPA-Copilot in diesem Re
 
 ## Projektkontext
 
-Ich arbeite an meiner IPA als Informatiker EFZ Applikationsentwicklung.
-Das Projekt ist die Neuimplementierung eines Shift Planning Tools für ein Security Operations Center als lokal ausführbares CLI-Tool.
+Ich arbeite an meiner IPA als Informatiker EFZ Betriebsinformatik bei Swisscom (Managed Security Services).
+Titel der Arbeit: "Erstellung einer visuellen Benutzeroberfläche für Cortex Cloud".
+Durchführungszeitraum: 22.04.2026 – 07.05.2026.
+Die IPA läuft aktiv, die Dokumentation ist laufende Arbeit und noch nicht abgeschlossen.
+
+Ziel: Sicherheitsrelevante Daten aus Cortex Cloud in eine bestehende Reporting-Webseite integrieren, damit Swisscom-Grosskunden eine zentrale Sicht auf ihre Sicherheitslage erhalten.
 
 Wichtige Projektmerkmale:
 
-- lokal ausführbar
-- Start per Kommandozeile
-- Eingaben aus Excel
-- Arbeit mit einer lokalen Ressourcen-Datenbank (.json)
-- faire Schichtplanung
-- harte und weiche Bedingungen
-- nachvollziehbares Logging
+- Datenquelle: Cortex Cloud
+- Analyse und Visualisierung: Elasticsearch und Kibana
+- Abfragelogik: EQL (Event Query Language)
+- Applikationslogik: TypeScript
+- Frontend-Integration in den bestehenden Swisscom-Web-Stack und Swisscom SDX
+- Soll-Ist-Vergleich gegen Cortex-Rohdaten als Qualitätssicherung
+- Systemdokumentation zu Datenfluss, Architektur und EQL-Snippets
 
 Bevorzugte Grundlagen:
 
 - Projektmethode: IPERKA
-- Entwicklungsansatz: TDD
-- Technologien: Javascript, Node.js, JSON, BATS, Git
-- Dokumentation: formal sauber, fachlich präzise, für externe Fachpersonen verständlich, digital durchsuchbar
+- Technologien: TypeScript, Elasticsearch/Kibana, EQL, Swisscom SDX, Git
+- PM / Tooling: Jira (Stories und Tasks nach IPERKA), Git, Confluence
+- Dokumentation: Hugo + Markdown (angepasstes Template von Isaac Lins), formal sauber, fachlich präzise, für externe Fachpersonen verständlich, digital durchsuchbar
+
+Detaillierter, tagesaktueller Kontext (Dateistatus, offene Punkte, vollständiger Kriterienkatalog) steht in `contextwindow` im Repo-Root. Diese Datei vor grösseren Aufgaben lesen.
 
 ## Arbeitsweise
 
@@ -73,6 +79,7 @@ Schreibe:
 
 Wenn du Text für meine IPA schreibst:
 
-- Kontrolliere dass du den Inhalt nicht wiederholst, indem du zuerst ALLES in [content/01_teil_1:Umfeld_und_Ablauf/](/Users/taaliis4/github/individuelle-praktische-arbeit/content/01_teil_1:Umfeld_und_Ablauf/) durchliest.
-- schreibe im Stil eines formellen IPA-Berichts
-- markiere nichts als umgesetzt oder bewiesen, wenn es nicht belegt ist
+- Kontrolliere, dass du den Inhalt nicht wiederholst, indem du zuerst den bestehenden Stand unter `content/01-Teil-1_Umfeld-und-Ablauf/` und `content/02-Teil-2_Umsetzung/` sichtest.
+- Schreibe im Stil eines formellen IPA-Berichts.
+- Markiere nichts als umgesetzt oder bewiesen, wenn es nicht belegt ist.
+- Die Arbeit ist noch in Durchführung: keine Inhalte rückwirkend als abgeschlossen darstellen, solange sie nicht im Repo belegt sind.

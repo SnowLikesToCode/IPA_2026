@@ -15,6 +15,8 @@ Folgende Geräte sind hier zu sehen:
 - Maus (Logitech)
 
 Damit ist die technische Grundlage für die Dokumentation und die Umsetzung der IPA gegeben.
+
+%%Bild fehlt%%
 {{< /left >}}
 
 {{< right >}}

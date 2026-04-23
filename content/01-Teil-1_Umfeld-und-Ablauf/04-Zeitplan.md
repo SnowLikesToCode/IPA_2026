@@ -24,6 +24,6 @@ Der Zeitplan ist nach dem Projektvorgehensmodell **{{< param "projektvorgehensmo
 
 ## Detailplanung
 
-%%Bild fehlt%%
+{{< figure src="/images/Zeitplan.png" caption="Zeitplan mit geplanter und effektiver Aufwandsverteilung nach IPERKA-Phasen." />}}
 
 {{< ki >}}
