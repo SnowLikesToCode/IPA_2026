@@ -1,4 +1,5 @@
-﻿4d89ac0 | Thursday, 23.04.2026 10:54 | docs: f├╝ge kapitel zur informieren-phase hinzu
+﻿7415e1c | Thursday, 23.04.2026 16:43 | docs: schreibe Planen-Phase und aktualisiere Arbeitsjournal Tag 2
+4d89ac0 | Thursday, 23.04.2026 10:54 | docs: füge kapitel zur informieren-phase hinzu
 028d920 | Thursday, 23.04.2026 10:48 | docs: aktualisiere anhang git-log
 878b5f8 | Thursday, 23.04.2026 10:46 | docs: vereinheitliche journals und aktualisiere teil-1 dokumentation
 43aa7c7 | Wednesday, 22.04.2026 16:49 | docs: aktualisiere git-log und handoff-notizen
