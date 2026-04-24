@@ -6,5 +6,7 @@ pdfLayout: "chapter"
 pdfSectionId: "teil-2"
 ---
 
-%%Kurz erklären: Worum geht es in Teil 2 (Kurzfassung, Projektmethode, Abgrenzung, Projekt-Dokumentation)?%%
+Dieser Teil dokumentiert die fachliche Umsetzung der IPA von der Kurzfassung über die gewählte Projektmanagementmethode bis zur technischen Abgrenzung und Projektdokumentation.
+
+Die Kapitel zeigen, wie der Kandidat die Anforderungen in konkrete Arbeitsschritte überführt, technische Entscheide begründet und die Resultate nachvollziehbar festhält.
 

@@ -17,11 +17,11 @@ Die Korrektheit der Ergebnisse wird primär durch Soll-Ist-Vergleiche mit den Co
 
 | ID | Stufe | Was wird getestet | Wie wird getestet | Erwartetes Ergebnis | Nachweis |
 | :-- | :-- | :-- | :-- | :-- | :-- |
-| TP-01 | Integration | {{< glossary "Elasticsearch" >}}-Verbindung zu {{< glossary "Cortex Cloud" >}} | In {{< glossary "Kibana" >}} prüfen, ob Events aus Cortex Cloud im Index erscheinen | Events sind indexiert und in Kibana suchbar | Screenshot Kibana Index-Übersicht |
-| TP-02 | Integration | {{< glossary "EQL" >}}-Abfragen liefern korrekte Ergebnisse | EQL-Abfrageergebnisse mit Cortex-Rohdaten abgleichen (Soll-Ist-Vergleich) | Metriken stimmen mit Rohdaten überein; keine Diskrepanzen | Screenshots der Test-Queries in Kibana |
-| TP-03 | Einheit | {{< glossary "TypeScript" >}}-Datenverarbeitung | Unit-Tests für die Verarbeitungslogik; Eingabe: Mock-EQL-Response, Ausgabe: erwartetes DTO | Verarbeitete Daten entsprechen der definierten Struktur | Test-Output (Protokoll) |
+| TP-01 | Integration | Verbindung zwischen {{< glossary "Elasticsearch" >}} und {{< glossary "Cortex Cloud" >}} | In {{< glossary "Kibana" >}} prüfen, ob Events aus Cortex Cloud im Index erscheinen | Events sind indexiert und in Kibana suchbar | Screenshot Kibana Index-Übersicht |
+| TP-02 | Integration | Abfragen mit {{< glossary "EQL" >}} liefern korrekte Ergebnisse | EQL-Abfrageergebnisse mit Cortex-Rohdaten abgleichen (Soll-Ist-Vergleich) | Metriken stimmen mit Rohdaten überein; keine Diskrepanzen | Screenshots der Test-Queries in Kibana |
+| TP-03 | Einheit | Datenverarbeitung in {{< glossary "TypeScript" >}} | Unit-Tests für die Verarbeitungslogik; Eingabe: Mock-EQL-Response, Ausgabe: erwartetes DTO | Verarbeitete Daten entsprechen der definierten Struktur | Test-Output (Protokoll) |
 | TP-04 | Integration | REST-API-Endpunkte | API-Endpunkte mit definierten Testparametern aufrufen und Antwortstruktur prüfen | Endpunkte antworten mit korrekter Datenstruktur und HTTP-Status 200 | API-Response-Screenshot oder Protokoll |
-| TP-05 | System | Darstellung im SDX-Frontend | Seiten im Browser aufrufen und Daten gegen API-Antwort prüfen; SDX-Konformität visuell prüfen | Daten werden vollständig und korrekt im {{< glossary "Swisscom SDX" >}}-Design angezeigt | Screenshot des Frontends mit Daten |
+| TP-05 | System | Darstellung im SDX-Frontend | Seiten im Browser aufrufen und Daten gegen API-Antwort prüfen; SDX-Konformität visuell prüfen | Daten werden vollständig und korrekt im Design von {{< glossary "Swisscom SDX" >}} angezeigt | Screenshot des Frontends mit Daten |
 
 {{< /table >}}
 

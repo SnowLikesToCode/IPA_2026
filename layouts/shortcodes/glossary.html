@@ -41,4 +41,5 @@
   {{- $.Page.Scratch.Set "usedGlossaryTerms" ($usedTerms | append $termId) -}}
 {{- end -}}
 
-{{- if $found -}}<span class="glossary-term" data-term="{{ $termId }}"><a href="{{ (($.Site.Params.glossarPath | default "glossar/") | absURL) }}#glossar-{{ $termId | urlize }}" class="glossary-link">{{- $term -}}</a><span class="glossary-tooltip" role="tooltip"><strong>{{ $term }}</strong>: {{ $definition | truncate 200 }}</span></span>{{- else -}}<span class="glossary-term glossary-term-missing" title="Term not found in glossary">{{- $term -}}</span>{{- end -}}
+{{- $definitionNormalized := $definition | chomp | replaceRE `\s+` " " -}}
+{{- if $found -}}<span class="glossary-term" data-term="{{ $termId }}"><a href="{{ (($.Site.Params.glossarPath | default "glossar/") | absURL) }}#glossar-{{ $termId | urlize }}" class="glossary-link">{{- $term -}}</a><span class="glossary-tooltip" role="tooltip"><strong>{{ $term }}</strong>: {{ $definitionNormalized | truncate 200 }}</span></span>{{- else -}}<span class="glossary-term glossary-term-missing" title="Term not found in glossary">{{- $term -}}</span>{{- end -}}

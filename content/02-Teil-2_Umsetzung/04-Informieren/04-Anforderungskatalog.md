@@ -13,9 +13,9 @@ Die Anforderungen wurden aus der offiziellen Aufgabenstellung {{< ref "pkorg_det
 
 | ID | Anforderung | Priorität |
 | :-- | :-- | :--: |
-| FA-01 | Eine {{< glossary "Elasticsearch" >}}-Verbindung zu {{< glossary "Cortex Cloud" >}} wird aufgesetzt, sodass Security-Events in Elasticsearch indexiert werden. | Must |
-| FA-02 | {{< glossary "EQL" >}}-Abfragen filtern die relevanten Security-Events aus dem Elasticsearch-Cluster und liefern auswertbare Metriken. | Must |
-| FA-03 | Die {{< glossary "TypeScript" >}}-Applikationslogik führt die EQL-Abfragen dynamisch aus und verarbeitet die Rückgabedaten. | Must |
+| FA-01 | Eine Verbindung zu {{< glossary "Elasticsearch" >}} und {{< glossary "Cortex Cloud" >}} wird aufgesetzt, sodass Security-Events in Elasticsearch indexiert werden. | Must |
+| FA-02 | Abfragen mit {{< glossary "EQL" >}} filtern die relevanten Security-Events aus dem Elasticsearch-Cluster und liefern auswertbare Metriken. | Must |
+| FA-03 | Die Applikationslogik in {{< glossary "TypeScript" >}} führt die EQL-Abfragen dynamisch aus und verarbeitet die Rückgabedaten. | Must |
 | FA-04 | Die TypeScript-Logik stellt die verarbeiteten Daten über definierte API-Schnittstellen bereit. | Must |
 | FA-05 | Das Frontend-Gerüst wird mit den Cortex-Cloud-Daten befüllt und stellt diese über die definierten Schnittstellen dar. | Must |
 | FA-06 | Die Ergebnisse der EQL-Abfragen werden durch einen Soll-Ist-Vergleich mit den Cortex-Rohdaten validiert und mit Screenshots der Test-Queries in {{< glossary "Kibana" >}} dokumentiert. | Must |
@@ -32,7 +32,7 @@ Die Anforderungen wurden aus der offiziellen Aufgabenstellung {{< ref "pkorg_det
 | :-- | :-- | :--: |
 | NFA-01 | Eine Systemdokumentation beschreibt den vollständigen Datenfluss, die TypeScript-Architektur und die verwendeten EQL-Snippets, damit das System wartbar und erweiterbar bleibt. | Must |
 | NFA-02 | Der Code folgt den teaminternen Coding Guidelines. {{< ref "coding_guidelines" "Coding Guidelines" >}} | Must |
-| NFA-03 | Die Darstellung im Frontend folgt den Vorgaben des {{< glossary "Swisscom SDX" >}}-Design-Systems. | Must |
+| NFA-03 | Die Darstellung im Frontend folgt den Vorgaben des Design-Systems {{< glossary "Swisscom SDX" >}}. | Must |
 | NFA-04 | Der Quellcode ist via Git versioniert; die Aufgaben werden über Jira nachverfolgt. | Must |
 | NFA-05 | Die API-Schnittstellen sind so dokumentiert, dass eine externe Fachperson damit weiterarbeiten kann. | Should |
 | NFA-06 | Die EQL-Abfragen sind so strukturiert, dass sie unabhängig voneinander gewartet und erweitert werden können. | Should |
