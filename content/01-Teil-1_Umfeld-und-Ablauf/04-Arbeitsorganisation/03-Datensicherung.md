@@ -12,7 +12,13 @@ Gesichert werden:
 - Quellcode und Konfigurationsdateien
 - Anhänge und weitere IPA-relevante Dateien im Projektordner
 
-Der Kandidat arbeitet direkt auf dem Branch `master` und erstellt mehrmals täglich Commits. Dadurch sind Zwischenstände sauber dokumentiert und können bei Bedarf auf einen früheren Stand zurückgesetzt werden.
+Der Kandidat verwendet eine tägliche Branch-Strategie und erstellt pro Arbeitstag einen eigenen Branch (z. B. `day-3-2026-04-24`). Innerhalb des Tages werden auf diesem Branch mehrere Commits erstellt. Dadurch sind Zwischenstände sauber dokumentiert und können bei Bedarf auf den Stand des Vortags zurückgesetzt werden.
+
+Die Branches dienen als zusätzliche Sicherungsebene:
+
+- Tagesstände sind klar voneinander getrennt.
+- Fehlerhafte Änderungen können isoliert verworfen werden, ohne andere Tage zu beeinflussen.
+- Der Rückgriff auf einen stabilen Tagesstand ist jederzeit möglich.
 
 {{< figure src="/images/datensicherung-github-screenshot.png" caption="Repository-Stand auf GitHub als Nachweis der Datensicherung." />}}
 

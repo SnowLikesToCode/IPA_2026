@@ -30,7 +30,31 @@ Nach dem Aufbau der Verbindung stehen die Events in Elasticsearch zur Abfrage be
 
 {{< glossary "EQL" >}}-Abfragen filtern die indexierten Events nach den für Swisscom-Kunden relevanten Metriken. {{< ref "elastic_eql_docs" "Elastic EQL Dokumentation" >}} Die Abfragen werden zuerst in Kibana entwickelt und getestet, bevor sie in die {{< glossary "TypeScript" >}}-Applikationslogik überführt werden.
 
-Die TypeScript-Schicht führt die EQL-Abfragen dynamisch aus, verarbeitet die Rückgabedaten und stellt sie über definierte REST-API-Endpunkte bereit. Jeder Endpunkt entspricht einem klar abgegrenzten Metrikkomplex (z. B. Posture-Übersicht, aktive Alerts).
+Die TypeScript-Schicht führt die EQL-Abfragen dynamisch aus, verarbeitet die Rückgabedaten und stellt sie über definierte REST-API-Endpunkte bereit. Die API wird bewusst in getrennte Endpunkte pro Kernmetrik aufgeteilt, damit Umsetzung, Test und Soll-Ist-Nachweis pro Metrik klar abgegrenzt bleiben.
+
+#### Geplante Kernmetriken und Datenstruktur
+
+Für die Umsetzung werden vier Kernmetriken priorisiert. Diese decken die geforderte Übersicht über Sicherheitslage, Zustand und Nachvollziehbarkeit ab.
+
+{{< table "Kernmetriken (Planungsstand)" >}}
+
+| ID | Kernmetrik | Ziel der Metrik | Geplante Rückgabestruktur (TypeScript/API) | Geplanter Nachweis |
+| :-- | :-- | :-- | :-- | :-- |
+| M-01 | Amount of issues per severity | Verteilung der gefundenen Issues nach Schweregrad sichtbar machen. | Aggregiertes Objekt mit Severity-Kategorien und Count (`high`, `medium`, `low`). | Abgleich EQL-Aggregation in Kibana gegen API-Response. |
+| M-02 | List of all issues in certain time span | Vollständige Liste der Issues in einem frei wählbaren Zeitraum bereitstellen. | Liste von Issue-Einträgen mit Zeitstempel, Severity und zentralen Identifikationsfeldern; Zeitraum wird als Parameter übergeben. | Zeitfenster-Abgleich zwischen Kibana-Query und API-Liste. |
+| M-03 | Health | Aktuellen Health-Status direkt aus Cortex Cloud darstellen. | Separater Health-Wert aus Cortex Cloud (keine Herleitung aus anderen Metriken). | Vergleich zwischen Cortex-Health-Wert und Frontend-Darstellung. |
+| M-04 | Compliance | Compliance-Prozentwert direkt aus Cortex Cloud darstellen. | Separater Compliance-Wert in Prozent aus Cortex Cloud (keine Kopplung mit Health). | Vergleich zwischen Cortex-Compliance-Wert und Frontend-Darstellung. |
+
+{{< /table >}}
+
+Die finalen Event-Felder und Filterbedingungen je Kernmetrik werden im Rahmen der EQL-Feinkonzeption festgelegt. Health und Compliance werden dabei explizit als getrennte Metriken aus Cortex Cloud übernommen. Ziel ist, dass jede Metrik aus eindeutig benannten Feldern entsteht und der Soll-Ist-Vergleich pro Metrik separat nachvollzogen werden kann.
+
+Geplante API-Struktur (geteilte Endpunkte):
+
+- `/api/issues/severity`
+- `/api/issues/list?from=...&to=...`
+- `/api/health`
+- `/api/compliance`
 
 ### Schicht 3 – Darstellung (SDX-Frontend)
 
