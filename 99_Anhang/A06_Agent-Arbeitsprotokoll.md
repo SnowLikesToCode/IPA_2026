@@ -434,14 +434,14 @@ Ergebnis:
 #### 4. Hugo-Entwicklungsserver starten
 
 ```powershell
-hugo server --bind 0.0.0.0 --baseURL http://localhost:1313/ --buildFuture
+hugo server --bind 0.0.0.0 --baseURL http://localhost:1313/ipa/ --buildFuture
 ```
 
 Ergebnis:
 
 - Hugo-Server wurde erfolgreich gestartet.
 - Hugo meldete: `Web Server is available`.
-- Die lokale Dokumentation ist über `http://localhost:1313/` erreichbar.
+- Die lokale Dokumentation ist über `http://localhost:1313/ipa/` erreichbar.
 
 ### Status nach Abschluss
 
@@ -449,7 +449,7 @@ Ergebnis:
 | :-- | :-- | :-- |
 | Elasticsearch | läuft | `http://127.0.0.1:9200` |
 | Kibana | läuft | `http://127.0.0.1:5601` |
-| Hugo | läuft | `http://localhost:1313/` |
+| Hugo | läuft | `http://localhost:1313/ipa/` |
 
 ### Offene Punkte
 
