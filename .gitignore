@@ -1,4 +1,5 @@
 .hugo_build.lock
+.hugo_tmp_out/
 public
 ~$IPA_Zeitplan.xlsx
 ~$*.xlsx

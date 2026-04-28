@@ -1,6 +1,6 @@
-baseURL = 'https://isaaclins.com/ipa'
+baseURL = 'http://localhost:1313/ipa/'
 languageCode = 'de-ch'
-title = 'VORLAGE FÜR INDIVIDUELLE PRAKTISCHE ARBEIT'
+title = 'IPA - Nicola Mäder - Cortex Cloud'
 enableGitInfo = true 
 enableRobotsTXT = false
 # This is for the file generation of the arbeitsjournal, for it to work and publish the sites for future dates.

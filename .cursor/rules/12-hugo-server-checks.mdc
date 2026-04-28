@@ -1,0 +1,21 @@
+---
+description: Checks for starting and debugging the local Hugo server
+alwaysApply: true
+---
+
+## Hugo Server Checks
+
+Wenn du den lokalen Hugo-Server startest, neu startest oder einen 404-/Linking-Fehler untersuchst:
+
+- Verwende für dieses Projekt lokal immer `http://localhost:1313/ipa/` als BaseURL, nicht nur `http://localhost:1313/`.
+- Starte Hugo aus dem Repo-Root mit:
+  `hugo server --bind 0.0.0.0 --baseURL http://localhost:1313/ipa/ --buildFuture --port 1313`
+- Prüfe vor einem Neustart, ob Port `1313` bereits durch einen alten `hugo.exe` belegt ist.
+- Wenn Port `1313` belegt ist, identifiziere den Prozess und stoppe nur den alten Hugo-Prozess. Nicht den Browser-Prozess stoppen.
+- Nach dem Start immer mindestens diese URLs prüfen:
+  - `http://localhost:1313/ipa/`
+  - die konkret betroffene Inhaltsseite
+- Prüfe nicht nur HTTP `200`, sondern auch, ob der ausgelieferte Inhalt zur richtigen Website gehört. Die Startseite darf nicht mehr den Template-Titel `VORLAGE FÜR INDIVIDUELLE PRAKTISCHE ARBEIT` oder Isaac-Lins-Metadaten anzeigen.
+- Erwarteter Website-Titel: `IPA - Nicola Mäder - Cortex Cloud`.
+- Wenn Hugo automatisch auf einen anderen Port ausweicht, ist das für dieses Projekt nicht ausreichend. Port `1313` muss frei gemacht und Hugo erneut mit `/ipa/` gestartet werden.
+- Bei 404 zuerst BaseURL, Port, laufenden Hugo-Prozess und tatsächlichen Content-Pfad prüfen, bevor Dateien geändert werden.
