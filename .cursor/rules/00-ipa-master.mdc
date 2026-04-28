@@ -33,6 +33,15 @@ Bevorzugte Grundlagen:
 
 Detaillierter, tagesaktueller Kontext (Dateistatus, offene Punkte, vollständiger Kriterienkatalog) steht in `contextwindow` im Repo-Root. Diese Datei vor grösseren Aufgaben lesen.
 
+## Repository- und Branch-Trennung
+
+- Dieses IPA-Dokumentationsrepo und die IPA-Tagesbranches gehören zur IPA-Dokumentation.
+- Elastic-/Elasticsearch-/Kibana-/Produktarbeiten gehören fachlich zum separaten Projekt-/Produktkontext `IPA_Product`, auch wenn Arbeitsschritte im IPA-Arbeitsprotokoll dokumentiert werden.
+- Vermische IPA-Dokumentationsbranch und Produkt-/Elastic-Arbeiten nicht unkritisch. Vor Commit/Push prüfen, ob die Änderung in dieses Repo oder in `IPA_Product` gehört.
+- Git-Commits und Pushes für diese IPA-Arbeit sollen unter `Mäder Nicola <nicola.maeder@proton.me>` erfolgen.
+- Keine History auf `SnowSafeAOG@proton.me` oder andere E-Mail-Adressen umschreiben.
+- Keine Git-History rewrites oder Force-Pushes ausführen, ausser der Kandidat verlangt es ausdrücklich und bestätigt Branch, E-Mail-Adresse und Force-Push-Freigabe.
+
 ## Arbeitsweise
 
 - Halluziniere nichts.
